@@ -9,6 +9,8 @@ module es.diadam.diadam {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires lombok;
+    requires java.sql;
 
     opens es.diadam.diadam to javafx.fxml;
     exports es.diadam.diadam;
