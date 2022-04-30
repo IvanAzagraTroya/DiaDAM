@@ -11,4 +11,5 @@ import lombok.Data;
 @Data
 @Builder
 public class Cliente extends Persona{
+
 }

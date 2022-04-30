@@ -18,4 +18,5 @@ public class Persona {
     private String email;
     private String contrasenia;
     private String fotoPath;
+    private boolean esSocio;
 }
