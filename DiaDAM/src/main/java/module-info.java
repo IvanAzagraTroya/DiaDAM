@@ -11,6 +11,7 @@ module es.diadam.diadam {
     requires eu.hansolo.tilesfx;
     requires lombok;
     requires java.sql;
+    requires org.mybatis;
 
     opens es.diadam.diadam to javafx.fxml;
     exports es.diadam.diadam;
