@@ -1,5 +1,6 @@
 package es.diadam.diadam.managers;
 
+import es.diadam.diadam.utils.Properties;
 import lombok.NonNull;
 import org.apache.ibatis.jdbc.ScriptRunner;
 
