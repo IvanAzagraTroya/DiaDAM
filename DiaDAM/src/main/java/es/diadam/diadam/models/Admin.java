@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * @Author Iván Azagra
+ * @author Iván Azagra
  * @version 1.0
  * Clase constructor que representa al Administrador del sistema
  */

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.UUID;
 
 /**
- * @Author Iván Azagra
+ * @author Iván Azagra
  * @version 1.0
  * Clase constructor que representa a las personas y de la que beben Admin y CLiente
  */

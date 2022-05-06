@@ -10,7 +10,7 @@ import java.util.Optional;
 
 
 /**
- * @Author Iván Azagra Troya
+ * @author Iván Azagra Troya
  * Realmente Jose Luis pero vamos a hacer como que no me estoy "inspirando"
  */
 public class ManagerBBDD {
@@ -33,8 +33,9 @@ public class ManagerBBDD {
      * Inicializa la configuración de acceso al servidor y abre la conexión
      */
     private ManagerBBDD() {
-        if(fromProperties) {
+        if (fromProperties) {
             // initConfigFromFiles()
+            System.out.println("Inicialización desde archivos comentado");
         } else {
             initConfig();
         }
@@ -67,17 +68,16 @@ public class ManagerBBDD {
 
     /**
      * Abre la base de datos
-     * @throws SQLException
+     * @throws SQLException Error con la base de datos
      */
     public void open() throws SQLException {
-        // TODO(cLASE PROPERTIES PARA LAS DEPENDENCIAS DEL MANAGER DE BBDD)
         String url = "jdbc:sqlite:" + Properties.DB_FILE;
         connection = DriverManager.getConnection(url);
     }
 
     /**
      * Cierra la conexión a la base de datos
-     * @throws SQLException
+     * @throws SQLException servidor no accesible
      */
     public void close() throws SQLException {
         if (preparedStatement != null) {
@@ -88,10 +88,10 @@ public class ManagerBBDD {
 
     /**
      * Realiza una consulta con el preparedStatement
-     * @param querySQL
-     * @param params
-     * @return
-     * @throws SQLException
+     * @param querySQL consulta la base con lo introducido
+     * @param  params parámetros de consulta parametrizada
+     * @return Query del prepared statement
+     * @throws SQLException error con la base de datos
      */
     private ResultSet executeQuery(@NonNull String querySQL, Object... params) throws SQLException {
         preparedStatement = connection.prepareStatement(querySQL);
@@ -103,10 +103,10 @@ public class ManagerBBDD {
 
     /**
      * Realiza una consulta select de manera preparada con preparedStatement
-     * @param querySQL
-     * @param params
-     * @return
-     * @throws SQLException
+     * @param querySQL consulta la base con lo introducido
+     * @param  params parámetros de consulta parametrizada
+     * @return Optional de la consulta
+     * @throws SQLException error con la base de datos
      */
     public Optional<ResultSet> select(@NonNull String querySQL, Object... params) throws SQLException {
         return Optional.of(executeQuery(querySQL, params));
@@ -114,12 +114,12 @@ public class ManagerBBDD {
 
     /**
      * Realiza una consulta select de manera preparada con preparedStatement
-     * @param querySQL
-     * @param limit
-     * @param offset
-     * @param params
-     * @return
-     * @throws SQLException
+     * @param querySQL consulta a la base de datos
+     * @param limit número de registros de la página
+     * @param offset desplazamiento de los registros
+     * @param params parámetros de consulta parametrizada
+     * @return Optional de la consulta
+     * @throws SQLException error con la base de datos
      */
     public Optional<ResultSet> select(@NonNull String querySQL, int limit, int offset, Object... params) throws SQLException{
         String query = querySQL + " LIMIT "+ limit + "OFFSET" + offset;
@@ -128,10 +128,10 @@ public class ManagerBBDD {
 
     /**
      * Hace una inserción en la base de datos de forma preparada
-     * @param insertSQL
-     * @param params
-     * @return
-     * @throws SQLException
+     * @param insertSQL consulta a la base de tipo inserción
+     * @param params parámetros de consulta parametrizada
+     * @return Optional de la consulta preparada con la clave del registro
+     * @throws SQLException error con la base de datos
      */
     public Optional<ResultSet> insert(@NonNull String insertSQL, Object... params) throws SQLException {
         preparedStatement = connection.prepareStatement(insertSQL, preparedStatement.RETURN_GENERATED_KEYS);
@@ -144,10 +144,10 @@ public class ManagerBBDD {
 
     /**
      * Realiza una consulta de tipo update de manera preparada
-     * @param updateSQL
-     * @param params
-     * @return
-     * @throws SQLException
+     * @param updateSQL Consulta a la base de datos  de tipo actualización
+     * @param params parámetros para consulta parametrizada
+     * @return consulta actualizada
+     * @throws SQLException error con la base de datos
      */
     public int update(@NonNull String updateSQL, Object... params) throws SQLException {
         return updateQuery(updateSQL, params);
@@ -155,10 +155,10 @@ public class ManagerBBDD {
 
     /**
      * Realiza un delete a la base de datos de forma preparada
-     * @param deleteSQL
-     * @param params
-     * @return
-     * @throws SQLException
+     * @param deleteSQL consulta a la base de datos de tipo borrado
+     * @param params parámetros de consulta parametrizada
+     * @return consulta actualizada con el borrado
+     * @throws SQLException error con la base de datos
      */
     public int delete(@NonNull String deleteSQL, Object... params) throws SQLException {
         return updateQuery(deleteSQL, params);
@@ -166,10 +166,10 @@ public class ManagerBBDD {
 
     /**
      * Realiza un update de forma preparada
-     * @param genericSQL
-     * @param params
-     * @return
-     * @throws SQLException
+     * @param genericSQL consulta genérica a la base de datos
+     * @param params parámetros de consulta paramétrizada
+     * @return número de actualizaciones
+     * @throws SQLException error en la base de datos
      */
     private int updateQuery(@NonNull String genericSQL, Object... params) throws SQLException {
         preparedStatement = connection.prepareStatement(genericSQL);
@@ -181,9 +181,9 @@ public class ManagerBBDD {
 
     /**
      * Crea una consulta genérica para crear tablas, vistas y procedimientos
-     * @param genericSQL
-     * @return
-     * @throws SQLException
+     * @param genericSQL consulta genérica a la base de datos
+     * @return actualización
+     * @throws SQLException error con la base de datos
      */
     public int genericUpdate(@NonNull String genericSQL) throws SQLException {
         preparedStatement = connection.prepareStatement(genericSQL);
@@ -192,9 +192,9 @@ public class ManagerBBDD {
 
     /**
      * Carga los datos desde un fichero externo
-     * @param sqlFile
-     * @param logWriter
-     * @throws FileNotFoundException
+     * @param sqlFile archivo donde se almacena la base de datos
+     * @param logWriter booleano de escritura
+     * @throws FileNotFoundException error por no poder localizar el archivo
      */
     public void initData(@NonNull String sqlFile, boolean logWriter) throws FileNotFoundException {
         ScriptRunner sr = new ScriptRunner(connection);
@@ -205,21 +205,25 @@ public class ManagerBBDD {
 
     /**
      * Inicia una transacción
-     * @throws SQLException
+     * @throws SQLException error con la base de datos
      */
     public void beginTransaction() throws SQLException {
         connection.setAutoCommit(false);
     }
 
     /**
-     * Cancela una transacción
-     * @throws SQLException
+     * Confirma una transacción
+     * @throws SQLException error con la base de datos
      */
     public void commit() throws SQLException {
         connection.commit();
         connection.setAutoCommit(true);
     }
 
+    /**
+     * Cancela una transacción
+     * @throws SQLException error con la base de datos
+     */
     public void rollback() throws SQLException {
         connection.rollback();
         connection.setAutoCommit(true);
