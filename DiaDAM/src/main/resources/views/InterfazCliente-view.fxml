@@ -4,49 +4,46 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
 <!--@author Iván Azagra-->
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
-   <children>
-      <BorderPane prefHeight="400.0" prefWidth="600.0">
-         <top>
-            <TitledPane animated="false" prefWidth="573.0" text="InterfazCliente-view" BorderPane.alignment="CENTER">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="89.0" prefWidth="598.0">
-                     <children>
-                        <Button layoutX="432.0" layoutY="30.0" mnemonicParsing="false" text="INICIAR SESIÓN" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </TitledPane>
-         </top>
-         <center>
-            <SplitPane dividerPositions="0.2408026755852843" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Button layoutX="48.0" layoutY="58.0" mnemonicParsing="false" text="Button" />
-                        <Button layoutX="48.0" layoutY="101.0" mnemonicParsing="false" text="Button" />
-                        <Button layoutX="48.0" layoutY="148.0" mnemonicParsing="false" text="Button" />
-                        <Button layoutX="48.0" layoutY="200.0" mnemonicParsing="false" text="Button" />
-                        <Label layoutX="52.0" layoutY="14.0" text="FILTROS" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <ScrollBar layoutX="430.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="285.0" prefWidth="14.0" />
-                        <ImageView fitHeight="105.0" fitWidth="160.0" layoutX="26.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="105.0" fitWidth="160.0" layoutX="256.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="105.0" fitWidth="160.0" layoutX="26.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fitHeight="105.0" fitWidth="160.0" layoutX="256.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </center>
-      </BorderPane>
-   </children>
-</AnchorPane>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "es.diadam.diadam.controllers.InterfazClienteController">
+    <Pane prefHeight="122.0" prefWidth="600.0">
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="12.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+        <Button layoutX="436.0" layoutY="18.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
+            <font>
+                <Font size="11.0"/>
+            </font>
+        </Button>
+        <Label layoutX="274.0" layoutY="18.0" prefHeight="25.0" prefWidth="52.0" text="DIADAM"/>
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+        <ToggleButton layoutX="373.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0"
+                      text="MODO" textAlignment="JUSTIFY">
+            <font>
+                <Font size="11.0"/>
+            </font>
+        </ToggleButton>
+    </Pane>
+    <SplitPane dividerPositions="0.3" prefHeight="404.0" prefWidth="600.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <Button layoutX="62.0" layoutY="124.0" mnemonicParsing="false" text="Button"/>
+            <Button layoutX="62.0" layoutY="170.0" mnemonicParsing="false" text="Button"/>
+            <Button layoutX="62.0" layoutY="212.0" mnemonicParsing="false" text="Button"/>
+            <Button layoutX="62.0" layoutY="256.0" mnemonicParsing="false" text="Button"/>
+            <Label layoutX="66.0" layoutY="77.0" text="FILTROS"/>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <ScrollBar layoutX="403.0" orientation="VERTICAL" prefHeight="339.0" prefWidth="14.0"/>
+        </AnchorPane>
+    </SplitPane>
+</VBox>
