@@ -6,4 +6,5 @@ package es.diadam.diadam.controllers;
  */
 
 public class InterfazAcercaDeController {
+    // comentario para push
 }
