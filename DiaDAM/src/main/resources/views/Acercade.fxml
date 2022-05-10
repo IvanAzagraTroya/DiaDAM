@@ -1,17 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
+<?import javafx.scene.text.*?>
 
 <!--Veronica Anchitipan -->
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="299.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
+   <children>
+      <VBox layoutX="-5.0" layoutY="14.0" prefHeight="75.0" prefWidth="334.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <children>
+            <Label fx:id="AcercaDe" prefHeight="38.0" prefWidth="258.0" text="Acerca De" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="Comic Sans MS" size="35.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </Label>
+         </children></VBox>
+      <Button fx:id="boton_Siguiente" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Siguiente" textFill="#746c6c">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Hyperlink fx:id="hiperlink" layoutX="31.0" layoutY="232.0" prefHeight="46.0" prefWidth="114.0" text="Hyperlink">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="nombre_proyecto" layoutX="2.0" layoutY="104.0" prefHeight="23.0" prefWidth="470.0" text="Nombre del Proyecto:">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="nombre_producto" layoutX="2.0" layoutY="137.0" prefHeight="23.0" prefWidth="458.0" text="Nombre del Producto:">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+      <Label fx:id="fecha_entrega" layoutY="165.0" prefHeight="39.0" prefWidth="440.0" text="Fecha final de entrega:">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </Label>
+   </children>
 </AnchorPane>
