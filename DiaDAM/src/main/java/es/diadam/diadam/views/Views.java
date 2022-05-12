@@ -6,7 +6,8 @@ package es.diadam.diadam.views;
 public enum Views {
     //SPLASH(),
     INTERFAZCLIENTE("views/InterfazCliente-view.fxml");
-    /*INTERFAZADMIN(),
+    /*Acercade();
+    INTERFAZADMIN(),
     INICIOSESION(),
     CARRITO();*/
 
