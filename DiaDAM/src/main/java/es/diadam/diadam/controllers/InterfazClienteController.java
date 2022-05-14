@@ -1,5 +1,10 @@
 package es.diadam.diadam.controllers;
 
+import es.diadam.diadam.models.Producto;
+import es.diadam.diadam.repositories.ProductosRepository;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -9,6 +14,13 @@ import org.apache.logging.log4j.Logger;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-    //Aquí se tendrá que introducir el repositorio de productos cuando esté hecho
-    // TODO "Introducir el repositorio de productos que se le mostrará al cliente para getInstance()"
+    ProductosRepository productosRepository = ProductosRepository.getInstance();
+
+    // Grid de los productos
+    @FXML
+    private Label nombreProducto;
+    @FXML
+    private Label descripcionProducto;
+    @FXML
+    private Label precioProducto;
 }
