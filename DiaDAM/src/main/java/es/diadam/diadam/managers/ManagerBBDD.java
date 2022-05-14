@@ -11,7 +11,6 @@ import java.util.Optional;
 
 /**
  * @author Iván Azagra Troya
- * Realmente Jose Luis pero vamos a hacer como que no me estoy "inspirando"
  */
 public class ManagerBBDD {
     private static ManagerBBDD controller;
