@@ -7,8 +7,6 @@ import java.sql.SQLException;
 
 public interface IPersonasRepository extends CRUDRepository<Persona, Integer>{
     void deleteAll() throws SQLException;
+    void comprar() throws SQLException;
 
-    void backup() throws SQLException, IOException;
-
-    void restore() throws SQLException, IOException;
 }

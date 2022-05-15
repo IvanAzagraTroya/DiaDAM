@@ -1,5 +1,8 @@
 package es.diadam.diadam.repositories;
 
+import es.diadam.diadam.models.Producto;
+
+import java.io.IOException;
 import java.util.List;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -15,11 +18,11 @@ public interface CRUDRepository<T, ID> {
 
     List<T> findAll() throws SQLException;
 
-    Optional<T> findById(ID id) throws SQLException;
 
-    T save(T entity) throws SQLException;
 
-    T update(ID id, T entity) throws SQLException;
 
-    T delete(ID id) throws SQLException;
+
+
+
+
 }
