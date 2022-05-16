@@ -92,8 +92,7 @@ public class InterfazClienteController {
     @FXML
     private void onAcercaDeButton() throws IOException {
         logger.info("Iniciando la ventana Acerca De");
-        // TODO arreglar el fallo del get().initAcercaDe aunque creo que se arreglará cuando Veronica suba lo suyo
-        SceneManager.get();//.initAcercaDe();
+        SceneManager.get().initAcercaDe();
     }
 
     @FXML
