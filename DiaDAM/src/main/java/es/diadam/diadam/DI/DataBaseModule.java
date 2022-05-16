@@ -6,6 +6,9 @@ import es.diadam.diadam.managers.ManagerBBDD;
 
 import javax.inject.Singleton;
 
+/**
+ * @author Iván Azagra
+ */
 @Module
 public class DataBaseModule {
 

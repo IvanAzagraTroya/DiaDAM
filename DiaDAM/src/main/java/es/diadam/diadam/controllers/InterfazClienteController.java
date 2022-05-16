@@ -1,7 +1,7 @@
 package es.diadam.diadam.controllers;
 
 import es.diadam.diadam.models.Producto;
-import es.diadam.diadam.repositories.ProductosRepository;
+import es.diadam.diadam.repositories.ProductoRepository;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,9 +11,8 @@ import javafx.scene.control.ListView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.net.URL;
+import javax.inject.Inject;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 /**
  * @author Iván Azagra
@@ -21,7 +20,11 @@ import java.util.ResourceBundle;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-    ProductosRepository productosRepository = ProductosRepository.getInstance();
+    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección
+    //private ProductoRepository productoRepository = DaggerRepositoryFactory.create().build();
+
+    @Inject
+    ProductoRepository productoRepository;
 
     @FXML
     private ListView<Producto> productoCatalog;

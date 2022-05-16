@@ -6,6 +6,9 @@ import es.diadam.diadam.services.Storage;
 
 import javax.inject.Singleton;
 
+/**
+ * @author Iván Azagra
+ */
 @Module
 public class StorageModule {
     @Singleton
