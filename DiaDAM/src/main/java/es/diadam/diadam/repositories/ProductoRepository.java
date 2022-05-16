@@ -1,6 +1,7 @@
 package es.diadam.diadam.repositories;
 
 import es.diadam.diadam.HelloApplication;
+import es.diadam.diadam.dto.ProductoDTO;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.services.Storage;
@@ -13,12 +14,15 @@ import javafx.collections.ObservableList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * @author Jorge Sanchez Berrocoso
@@ -26,23 +30,16 @@ import java.util.UUID;
 
 
 public class ProductoRepository implements IProductosRepository{
-    private static ProductoRepository instance;
     private final ObservableList<Producto> repository = FXCollections.observableArrayList();
-    private final Storage storage = Storage.getInstance();
+    private final Storage storage;
     Logger logger = LogManager.getLogger(ProductoRepository.class);
-   ManagerBBDD db = ManagerBBDD.getInstance();
-
-    public static ProductoRepository getInstance() {
-        if (instance == null) {
-            instance = new ProductoRepository();
-        }
-        return instance;
-    }
+    private final ManagerBBDD db ;
 
 
-    private ProductoRepository() {
-
-        initData();
+    @Inject
+    public ProductoRepository(Storage storage, ManagerBBDD db) {
+        this.storage = storage;
+        this.db = db;
     }
 
 
@@ -90,8 +87,28 @@ public class ProductoRepository implements IProductosRepository{
         return repository;
     }
 
+    // Backup de la lista de productos.
+    public void backup() throws IOException {
+        List<ProductoDTO> producto = repository.stream().map(ProductoDTO::new).collect(Collectors.toList());
+        storage.backup(producto);
+    }
 
-
+    // Restaura la lista de productos.
+    public void restore() throws IOException, ClassNotFoundException, SQLException {
+        List<ProductoDTO> productos = storage.restore();
+        repository.clear();
+        String sql = "DELETE FROM productos";
+        db.open();
+        db.update(sql);
+        db.close();
+        productos.forEach(p -> {
+            try {
+                create(p.fromDTO());
+            } catch (IOException | SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
     @Override
     public Optional<Producto> findByDescripcion(String descripcion) throws SQLException {
         String query = "SELECT * FROM producto WHERE descripcion = ?";
