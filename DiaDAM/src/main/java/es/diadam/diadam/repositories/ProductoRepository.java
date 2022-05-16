@@ -20,6 +20,11 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * @author Jorge Sanchez Berrocoso
+ */
+
+
 public class ProductoRepository implements IProductosRepository{
     private static ProductoRepository instance;
     private final ObservableList<Producto> repository = FXCollections.observableArrayList();
