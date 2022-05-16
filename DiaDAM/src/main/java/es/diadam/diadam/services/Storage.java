@@ -6,7 +6,6 @@ import es.diadam.diadam.utils.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.inject.Inject;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -19,14 +18,19 @@ import java.util.List;
  * @author Jorge Sánchez Berrocoso
  */
 public class Storage {
+    private static Storage instance;
     Logger logger = LogManager.getLogger(Storage.class);
 
-    @Inject
-    private Storage() {
+    public Storage() {
         makeDirectory();
     }
 
-
+    public static Storage getInstance() {
+        if (instance == null) {
+            instance = new Storage();
+        }
+        return instance;
+    }
 
     private void makeDirectory() {
         if (!Files.exists(Paths.get(Properties.DATA_DIR))) {
@@ -41,11 +45,11 @@ public class Storage {
         }
     }
 
-    public void backup(List<ProductoDTO> productos) throws IOException {
+    public void backup(List<ProductoDTO> personas) throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(
                 Files.newOutputStream(Paths.get(Properties.BACKUP_FILE))
         );
-        oos.writeObject(productos);
+        oos.writeObject(personas);
         oos.close();
     }
 

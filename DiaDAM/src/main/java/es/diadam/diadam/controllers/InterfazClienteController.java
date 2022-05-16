@@ -12,12 +12,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
  * @author Iván Azagra
  */
-public class InterfazClienteController implements Initializable {
+public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
     ProductosRepository productosRepository = ProductosRepository.getInstance();
@@ -25,11 +26,8 @@ public class InterfazClienteController implements Initializable {
     @FXML
     private ListView<Producto> productoCatalog;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<Producto> dataList = FXCollections.observableArrayList();
-        productosRepository.getAll();
-
-        productoCatalog.setItems(dataList);
+    @FXML
+    private void initialize() {
+        //DaggerRepositoryFactory.create().inject(this);
     }
 }
