@@ -1,4 +1,4 @@
-package DI;
+package es.diadam.diadam.DI;
 
 import dagger.Module;
 import dagger.Provides;
