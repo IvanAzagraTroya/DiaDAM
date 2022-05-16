@@ -28,7 +28,7 @@ public class InterfazClienteController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Producto> dataList = FXCollections.observableArrayList();
-        data
+        productosRepository.getAll();
 
         productoCatalog.setItems(dataList);
     }

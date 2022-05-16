@@ -10,11 +10,9 @@
     <name>DiaDAM</name>
 
     <properties>
-
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <junit.version>5.8.1</junit.version>
-            <dagger.version>2.41</dagger.version>
-
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <junit.version>5.8.1</junit.version>
+        <dagger.version>2.41</dagger.version>
     </properties>
 
     <dependencies>
@@ -91,27 +89,11 @@
             <version>1.18.22</version>
             <scope>compile</scope>
         </dependency>
-        <!-- MyBatis -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.5.9</version>
-        </dependency>
-        <dependency>
-            <groupId>es.DiaDAM</groupId>
-            <artifactId>DiaDAM</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>com.google.dagger</groupId>
             <artifactId>dagger</artifactId>
             <version>${dagger.version}</version>
         </dependency>
-        <!-- Dependencias de Dagger -->
-        <!-- https://mvnrepository.com/artifact/com.google.dagger/dagger -->
-
-
-
     </dependencies>
 
     <build>
