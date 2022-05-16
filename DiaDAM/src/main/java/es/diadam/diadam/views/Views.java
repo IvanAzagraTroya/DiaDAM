@@ -4,12 +4,13 @@ package es.diadam.diadam.views;
  * @author Iván Azagra
  */
 public enum Views {
-    //SPLASH(),
-    INTERFAZCLIENTE("views/InterfazCliente-view.fxml");
-    /*Acercade();
-    INTERFAZADMIN(),
-    INICIOSESION(),
-    CARRITO();*/
+    SPLASH(""),
+    INTERFAZCLIENTE("views/InterfazCliente-view.fxml"),
+    ACERCADE(""),
+    INTERFAZADMIN(""),
+    INICIOSESION(""),
+    CARRITO(""),
+    ESTADISTICAS("");
 
     private final String view;
     Views(String view) {

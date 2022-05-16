@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Cambio base de datos">
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Prueba push desbloqueado">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/EstadisticasController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DI/DataBaseModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DI/DataBaseModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DI/StorageModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DI/StorageModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DiaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/HelloController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/repositories/ProductoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/repositories/ProductoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +86,7 @@
       <workItem from="1652543718883" duration="3206000" />
       <workItem from="1652614765835" duration="4444000" />
       <workItem from="1652697548350" duration="7226000" />
-      <workItem from="1652718639102" duration="1811000" />
+      <workItem from="1652718639102" duration="12340000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
       <created>1652364470194</created>
@@ -131,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652704677735</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Prueba push desbloqueado">
+      <created>1652720509640</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652720509640</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +168,7 @@
     <MESSAGE value="Refactor sqlite" />
     <MESSAGE value="comienzo controlador interfazCliente" />
     <MESSAGE value="Cambio base de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambio base de datos" />
+    <MESSAGE value="Prueba push desbloqueado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prueba push desbloqueado" />
   </component>
 </project>

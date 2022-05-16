@@ -116,7 +116,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>es.diadam.diadam/es.diadam.diadam.HelloApplication</mainClass>
+                            <mainClass>es.diadam.diadam/es.diadam.diadam.DiaApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
