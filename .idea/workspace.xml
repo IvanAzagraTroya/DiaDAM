@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="comienzo controlador interfazCliente">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/db/DIADAM.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/db/DIADAM.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,20 +36,31 @@
     </option>
   </component>
   <component name="ProjectId" id="28vSx0S6nBEAK3QKKyMGXDXRLTJ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Jose Luis/Programacion-07-2021-2022-master/Soluciones/16-CustomListView" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\db" />
+      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\images" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -61,7 +71,50 @@
       <option name="presentableId" value="Default" />
       <updated>1652095809930</updated>
       <workItem from="1652095811737" duration="4000" />
+      <workItem from="1652364313278" duration="809000" />
+      <workItem from="1652383825544" duration="3126000" />
+      <workItem from="1652425319054" duration="610000" />
+      <workItem from="1652523152703" duration="4460000" />
+      <workItem from="1652543718883" duration="3206000" />
+      <workItem from="1652614765835" duration="4444000" />
+      <workItem from="1652697548350" duration="6174000" />
     </task>
+    <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
+      <created>1652364470194</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652364470194</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Imagenes">
+      <created>1652389413127</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652389413127</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refactor sqlite">
+      <created>1652529859657</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652529859657</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactor sqlite">
+      <created>1652530336360</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652530336360</updated>
+    </task>
+    <task id="LOCAL-00005" summary="comienzo controlador interfazCliente">
+      <created>1652548377315</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652548377315</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -77,5 +130,13 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Cambios e imagen de splash screen" />
+    <MESSAGE value="Imagenes" />
+    <MESSAGE value="Refactor sqlite" />
+    <MESSAGE value="comienzo controlador interfazCliente" />
+    <option name="LAST_COMMIT_MESSAGE" value="comienzo controlador interfazCliente" />
   </component>
 </project>

@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <!--@author Iván Azagra-->
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
     <Pane prefHeight="122.0" prefWidth="600.0">
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
         <Button layoutX="449.0" layoutY="18.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
@@ -41,113 +32,9 @@
             <Label layoutX="66.0" layoutY="77.0" text="FILTROS" />
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-            <GridPane layoutX="1.0" prefHeight="339.0" prefWidth="400.0">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                </rowConstraints>
-                <ImageView fitHeight="58.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" />
-                <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="10.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" GridPane.rowIndex="1" />
-                <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="10.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" GridPane.rowIndex="2" />
-                <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="10.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" GridPane.columnIndex="1" />
-                <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="212.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <ImageView fitHeight="58.0" fitWidth="65.0" layoutX="212.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" translateX="2.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Label contentDisplay="CENTER" text="Producto" translateX="70.0" translateY="-35.0">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Label>
-                <Label layoutX="10.0" layoutY="58.0" text="Producto" translateX="70.0" translateY="-35.0" GridPane.rowIndex="1">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Label>
-                <Label layoutX="10.0" layoutY="171.0" text="Producto" translateX="70.0" translateY="-35.0" GridPane.rowIndex="2">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Label>
-                <Label layoutX="10.0" layoutY="284.0" text="Producto" translateX="70.0" translateY="-35.0" GridPane.columnIndex="1">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Label>
-                <Label layoutX="212.0" layoutY="58.0" text="Producto" translateX="70.0" translateY="-35.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Label>
-                <Label layoutX="212.0" layoutY="171.0" text="Producto" translateX="70.0" translateY="-35.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Label>
-            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="58.0" text="Desccripcion" translateX="70.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="10.0" layoutY="171.0" text="Descripcion" translateX="70.0" GridPane.rowIndex="1">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="10.0" layoutY="171.0" text="Descripcion" translateX="70.0" GridPane.rowIndex="2">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label contentDisplay="CENTER" layoutX="10.0" layoutY="58.0" text="Descripcion" translateX="70.0" GridPane.columnIndex="1">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label contentDisplay="CENTER" layoutX="210.0" layoutY="58.0" text="Descripcion" translateX="70.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label contentDisplay="CENTER" layoutX="210.0" layoutY="171.0" text="Descripcion" translateX="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="10.0" layoutY="171.0" text="Precio" translateX="70.0" translateY="30.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="10.0" layoutY="58.0" text="Precio" translateX="70.0" translateY="30.0" GridPane.rowIndex="1">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="10.0" layoutY="171.0" text="Precio" translateX="70.0" translateY="30.0" GridPane.columnIndex="1">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="210.0" layoutY="58.0" text="Precio" translateX="70.0" translateY="30.0" GridPane.rowIndex="2">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="10.0" layoutY="284.0" text="Precio" translateX="70.0" translateY="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            <Label layoutX="210.0" layoutY="171.0" text="Precio" translateX="70.0" translateY="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Label>
-            </GridPane>
+         <children>
+            <ListView layoutY="-2.0" prefHeight="341.0" prefWidth="416.0" />
+         </children>
         </AnchorPane>
     </SplitPane>
 </VBox>
