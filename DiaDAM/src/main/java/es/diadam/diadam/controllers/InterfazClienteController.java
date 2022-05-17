@@ -48,6 +48,7 @@ public class InterfazClienteController {
         //DaggerRepositoryFactory.create().inject(this);
         try {
             loadData();
+
         }catch(SQLException e) {
             logger.error("No se ha podido acceder al catálogo de productos");
         }
@@ -55,6 +56,7 @@ public class InterfazClienteController {
     }
 
     private void onProductoSelected(Producto producto) {
+        // TODO método que interactúe con el carrito
         // Aquí se llevaría al carrito de compra?
     }
 
@@ -81,12 +83,7 @@ public class InterfazClienteController {
     }
 
     /*private void clearDataInfo() {
-        nombreLabel.setText("");
-        apellidosLabel.setText("");
-        calleLabel.setText("");
-        ciudadLabel.setText("");
-        emailLabel.setText("");
-        cumpleañosLabel.setText("");
+        algoLabel.setText("");
     }*/
 
     @FXML
