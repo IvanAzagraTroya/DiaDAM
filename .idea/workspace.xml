@@ -4,16 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Completada Interfaz clientes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Cambios">
+      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/IniciarSesionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/identifier.sqlite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DiaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DiaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/models/Admin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/models/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/InicioSesion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/images/ImagenPorDefecto.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/ImagenPorDefecto.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/images/carne.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/carne.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/images/pescado.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/pescado.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/inicio_sesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/Inicio_sesion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/account-outline (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/PersonaDefectoClaro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/account-outline.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/PersonaDefectoOscuro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-1 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-2 (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/Modoclaro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/ModoOscuro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-5 (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart-outline (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/CarroClaro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart-outline.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/CarroOscuro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/Interfaz-Administrador-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/Interfaz-Administrador-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +70,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Jose Luis/Programacion-07-2021-2022-master/Soluciones/03-LoginJavaFX" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -69,8 +82,10 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\db" />
       <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\images" />
+      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\views" />
+      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources" />
+      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\db" />
     </key>
   </component>
   <component name="RunManager">
@@ -101,7 +116,8 @@
       <workItem from="1652614765835" duration="4444000" />
       <workItem from="1652697548350" duration="7226000" />
       <workItem from="1652718639102" duration="12811000" />
-      <workItem from="1652771131866" duration="4339000" />
+      <workItem from="1652771131866" duration="4824000" />
+      <workItem from="1652806061673" duration="2152000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
       <created>1652364470194</created>
@@ -180,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652772757785</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Cambios">
+      <created>1652775789152</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652775789152</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +230,7 @@
     <MESSAGE value="Prueba push desbloqueado" />
     <MESSAGE value="Controlador de cliente y manager de escenas" />
     <MESSAGE value="Completada Interfaz clientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completada Interfaz clientes" />
+    <MESSAGE value="Cambios" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios" />
   </component>
 </project>
