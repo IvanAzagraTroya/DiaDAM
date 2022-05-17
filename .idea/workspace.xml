@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Controlador de cliente y manager de escenas">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Completada Interfaz clientes">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/identifier.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DiaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/DiaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/models/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/models/Cliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +62,10 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -91,7 +101,7 @@
       <workItem from="1652614765835" duration="4444000" />
       <workItem from="1652697548350" duration="7226000" />
       <workItem from="1652718639102" duration="12811000" />
-      <workItem from="1652771131866" duration="1587000" />
+      <workItem from="1652771131866" duration="4339000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
       <created>1652364470194</created>
@@ -163,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652734107273</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Completada Interfaz clientes">
+      <created>1652772757785</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652772757785</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +206,7 @@
     <MESSAGE value="Cambio base de datos" />
     <MESSAGE value="Prueba push desbloqueado" />
     <MESSAGE value="Controlador de cliente y manager de escenas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controlador de cliente y manager de escenas" />
+    <MESSAGE value="Completada Interfaz clientes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completada Interfaz clientes" />
   </component>
 </project>

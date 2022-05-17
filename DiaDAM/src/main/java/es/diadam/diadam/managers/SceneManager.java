@@ -7,7 +7,6 @@ import es.diadam.diadam.utils.Properties;
 import es.diadam.diadam.utils.Resources;
 import es.diadam.diadam.views.Views;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -66,7 +65,7 @@ public class SceneManager {
     public void initInterfazCliente() throws IOException {
         logger.info("Iniciando el splash");
         Platform.setImplicitExit(true);
-        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(appClass.getResource(Views.INTERFAZCLIENTE.get()))); // Main puede ser algo del controlador splash
+        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(appClass.getResource(Views.INTERFAZCLIENTE.get())));
         Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGH); // TODO mirar APP WIDTH Y APP HEIGH
         Stage stage = new Stage();
         stage.setResizable(true);

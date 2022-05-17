@@ -3,8 +3,6 @@ package es.diadam.diadam;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.managers.SceneManager;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,7 +36,7 @@ public class DiaApplication extends Application {
                 logger.info("Conexión correcta con la base de datos");
             }
         }catch (SQLException e) {
-            logger.error("Error al conectar con la base de datos" +e.getMessage());
+            logger.error("Error al conectar con la base de datos " +e.getMessage());
             System.exit(1);
         }
     }
@@ -47,7 +45,7 @@ public class DiaApplication extends Application {
     public void start(Stage stage) throws IOException, InterruptedException {
         //Carga el SceneManager
         SceneManager sceneManager = SceneManager.getInstance(DiaApplication.class);
-        sceneManager.initSplash(stage);
+        sceneManager.initInterfazCliente();
     }
 
 }
