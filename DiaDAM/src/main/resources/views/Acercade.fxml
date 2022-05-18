@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <!--Veronica Anchitipan -->
 
-<AnchorPane prefHeight="299.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
+<AnchorPane prefHeight="299.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
    <children>
       <VBox layoutX="-5.0" layoutY="14.0" prefHeight="75.0" prefWidth="334.0">
          <cursor>
@@ -24,14 +27,13 @@
                </padding>
             </Label>
          </children></VBox>
-      <Button fx:id="boton_Siguiente" layoutX="377.0" layoutY="12.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0" text="Siguiente" textFill="#746c6c">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Button>
       <Hyperlink fx:id="hiperlink" layoutX="31.0" layoutY="232.0" prefHeight="46.0" prefWidth="114.0" text="Hyperlink">
          <font>
             <Font size="14.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
       </Hyperlink>
       <Label fx:id="nombre_proyecto" layoutX="2.0" layoutY="104.0" prefHeight="23.0" prefWidth="470.0" text="Nombre del Proyecto:">
          <font>
@@ -49,7 +51,7 @@
             <Insets left="5.0" />
          </padding>
       </Label>
-      <Label fx:id="fecha_entrega" layoutY="165.0" prefHeight="39.0" prefWidth="440.0" text="Fecha final de entrega:">
+      <Label fx:id="fecha_entrega" layoutY="165.0" prefHeight="39.0" prefWidth="170.0" text="Fecha final de entrega:">
          <font>
             <Font size="15.0" />
          </font>
