@@ -30,9 +30,10 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección
+    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección, esta está hecha con dagger
     //private ProductoRepository productoRepository = DaggerRepositoryFactory.create().build();
 
+    // Inyección realizada con javafx
     @Inject
     ProductoRepository productoRepository;
 

@@ -9,7 +9,10 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
     <Pane prefHeight="122.0" prefWidth="600.0">
-        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/PersonaDefectoOscuro.png" />
+         </image></ImageView>
         <Button layoutX="449.0" layoutY="18.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
             <font>
                 <Font size="11.0" />

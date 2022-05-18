@@ -4,29 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Cambios">
-      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/IniciarSesionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/module-info.java" afterDir="false" />
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Interfaz Inicio sesión y controlador">
+      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/RegistroSesionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/RegistroSesion.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/CarroClaro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/CarroOscuro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/Dia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/ImagenPorDefecto.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/ModoOscuro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/Modoclaro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/PersonaDefectoClaro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/PersonaDefectoOscuro.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/Splash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/delete-alert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/google.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/InicioSesion.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/RegistroSesion.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/InicioSesion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/images/ImagenPorDefecto.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/ImagenPorDefecto.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/images/carne.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/carne.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/images/pescado.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/pescado.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/es/diadam/diadam/inicio_sesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/Inicio_sesion.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/account-outline (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/PersonaDefectoClaro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/account-outline.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/PersonaDefectoOscuro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-1 (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-2 (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/Modoclaro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-2.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/ModoOscuro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-5 (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/brightness-5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart (1).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart-outline (1).png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/CarroClaro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart-outline.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/CarroOscuro.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/cart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/Interfaz-Administrador-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/Interfaz-Administrador-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InicioSesion.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InicioSesion.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/es/diadam/diadam/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/es/diadam/diadam/images/carne.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/carne.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/es/diadam/diadam/images/pescado.png" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/images/pescado.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/es/diadam/diadam/inicio_sesion.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/views/Interfaz-Administrador-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/Interfaz-Administrador-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,14 +39,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -70,7 +74,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Jose Luis/Programacion-07-2021-2022-master/Soluciones/03-LoginJavaFX" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/DiaDAM/src/main/resources/images" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -81,6 +85,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\images" />
       <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\views" />
@@ -118,6 +125,8 @@
       <workItem from="1652718639102" duration="12811000" />
       <workItem from="1652771131866" duration="4824000" />
       <workItem from="1652806061673" duration="2152000" />
+      <workItem from="1652808236843" duration="6600000" />
+      <workItem from="1652855393122" duration="5202000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
       <created>1652364470194</created>
@@ -203,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652775789152</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Interfaz Inicio sesión y controlador">
+      <created>1652814695477</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652814695477</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +247,7 @@
     <MESSAGE value="Controlador de cliente y manager de escenas" />
     <MESSAGE value="Completada Interfaz clientes" />
     <MESSAGE value="Cambios" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios" />
+    <MESSAGE value="Interfaz Inicio sesión y controlador" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interfaz Inicio sesión y controlador" />
   </component>
 </project>
