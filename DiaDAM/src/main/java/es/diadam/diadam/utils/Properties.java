@@ -29,9 +29,13 @@ public class Properties {
     public static final int PRODUCTOEDITAR_HEIGH = 420;
     public static final int PRODUCTOEDITAR_WIDTH = 800;
 
-    // Ventana de estadísticas?
+    // Ventana de estadísticas
     public static final int ESTADISTICAS_HEIGH = 400;
     public static final int ESTADISTICAS_WIDTH = 600;
+
+    // Carrito de compra
+    public static final int CARRITO_HEIGH = 400;
+    public static final int CARRITO_WIDTH = 600;
 
     // Data
     private static final String APP_PATH = System.getProperty("user.dir");
@@ -45,5 +49,5 @@ public class Properties {
 
     // Base de datos
     public static final String DB_DIR = APP_PATH + File.separator + "db";
-    public static final String DB_FILE = DB_DIR + File.separator + "DIADAM";
+    public static final String DB_FILE = DB_DIR + File.separator + "diadam.sqlite";
 }
