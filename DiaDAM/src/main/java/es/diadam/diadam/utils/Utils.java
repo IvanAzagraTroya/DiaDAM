@@ -18,6 +18,14 @@ public class Utils {
         new ProcessBuilder("x-www-browser", url).start();
     }
 
+    public static String getFormattedInt(int stock){
+        return Integer.toString(stock);
+    }
+
+    public static String getFormattedDouble(double precio){
+        return Double.toString(precio);
+    }
+
     public static String getFormattedDate(LocalDate date) {
         return date.format(DateTimeFormatter
                 .ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.getDefault()));
