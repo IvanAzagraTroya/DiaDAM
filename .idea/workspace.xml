@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Actualización interfaz clientes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/IniciarSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/IniciarSesionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazAdministradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazAdministradorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="initInterfazEditar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +109,7 @@
       <workItem from="1652888976817" duration="5370000" />
       <workItem from="1652979228587" duration="960000" />
       <workItem from="1653028306102" duration="5079000" />
-      <workItem from="1653054779008" duration="786000" />
+      <workItem from="1653054779008" duration="1121000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
       <created>1652364470194</created>
@@ -230,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653029824265</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="initInterfazEditar">
+      <created>1653064321765</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1653064321765</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,6 +261,7 @@
     <MESSAGE value="Interfaz Inicio sesión y controlador" />
     <MESSAGE value="Actualización scene manager" />
     <MESSAGE value="Actualización interfaz clientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualización interfaz clientes" />
+    <MESSAGE value="initInterfazEditar" />
+    <option name="LAST_COMMIT_MESSAGE" value="initInterfazEditar" />
   </component>
 </project>
