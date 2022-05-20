@@ -9,32 +9,36 @@ import java.io.File;
  */
 public class Properties {
     public static final String APP_TITLE = "DIA DAM";
-    public static final int APP_HEIGH = 450;
+    public static final int APP_HEIGHT = 450;
     public static final int APP_WIDTH = 850;
     public static final String APP_ICON = "";
 
     // Splash de inicio
-    public static final int SPLASH_HEIGH = 300;
+    public static final int SPLASH_HEIGHT = 300;
     public static final int SPLASH_WIDTH = 480;
+
+    // Inicio Sesión / Registro Sesión
+    public static final int INICIOSESION_HEIGHT = 260;
+    public static final int INICIOSESION_WIDTH = 480;
 
     // Acerca de
     public static final String APP_VERSION = "0.0.1";
     public static final String APP_AUTHORS = "Veronica, Jorge, Alvaro e Iván";
     public static final String GITHUB_REPO = "https://github.com/IvanAzagraTroya/DiaDAM/tree/main";
     // Valores momentaneos para rellenar, cambiar conforme a gusto
-    public static final int ACERCADE_HEIGH = 260; // Cambia la altura de la aplicación
+    public static final int ACERCADE_HEIGHT = 260; // Cambia la altura de la aplicación
     public static final int ACERCADE_WIDTH = 480; // Cambia el ancho de la aplicación
 
     // Editor del admin
-    public static final int PRODUCTOEDITAR_HEIGH = 420;
+    public static final int PRODUCTOEDITAR_HEIGHT = 420;
     public static final int PRODUCTOEDITAR_WIDTH = 800;
 
     // Ventana de estadísticas
-    public static final int ESTADISTICAS_HEIGH = 400;
+    public static final int ESTADISTICAS_HEIGHT = 400;
     public static final int ESTADISTICAS_WIDTH = 600;
 
     // Carrito de compra
-    public static final int CARRITO_HEIGH = 400;
+    public static final int CARRITO_HEIGHT = 400;
     public static final int CARRITO_WIDTH = 600;
 
     // Data

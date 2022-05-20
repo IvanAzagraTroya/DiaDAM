@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Actualización scene manager">
-      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/github.png" afterDir="false" />
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Actualización interfaz clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/ProductoEditarController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/IniciarSesionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/IniciarSesionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazAdministradorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazAdministradorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/views/Interfaz-Administrador-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/Interfaz-Administrador-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +115,8 @@
       <workItem from="1652855393122" duration="9357000" />
       <workItem from="1652888976817" duration="5370000" />
       <workItem from="1652979228587" duration="960000" />
-      <workItem from="1653028306102" duration="437000" />
+      <workItem from="1653028306102" duration="5079000" />
+      <workItem from="1653054779008" duration="786000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
       <created>1652364470194</created>
@@ -225,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652864794291</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Actualización interfaz clientes">
+      <created>1653029824265</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1653029824265</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +260,7 @@
     <MESSAGE value="Cambios" />
     <MESSAGE value="Interfaz Inicio sesión y controlador" />
     <MESSAGE value="Actualización scene manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Actualización scene manager" />
+    <MESSAGE value="Actualización interfaz clientes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualización interfaz clientes" />
   </component>
 </project>
