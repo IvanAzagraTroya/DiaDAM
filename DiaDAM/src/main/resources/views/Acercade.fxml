@@ -1,63 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <!--Veronica Anchitipan -->
 
-<AnchorPane prefHeight="299.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
+<AnchorPane prefHeight="299.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
    <children>
-      <VBox layoutX="-5.0" layoutY="14.0" prefHeight="75.0" prefWidth="334.0">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-         <children>
-            <Label fx:id="AcercaDe" prefHeight="38.0" prefWidth="258.0" text="Acerca De" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="Comic Sans MS" size="35.0" />
-               </font>
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
-            </Label>
-         </children></VBox>
-      <Hyperlink fx:id="hiperlink" layoutX="31.0" layoutY="232.0" prefHeight="46.0" prefWidth="114.0" text="Hyperlink">
+      <Hyperlink fx:id="hiperlink" layoutX="15.0" layoutY="232.0" prefHeight="46.0" prefWidth="300.0" text="Hyperlink:    Repositorio ">
          <font>
-            <Font size="14.0" />
+            <Font name="System Italic" size="14.0" />
          </font>
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
-         </graphic>
+         <padding>
+            <Insets left="8.0" />
+         </padding>
       </Hyperlink>
-      <Label fx:id="nombre_proyecto" layoutX="2.0" layoutY="104.0" prefHeight="23.0" prefWidth="470.0" text="Nombre del Proyecto:">
+      <Label fx:id="nombre_proyecto" layoutX="16.0" layoutY="111.0" prefHeight="46.0" prefWidth="150.0" text="Integrantes:" textAlignment="JUSTIFY">
          <font>
-            <Font size="15.0" />
+            <Font name="System Italic" size="15.0" />
          </font>
          <padding>
-            <Insets left="5.0" />
+            <Insets left="8.0" />
          </padding>
       </Label>
-      <Label fx:id="nombre_producto" layoutX="2.0" layoutY="137.0" prefHeight="23.0" prefWidth="458.0" text="Nombre del Producto:">
+      <ImageView fx:id="imagrnGit" fitHeight="79.0" fitWidth="79.0" layoutX="355.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/git.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="15.0" layoutY="184.0" prefHeight="15.0" prefWidth="218.0" text="Repositorio: Proyecto DiaDAM">
          <font>
-            <Font size="15.0" />
+            <Font name="System Italic" size="15.0" />
          </font>
          <padding>
-            <Insets left="5.0" />
+            <Insets left="8.0" />
          </padding>
       </Label>
-      <Label fx:id="fecha_entrega" layoutY="165.0" prefHeight="39.0" prefWidth="170.0" text="Fecha final de entrega:">
+      <Label layoutX="16.0" layoutY="21.0" prefHeight="51.0" prefWidth="218.0" text="Acerca De">
          <font>
-            <Font size="15.0" />
+            <Font name="Comic Sans MS Italic" size="36.0" />
          </font>
          <padding>
-            <Insets left="5.0" />
+            <Insets left="10.0" />
          </padding>
       </Label>
+      <Label layoutX="362.0" layoutY="255.0" prefHeight="31.0" prefWidth="71.0" text="Versiòn: 0.1.0" />
    </children>
 </AnchorPane>
