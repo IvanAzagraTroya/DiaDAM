@@ -61,6 +61,7 @@ public class InterfazClienteController {
         // Aquí se llevaría al carrito de compra?
     }
 
+
     private void setProductInfo(Producto producto) {
         logger.info("Se ha seleccionado: "+producto+" producto");
         // TODO mirar los componentes dentro del listView
@@ -76,9 +77,8 @@ public class InterfazClienteController {
             avatarImageView.setImage(image);
         }else {
             logger.warn("No se ha encontrado la foto, se usará una por defecto");
-            // TODO meter la imagen por defecto de Jorge para los productos
             avatarImageView.setImage(new Image(Resources.get(DiaApplication.class, "images/defectoComida.png")));
-            producto.setAvatar(Resources.getPath(DiaApplication.class, "images/defectoComida.png"));
+            producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
             logger.warn("Se ha establecido la imagen por defecto en el producto"+ producto);
         }
     }
@@ -91,6 +91,12 @@ public class InterfazClienteController {
     private void onAcercaDeButton() throws IOException {
         logger.info("Iniciando la ventana Acerca De");
         SceneManager.get().initAcercaDe();
+    }
+
+    @FXML
+    private void onCarritoButton() throws IOException {
+        logger.info("Iniciando ventana carrito");
+        SceneManager.get().initCarrito();
     }
 
     @FXML

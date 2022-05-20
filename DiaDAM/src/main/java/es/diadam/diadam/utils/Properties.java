@@ -19,8 +19,8 @@ public class Properties {
 
     // Acerca de
     public static final String APP_VERSION = "0.0.1";
-    public static final String APP_AUTHORS = "Jorge, Álvaro, Veronica e Iván";
-    public static final String GITHUB_REPO = "https://github.com/IvanAzagraTroya/DiaDAM/tree/main/DiaDAM/src/main";
+    public static final String APP_AUTHORS = "Veronica, Jorge, Alvaro e Iván";
+    public static final String GITHUB_REPO = "https://github.com/IvanAzagraTroya/DiaDAM/tree/main";
     // Valores momentaneos para rellenar, cambiar conforme a gusto
     public static final int ACERCADE_HEIGH = 260; // Cambia la altura de la aplicación
     public static final int ACERCADE_WIDTH = 480; // Cambia el ancho de la aplicación
@@ -29,9 +29,13 @@ public class Properties {
     public static final int PRODUCTOEDITAR_HEIGH = 420;
     public static final int PRODUCTOEDITAR_WIDTH = 800;
 
-    // Ventana de estadísticas?
+    // Ventana de estadísticas
     public static final int ESTADISTICAS_HEIGH = 400;
     public static final int ESTADISTICAS_WIDTH = 600;
+
+    // Carrito de compra
+    public static final int CARRITO_HEIGH = 400;
+    public static final int CARRITO_WIDTH = 600;
 
     // Data
     private static final String APP_PATH = System.getProperty("user.dir");
@@ -45,5 +49,5 @@ public class Properties {
 
     // Base de datos
     public static final String DB_DIR = APP_PATH + File.separator + "db";
-    public static final String DB_FILE = DB_DIR + File.separator + "DIADAM";
+    public static final String DB_FILE = DB_DIR + File.separator + "diadam.sqlite";
 }

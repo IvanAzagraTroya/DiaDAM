@@ -28,7 +28,6 @@ import static es.diadam.diadam.utils.Properties.*;
  * @author Iván Azagra
  */
 public class SceneManager {
-    // TODO todo el manager de las transiciones
     private static SceneManager instance;
     private final Class<?> appClass;
     Logger logger = LogManager.getLogger(SceneManager.class);
@@ -37,7 +36,7 @@ public class SceneManager {
 
     private SceneManager(Class<?> appClass) {
         this.appClass = appClass;
-        logger.info("SceneManager created");
+        logger.info("SceneManager creado");
     }
 
     // Singleton
@@ -63,10 +62,10 @@ public class SceneManager {
     }
 
     public void initInterfazCliente() throws IOException {
-        logger.info("Iniciando el splash");
+        logger.info("Iniciando el catálogo");
         Platform.setImplicitExit(true);
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(appClass.getResource(Views.INTERFAZCLIENTE.get())));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGH); // TODO mirar APP WIDTH Y APP HEIGH
+        Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGH);
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
@@ -109,12 +108,10 @@ public class SceneManager {
         stage.showAndWait();
     }
 
-    // TODO EDITAR CATALOGO
-
     public void initEstadisticas(List<Producto> productos) throws IOException {
         logger.info("Iniciando estadísticas");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.ESTADISTICAS.get()));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.ESTADISTICAS_WIDTH, ESTADISTICAS_HEIGH);
+        Scene scene = new Scene(fxmlLoader.load(), Properties.ESTADISTICAS_WIDTH, Properties.ESTADISTICAS_HEIGH);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         // Como esta pantalla es subordinada necesita que le especifiquen su dueño
@@ -129,4 +126,12 @@ public class SceneManager {
         stage.showAndWait();
     }
 
+    public void initCarrito() throws IOException {
+        logger.info("Iniciando carrito");
+        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.CARRITO.get()));
+        Scene scene = new Scene(fxmlLoader.load(), Properties.CARRITO_WIDTH, Properties.CARRITO_HEIGH);
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        // TODO resto del init carrito, pantalla subordinada o no subordinada?
+    }
 }

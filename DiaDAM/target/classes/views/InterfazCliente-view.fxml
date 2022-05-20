@@ -7,21 +7,61 @@
 
 <!--@author Iván Azagra-->
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
     <Pane prefHeight="122.0" prefWidth="600.0">
-        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
-        <Button layoutX="449.0" layoutY="18.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
+        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/PersonaDefectoOscuro.png" />
+         </image></ImageView>
+        <Button layoutX="449.0" layoutY="36.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
             <font>
                 <Font size="11.0" />
             </font>
         </Button>
-        <Label layoutX="274.0" layoutY="18.0" prefHeight="25.0" prefWidth="52.0" text="DIADAM" />
-        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
-        <ToggleButton layoutX="390.0" layoutY="17.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="MODO" textAlignment="JUSTIFY">
+        <ImageView fitHeight="36.0" fitWidth="91.0" layoutX="267.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Dia.png" />
+         </image></ImageView>
+        <ToggleButton layoutX="14.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" textAlignment="JUSTIFY">
             <font>
                 <Font size="11.0" />
             </font>
+         <graphic>
+            <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/ModoOscuro.png" />
+               </image>
+            </ImageView>
+         </graphic>
         </ToggleButton>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Button layoutX="402.0" layoutY="35.0" mnemonicParsing="false">
+         <graphic>
+            <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/CarroOscuro.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
     </Pane>
     <SplitPane dividerPositions="0.3" prefHeight="404.0" prefWidth="600.0">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -33,7 +73,7 @@
         </AnchorPane>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <ListView layoutY="-2.0" prefHeight="341.0" prefWidth="416.0" />
+            <ListView layoutY="-2.0" prefHeight="356.0" prefWidth="416.0" />
          </children>
         </AnchorPane>
     </SplitPane>
