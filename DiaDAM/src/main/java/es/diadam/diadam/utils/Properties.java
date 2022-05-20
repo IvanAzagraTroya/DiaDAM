@@ -41,6 +41,10 @@ public class Properties {
     public static final int CARRITO_HEIGHT = 400;
     public static final int CARRITO_WIDTH = 600;
 
+    // Editar producto
+    public static final int EDITARPRODUCTO_HEIGHT = 300;
+    public static final int EDITARPRODUCTO_WIDTH = 400;
+
     // Data
     private static final String APP_PATH = System.getProperty("user.dir");
     public static final String DATA_DIR = APP_PATH + File.separator + "data";

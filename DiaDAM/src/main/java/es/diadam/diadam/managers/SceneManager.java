@@ -161,7 +161,11 @@ public class SceneManager {
         stage.showAndWait();
     }
 
-    public void initProductoEditar(boolean edicion, Producto p) throws IOException{
+    public void initInterfazAdministradorController() throws IOException{
+
+    }
+
+    /*public boolean initProductoEditar(boolean edicion, Producto p) throws IOException{
         logger.info("Iniciando edición de producto");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
         Scene scene = new Scene(fxmlLoader.load(), Properties.PRODUCTOEDITAR_WIDTH, Properties.PRODUCTOEDITAR_HEIGHT);
@@ -169,7 +173,7 @@ public class SceneManager {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(edicion ? "Editar Producto" : "Nuevo Producto");
         stage.setResizable(false);
-        InterfazAdministradorController controller = fxmlLoader.getController();
+        ProductoViewEditarController controller = fxmlLoader.getController();
         // TODO REVISAR CON EL CONTROLADOR DE JORGE CUANDO LO SUBA
         controller.setDialogStage(stage);
         controller.setEditarModo(edicion);
@@ -179,7 +183,7 @@ public class SceneManager {
         stage.showAndWait();
         return controller.isAceptarClicked();
 
-    }
+    }*/
 
     public void initCarrito() throws IOException {
         logger.info("Iniciando carrito");

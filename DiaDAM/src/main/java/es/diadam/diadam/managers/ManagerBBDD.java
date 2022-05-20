@@ -51,7 +51,12 @@ public class ManagerBBDD {
     // En el initConfigFromFiles irán todos los componentes para dar la posibilidad
     // A poder cambiar todos los componentes a preferencia del usuario.
     private void initConfig() {
+        serverUrl = "localhost";
+        serverPort = "3306";
+        dataBaseName = "diadam.sqlite";
         jdbcDriver = "org.sqlite.JDBC";
+        user = "";
+        password = "";
     }
 
     // Carga la configuración de acceso al servidor de base de datos desde properties

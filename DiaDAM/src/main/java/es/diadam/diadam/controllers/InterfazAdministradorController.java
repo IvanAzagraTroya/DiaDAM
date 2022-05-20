@@ -152,7 +152,7 @@ public class InterfazAdministradorController {
     }
 
     //Creo que no crea producto porque esta en false y deberia estar en true
-    @FXML
+    /*@FXML
     private void onNuevoAction() throws IOException{
         logger.info("Se ha pulsado accion Nuevo");
         Producto producto = new Producto();
@@ -165,7 +165,7 @@ public class InterfazAdministradorController {
             }
             setDataInfo(producto);
         }
-    }
+    }*/
 
     @FXML
     private void onBorrarAction() {
@@ -185,7 +185,7 @@ public class InterfazAdministradorController {
         }
     }
 
-    @FXML
+    /*@FXML
     private void onEditarAction() throws IOException {
         logger.info("Se ha pulsado accion Editar");
         Producto producto = productosTable.getSelectionModel().getSelectedItem();
@@ -198,7 +198,7 @@ public class InterfazAdministradorController {
             }
             setDataInfo(producto);
         }
-    }
+    }*/
 
     @FXML
     private void onEstadisticasAction() throws IOException, SQLException {
