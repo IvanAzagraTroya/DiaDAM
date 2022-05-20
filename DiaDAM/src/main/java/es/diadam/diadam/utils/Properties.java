@@ -19,8 +19,8 @@ public class Properties {
 
     // Acerca de
     public static final String APP_VERSION = "0.0.1";
-    public static final String APP_AUTHORS = "Jorge, Álvaro, Veronica e Iván";
-    public static final String GITHUB_REPO = "https://github.com/IvanAzagraTroya/DiaDAM/tree/main/DiaDAM/src/main";
+    public static final String APP_AUTHORS = "Veronica, Jorge, Alvaro e Iván";
+    public static final String GITHUB_REPO = "https://github.com/IvanAzagraTroya/DiaDAM/tree/main";
     // Valores momentaneos para rellenar, cambiar conforme a gusto
     public static final int ACERCADE_HEIGH = 260; // Cambia la altura de la aplicación
     public static final int ACERCADE_WIDTH = 480; // Cambia el ancho de la aplicación

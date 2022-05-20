@@ -3,7 +3,7 @@ package es.diadam.diadam.views;
 /**
  * @author Iván Azagra
  */
-// TODO revisar nombres de vistas en directorio views una vez se terminen
+
 public enum Views {
     SPLASH("views/Splash"),
     INTERFAZCLIENTE("views/InterfazCliente-view.fxml"),

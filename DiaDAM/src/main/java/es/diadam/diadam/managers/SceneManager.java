@@ -28,7 +28,6 @@ import static es.diadam.diadam.utils.Properties.*;
  * @author Iván Azagra
  */
 public class SceneManager {
-    // TODO todo el manager de las transiciones
     private static SceneManager instance;
     private final Class<?> appClass;
     Logger logger = LogManager.getLogger(SceneManager.class);
@@ -66,7 +65,7 @@ public class SceneManager {
         logger.info("Iniciando el catálogo");
         Platform.setImplicitExit(true);
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(appClass.getResource(Views.INTERFAZCLIENTE.get())));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGH); // TODO mirar APP WIDTH Y APP HEIGH
+        Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGH);
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
@@ -109,8 +108,6 @@ public class SceneManager {
         stage.showAndWait();
     }
 
-    // TODO EDITAR CATALOGO
-
     public void initEstadisticas(List<Producto> productos) throws IOException {
         logger.info("Iniciando estadísticas");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.ESTADISTICAS.get()));
@@ -136,9 +133,5 @@ public class SceneManager {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         // TODO resto del init carrito, pantalla subordinada o no subordinada?
-    }
-
-    public void initProductoEditar() throws IOException {
-
     }
 }

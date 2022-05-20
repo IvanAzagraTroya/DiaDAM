@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Interfaz Inicio sesión y controlador">
-      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/ProductoEditarController.java" afterDir="false" />
+    <list default="true" id="cdebc32c-10d7-4b2b-a49e-855f4a1a2082" name="Changes" comment="Actualización scene manager">
+      <change afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/images/github.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/db/DIADAM.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/db/diadam.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/InterfazClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/controllers/ProductoEditarController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/managers/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/utils/Properties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/java/es/diadam/diadam/views/Views.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/src/main/resources/views/InterfazCliente-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/views/Interfaz-Administrador-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/Interfaz-Administrador-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/DiaDAM/target/classes/views/InterfazCliente-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,13 +74,13 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\images" />
+      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\db" />
       <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources\views" />
       <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\src\main\resources" />
-      <recent name="C:\Users\ivana\Documents\1Clase\ProyectosGithub\DiaDAM\DiaDAM\db" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="DiaDam" type="Application" factoryName="Application">
+    <configuration name="DiaDam" type="Application" factoryName="Application" temporary="true">
       <option name="ALTERNATIVE_JRE_PATH" value="liberica-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="es.diadam.diadam.DiaApplication" />
@@ -88,6 +89,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DiaDam" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -109,7 +115,10 @@
       <workItem from="1652771131866" duration="4824000" />
       <workItem from="1652806061673" duration="2152000" />
       <workItem from="1652808236843" duration="6600000" />
-      <workItem from="1652855393122" duration="9061000" />
+      <workItem from="1652855393122" duration="9357000" />
+      <workItem from="1652888976817" duration="5370000" />
+      <workItem from="1652979228587" duration="960000" />
+      <workItem from="1653028306102" duration="437000" />
     </task>
     <task id="LOCAL-00001" summary="Cambios e imagen de splash screen">
       <created>1652364470194</created>
@@ -209,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652860685303</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Actualización scene manager">
+      <created>1652864794291</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652864794291</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +254,7 @@
     <MESSAGE value="Completada Interfaz clientes" />
     <MESSAGE value="Cambios" />
     <MESSAGE value="Interfaz Inicio sesión y controlador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfaz Inicio sesión y controlador" />
+    <MESSAGE value="Actualización scene manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualización scene manager" />
   </component>
 </project>
