@@ -208,18 +208,6 @@ public class InterfazAdministradorController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     @FXML
     private void onMenuLimpiarAction() throws IOException{
         logger.info("Se ha pulsado la accion limpiar");
