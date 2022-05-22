@@ -60,11 +60,6 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Estilos">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#onMenuMetroAction" text="Metro Dark" />
-                        <MenuItem mnemonicParsing="false" onAction="#onMenuDamAction" text="DAM" />
-                        <MenuItem mnemonicParsing="false" onAction="#onMenuBootstrapt3Action" text="Bootstrapt 3" />
-                        <MenuItem mnemonicParsing="false" onAction="#onMenuBootstraptFXAction" text="Bootstrapt FX" />
-                        <MenuItem mnemonicParsing="false" onAction="#onMenuModenaAction" text="Modena" />
                         <MenuItem mnemonicParsing="false" onAction="#onMenuLimpiarAction" text="Limpiar" />
                     </items>
                 </Menu>
