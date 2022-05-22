@@ -21,25 +21,25 @@ import java.util.ResourceBundle;
 public class InterfazSplashController implements Initializable {
     Logger logger = LogManager.getLogger(InterfazSplashController.class);
     @FXML
-    private ImageView fondo;
+    private ImageView imagenDiaDAM;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // imagen-fondo-animación
-        FadeTransition transition = new FadeTransition(Duration.millis(3000), fondo);
+        FadeTransition transition = new FadeTransition(Duration.millis(3000), imagenDiaDAM);
         transition.setFromValue(1.0);
         transition.setToValue(1.0);
         transition.play();
 
         transition.setOnFinished(event -> {
             // cierre
-            Stage ventana = (Stage) fondo.getScene().getWindow();
+            Stage ventana = (Stage) imagenDiaDAM.getScene().getWindow();
             ventana.hide();
             // Visualización ventana principal
             SceneManager sceneManager = SceneManager.get();
             try {
-                sceneManager.initSplash(ventana);
-            } catch (IOException | InterruptedException e) {
+                sceneManager.initInterfazCliente();
+            } catch (IOException e) {
                 logger.error(e.getMessage());
                 e.printStackTrace();
             }

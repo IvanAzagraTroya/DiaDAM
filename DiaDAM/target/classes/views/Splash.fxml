@@ -6,15 +6,15 @@
 
 <!--@author Veronica -->
 
-<AnchorPane prefHeight="352.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx"
+            fx:controller="es.diadam.diadam.controllers.InterfazSplashController">
    <padding>
-      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
    </padding>
-   <children>
-      <ImageView fx:id="imagendiaDAM" fitHeight="338.0" fitWidth="524.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Splash.png" />
-         </image>
-      </ImageView>
-   </children>
+   <ImageView fx:id="imagenDiaDAM" fitHeight="338.0" fitWidth="524.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@../images/Splash.png"/>
+   </ImageView>
 </AnchorPane>

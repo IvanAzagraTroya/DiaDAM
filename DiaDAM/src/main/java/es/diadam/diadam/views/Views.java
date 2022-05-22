@@ -5,14 +5,14 @@ package es.diadam.diadam.views;
  */
 
 public enum Views {
-    SPLASH("views/Splash"),
+    SPLASH("views/Splash.fxml"),
     INTERFAZCLIENTE("views/InterfazCliente-view.fxml"),
-    ACERCADE("views/AcercaDe"),
-    INTERFAZADMIN("views/Interfaz-Administrador-view"),
-    INICIOSESION("views/InicioSesion"),
-    REGISTROSESION("views/RegistroSesion"),
-    CARRITO("views/CarritoView"),
-    ESTADISTICAS("views/Estadisticas");
+    ACERCADE("views/Acercade.fxml"),
+    INTERFAZADMIN("views/Interfaz-Administrador-view.fxml"),
+    INICIOSESION("views/InicioSesion.fxml"),
+    REGISTROSESION("views/RegistroSesion.fxml"),
+    CARRITO("views/CarritoView.fxml"),
+    ESTADISTICAS("views/Estadisticas.fxml");
 
     private final String view;
     Views(String view) {

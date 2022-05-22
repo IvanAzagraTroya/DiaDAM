@@ -8,10 +8,11 @@ import java.io.File;
  * y deberán sopesarse con el diseño de la aplicación final.
  */
 public class Properties {
+    // Interfaz cliente
     public static final String APP_TITLE = "DIA DAM";
     public static final int APP_HEIGHT = 450;
     public static final int APP_WIDTH = 850;
-    public static final String APP_ICON = "";
+    public static final String APP_ICON = "images/Dia.png";
 
     // Splash de inicio
     public static final int SPLASH_HEIGHT = 300;

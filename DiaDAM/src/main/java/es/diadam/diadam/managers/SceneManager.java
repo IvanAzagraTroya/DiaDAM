@@ -108,7 +108,7 @@ public class SceneManager {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Iniciar sesión");
-        logger.info("Escena registro cargada");
+        logger.info("Escena inicio sesión cargada");
         stage.setResizable(false);
         RegistroSesionController controller = fxmlLoader.getController();
         // Aquí irán los métodos a usar del controlador
@@ -161,7 +161,7 @@ public class SceneManager {
         stage.showAndWait();
     }
 
-    public void initInterfazAdministradorController() throws IOException{
+    public void initInterfazAdministrador() throws IOException{
 
     }
 

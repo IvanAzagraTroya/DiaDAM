@@ -15,7 +15,7 @@ import java.util.Optional;
 /**
  * @author Iván Azagra
  */
-public class DiaApplication extends Application {
+public class DiaApplication extends Application{
     static Logger logger = LogManager.getLogger(DiaApplication.class);
 
     public static void main(String[] args) {
@@ -35,6 +35,8 @@ public class DiaApplication extends Application {
                 controller.close();
                 logger.info("Conexión correcta con la base de datos");
             }
+            else logger.warn("Hay un error con la base de datos");
+
         }catch (SQLException e) {
             logger.error("Error al conectar con la base de datos " +e.getMessage());
             System.exit(1);
@@ -45,7 +47,7 @@ public class DiaApplication extends Application {
     public void start(Stage stage) throws IOException, InterruptedException {
         //Carga el SceneManager
         SceneManager sceneManager = SceneManager.getInstance(DiaApplication.class);
-        sceneManager.initInterfazCliente();
+        sceneManager.initSplash(stage);
     }
 
 }
