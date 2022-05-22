@@ -2,6 +2,8 @@ package es.diadam.diadam.managers;
 
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.controllers.EstadisticasController;
+import es.diadam.diadam.controllers.InterfazAdministradorController;
+import es.diadam.diadam.controllers.RegistroSesionController;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.utils.Properties;
 import es.diadam.diadam.utils.Resources;
@@ -28,6 +30,8 @@ import static es.diadam.diadam.utils.Properties.*;
  * @author Iván Azagra
  */
 public class SceneManager {
+
+    // TODO iniciar sesión, registro usuario, producto editar
     private static SceneManager instance;
     private final Class<?> appClass;
     Logger logger = LogManager.getLogger(SceneManager.class);
@@ -55,7 +59,7 @@ public class SceneManager {
         logger.info("Cargando la escena " +view.get());
         Stage stage = (Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(Objects.requireNonNull(appClass.getResource(view.get())));
-        Scene newScene = new Scene(root, Properties.APP_WIDTH, Properties.ACERCADE_HEIGH);
+        Scene newScene = new Scene(root, Properties.APP_WIDTH, Properties.APP_HEIGHT);
         logger.info("Escena: "+view.get() + " cargada");
         stage.setScene(newScene);
         stage.show();
@@ -65,7 +69,7 @@ public class SceneManager {
         logger.info("Iniciando el catálogo");
         Platform.setImplicitExit(true);
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(appClass.getResource(Views.INTERFAZCLIENTE.get())));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGH);
+        Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGHT);
         Stage stage = new Stage();
         stage.setResizable(true);
         stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
@@ -86,7 +90,7 @@ public class SceneManager {
         Platform.setImplicitExit(false);
         logger.info("Iniciando splash");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.SPLASH.get()));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.SPLASH_WIDTH, Properties.SPLASH_HEIGH);
+        Scene scene = new Scene(fxmlLoader.load(), Properties.SPLASH_WIDTH, Properties.SPLASH_HEIGHT);
         stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
         stage.setTitle(Properties.APP_TITLE);
         stage.setResizable(false);
@@ -96,22 +100,53 @@ public class SceneManager {
         stage.show();
     }
 
+    public void initIniciarSesion() throws IOException {
+        // TODO Meter funcion de botones inicio sesión
+        logger.info("Abriendo iniciar sesión");
+        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(DiaApplication.class.getResource(Views.INICIOSESION.get())));
+        Scene scene =  new Scene(fxmlLoader.load(), Properties.INICIOSESION_WIDTH, Properties.INICIOSESION_HEIGHT);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Iniciar sesión");
+        logger.info("Escena inicio sesión cargada");
+        stage.setResizable(false);
+        RegistroSesionController controller = fxmlLoader.getController();
+        // Aquí irán los métodos a usar del controlador
+        stage.showAndWait();
+    }
+
+    public void initRegistro() throws IOException {
+        // TODO Meter funciones de botones
+        logger.info("Abriendo registro usuario");
+        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(DiaApplication.class.getResource(Views.REGISTROSESION.get())));
+        Scene scene = new Scene(fxmlLoader.load(), Properties.INICIOSESION_WIDTH, Properties.INICIOSESION_HEIGHT);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(mainStage);
+        stage.setTitle("Registro");
+        logger.info("Escena registro cargada");
+        stage.setResizable(false);
+        RegistroSesionController controller = fxmlLoader.getController();
+        // Aquí irán los métodos a usar del controlador
+        stage.showAndWait();
+    }
+
     public void initAcercaDe() throws IOException {
         logger.info("Iniciando Acerca De");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.ACERCADE.get()));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.ACERCADE_WIDTH, Properties.ACERCADE_HEIGH);
+        Scene scene = new Scene(fxmlLoader.load(), Properties.ACERCADE_WIDTH, Properties.ACERCADE_HEIGHT);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle("Acerca De: ");
         stage.setScene(scene);
-        logger.info("Scene Acerca De cargada");
+        logger.info("Escena Acerca De cargada");
         stage.showAndWait();
     }
 
     public void initEstadisticas(List<Producto> productos) throws IOException {
         logger.info("Iniciando estadísticas");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.ESTADISTICAS.get()));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.ESTADISTICAS_WIDTH, Properties.ESTADISTICAS_HEIGH);
+        Scene scene = new Scene(fxmlLoader.load(), Properties.ESTADISTICAS_WIDTH, Properties.ESTADISTICAS_HEIGHT);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         // Como esta pantalla es subordinada necesita que le especifiquen su dueño
@@ -126,10 +161,34 @@ public class SceneManager {
         stage.showAndWait();
     }
 
+    public void initInterfazAdministrador() throws IOException{
+
+    }
+
+    /*public boolean initProductoEditar(boolean edicion, Producto p) throws IOException{
+        logger.info("Iniciando edición de producto");
+        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
+        Scene scene = new Scene(fxmlLoader.load(), Properties.PRODUCTOEDITAR_WIDTH, Properties.PRODUCTOEDITAR_HEIGHT);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle(edicion ? "Editar Producto" : "Nuevo Producto");
+        stage.setResizable(false);
+        ProductoViewEditarController controller = fxmlLoader.getController();
+        // TODO REVISAR CON EL CONTROLADOR DE JORGE CUANDO LO SUBA
+        controller.setDialogStage(stage);
+        controller.setEditarModo(edicion);
+        controller.setProducto(p);
+        stage.setScene(scene);
+        logger.info("Cargada escena de edición de productos");
+        stage.showAndWait();
+        return controller.isAceptarClicked();
+
+    }*/
+
     public void initCarrito() throws IOException {
         logger.info("Iniciando carrito");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.CARRITO.get()));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.CARRITO_WIDTH, Properties.CARRITO_HEIGH);
+        Scene scene = new Scene(fxmlLoader.load(), Properties.CARRITO_WIDTH, Properties.CARRITO_HEIGHT);
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
         // TODO resto del init carrito, pantalla subordinada o no subordinada?

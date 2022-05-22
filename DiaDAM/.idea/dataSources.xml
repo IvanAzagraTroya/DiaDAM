@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="DIADAM.sqlite" uuid="4068805b-a691-4eac-a880-85c3aaca0f0d">
+    <data-source source="LOCAL" name="diadam" uuid="2014a76a-3db2-473b-bf86-737c30bded26">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/DIADAM.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:diadam.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

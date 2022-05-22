@@ -35,7 +35,10 @@ public class Utils {
         String regex = "^([\\w-\\.]+){1,64}@([\\w&&[^_]]+){2,255}.[a-z]{2,}$";
         return email.matches(regex);
     }
-
+    public static boolean isTarjeta(String tarjeta){
+        String regex = "^[0-9]{16}$";
+        return tarjeta.matches(regex);
+    }
     public static Alert getAlertErrorDetails(String title, String header, String content, String details) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);

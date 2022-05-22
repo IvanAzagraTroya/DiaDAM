@@ -32,7 +32,7 @@ import java.util.Optional;
 public class InterfazAdministradorController {
     private Logger logger = LogManager.getLogger(InterfazAdministradorController.class);
 
-    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección, esta está hecha con dagger
+    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección, esta está hecha con javafx
     //private ProductoRepository productoRepository = DaggerRepositoryFactory.create().build();
 
     // Inyección realizada con javafx
@@ -151,8 +151,8 @@ public class InterfazAdministradorController {
         }
     }
 
-//Creo que no crea producto porque esta en false y deberia estar en true
-    @FXML
+    //Creo que no crea producto porque esta en false y deberia estar en true
+    /*@FXML
     private void onNuevoAction() throws IOException{
         logger.info("Se ha pulsado accion Nuevo");
         Producto producto = new Producto();
@@ -165,7 +165,7 @@ public class InterfazAdministradorController {
             }
             setDataInfo(producto);
         }
-    }
+    }*/
 
     @FXML
     private void onBorrarAction() {
@@ -185,7 +185,7 @@ public class InterfazAdministradorController {
         }
     }
 
-    @FXML
+    /*@FXML
     private void onEditarAction() throws IOException {
         logger.info("Se ha pulsado accion Editar");
         Producto producto = productosTable.getSelectionModel().getSelectedItem();
@@ -198,7 +198,7 @@ public class InterfazAdministradorController {
             }
             setDataInfo(producto);
         }
-    }
+    }*/
 
     @FXML
     private void onEstadisticasAction() throws IOException, SQLException {
@@ -260,7 +260,4 @@ public class InterfazAdministradorController {
         logger.info("Cargando datos");
         productosTable.setItems(productoRepository.findAll());
     }
-
-
-
 }
