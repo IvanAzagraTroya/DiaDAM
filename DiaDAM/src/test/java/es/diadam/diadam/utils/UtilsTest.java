@@ -30,4 +30,33 @@ public class UtilsTest {
                 () -> assertFalse(Utils.isTarjeta(tarjetaIncorrecto3))
         );
     }
+    public void isTelefonoTest(){
+        String telefono = "636123143";
+        String telefonoIncorrecto = "6361231431";
+        String telefonoIncorrecto2 = "63612314";
+        String telefonoIncorrecto3 = "6G6123143";
+        String telefonoIncorrecto4 = "GFRGYHFRD";
+        String telefonoIncorrecto5 = "GFRGYHFR7";
+        String telefonoIncorrecto6 = "GFRGYHF87";
+        String telefonoIncorrecto7 = "GFRGYH457";
+        String telefonoIncorrecto8 = "GFRGY4657";
+        String telefonoIncorrecto9 = "FFRG34567";
+        String telefonoIncorrecto10 = "GFRGYHFR7";
+
+        assertAll(
+                () -> assertTrue(Utils.isTarjeta(telefono)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto2)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto3)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto4)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto5)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto6)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto7)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto8)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto9)),
+                () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto10))
+
+        );
+    }
+
 }

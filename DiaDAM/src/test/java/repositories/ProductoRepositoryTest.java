@@ -73,7 +73,7 @@ public class ProductoRepositoryTest {
                 () -> assertTrue(productoOp.isPresent())
         );
     }
-
+    @Test
     void update() throws SQLException, IOException {
         productoTest.setNombre("Ternera");
         productoTest.setStock(15);

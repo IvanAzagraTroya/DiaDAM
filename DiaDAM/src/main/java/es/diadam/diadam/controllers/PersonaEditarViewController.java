@@ -135,10 +135,8 @@ public class PersonaEditarViewController {
             errorMessage += "La direccion no puede estar en blanco\n";
         }
 
-        if (telefonoTxt.getText() == null || telefonoTxt.getText().isBlank()) {
+        if (telefonoTxt.getText() == null || telefonoTxt.getText().isBlank() || !Utils.isTelefono(telefonoTxt.getText())) {
             errorMessage += "El telefono no puede estar en blanco\n";
-        }else if(telefonoTxt.getText().length() < 9 && telefonoTxt.getText().length() > 9 ){
-            errorMessage += "escriba un numero de telefono verdadero\n";
         }
         if (tarjetaTxt.getText() == null || tarjetaTxt.getText().isBlank() || !Utils.isTarjeta(tarjetaTxt.getText())) {
             errorMessage += "El telefono no puede estar en blanco o no es valido\n";

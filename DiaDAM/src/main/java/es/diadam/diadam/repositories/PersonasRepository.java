@@ -178,4 +178,14 @@ public class PersonasRepository {
         repository.set(index, persona);
         return Optional.of(persona);
     }
+    public void deleteAll() throws IOException, SQLException {
+
+        // Eliminamos de la base de datos
+
+        String sql = "DELETE FROM personas";
+        db.open();
+        db.delete(sql);
+        db.close();
+
+    }
 }

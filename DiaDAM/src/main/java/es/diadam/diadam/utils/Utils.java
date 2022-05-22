@@ -39,6 +39,10 @@ public class Utils {
         String regex = "^[0-9]{16}$";
         return tarjeta.matches(regex);
     }
+    public static boolean isTelefono(String telefono){
+        String regex = "^[0-9]{9}$";
+        return telefono.matches(regex);
+    }
     public static Alert getAlertErrorDetails(String title, String header, String content, String details) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
