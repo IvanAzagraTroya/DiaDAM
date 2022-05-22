@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<!--@author Veronica -->
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="300.0" prefWidth="480.0" xmlns="http://javafx.com/javafx"
+            fx:controller="es.diadam.diadam.controllers.InterfazSplashController">
+   <padding>
+      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0"/>
+   </padding>
+   <ImageView fx:id="imagenDiaDAM" fitHeight="338.0" fitWidth="524.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true"
+              preserveRatio="true">
+      <Image url="@../images/Splash.png"/>
+   </ImageView>
+</AnchorPane>

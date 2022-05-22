@@ -2,6 +2,7 @@ package es.diadam.diadam.controllers;
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.utils.Resources;
+import es.diadam.diadam.utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
 // import org.apache.ibatis.io.Resources; Este import no es el necesario
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.controlsfx.tools.Utils;
+// import org.controlsfx.tools.Utils; Este import no es el necesario
 
 import java.io.File;
 import java.nio.file.Files;
@@ -139,7 +140,7 @@ public class PersonaEditarViewController {
         }else if(telefonoTxt.getText().length() < 9 && telefonoTxt.getText().length() > 9 ){
             errorMessage += "escriba un numero de telefono verdadero\n";
         }
-        if (tarjetaTxt.getText() == null || tarjetaTxt.getText().isBlank() || !Utils.isTarjeta(tarjetatext())) {
+        if (tarjetaTxt.getText() == null || tarjetaTxt.getText().isBlank() || !Utils.isTarjeta(tarjetaTxt.getText())) {
             errorMessage += "El telefono no puede estar en blanco o no es valido\n";
         }
         if (emailTxt.getText() == null || emailTxt.getText().isBlank() || !Utils.isEmail(emailTxt.getText())) {
