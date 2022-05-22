@@ -3,13 +3,14 @@ import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.dto.PersonaDTO;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Persona;
+import es.diadam.diadam.utils.Resources;
 import es.diadam.diadam.services.Storage;
 import es.diadam.diadam.services.StoragePersona;
 import es.diadam.diadam.utils.Properties;
 import es.diadam.diadam.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.apache.ibatis.io.Resources;
+// import org.apache.ibatis.io.Resources; Este import no es el necesario
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,11 +42,12 @@ public class PersonasRepository {
         if (repository.isEmpty()) {
             logger.info("Inicializando datos de ejemplo");
             try {
-                repository.add(new Persona(UUID.randomUUID().toString(),"Alvato","Mingo","Colmenar de oreja, calle: lopez","654123145","45432435" ,"alvarosmingos@gmail.com" ,"1234567" , Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"ADMIN")),
-                        repository.add(new Persona(UUID.randomUUID().toString(),"Jorge","Sanchez","Leganes, calle: Tijuana","644243244","98789876" ,"jorgesanchezs@gmail.com" ,"3343343" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE")),
-                        repository.add(new Persona(UUID.randomUUID().toString(),"Ivan","Castillo","Colmenar de oreja, calle: benito","636432123","613241234" ,"ivanforever@gmail.com" ,"5467328" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE"));
+                    repository.add(new Persona(UUID.randomUUID().toString(),"Alvato","Mingo","Colmenar de oreja, calle: lopez","654123145","45432435" ,"alvarosmingos@gmail.com" ,"1234567" , Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"ADMIN"));
+                    repository.add(new Persona(UUID.randomUUID().toString(),"Jorge","Sanchez","Leganes, calle: Tijuana","644243244","98789876" ,"jorgesanchezs@gmail.com" ,"3343343" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE"));
+                    repository.add(new Persona(UUID.randomUUID().toString(),"Ivan","Castillo","Colmenar de oreja, calle: benito","636432123","613241234" ,"ivanforever@gmail.com" ,"5467328" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE"));
 
-            }catch(SQLException | IOException e ){
+            }catch(/*SQLException | IOException*/ Exception e ){
+                // TODO mirar qué error no permite usar SQLException
                 logger.error("Error al inicializar datos");
             }
 

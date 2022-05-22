@@ -1,6 +1,7 @@
 package es.diadam.diadam.controllers;
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.models.Persona;
+import es.diadam.diadam.utils.Resources;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
@@ -9,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.apache.ibatis.io.Resources;
+// import org.apache.ibatis.io.Resources; Este import no es el necesario
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.controlsfx.tools.Utils;
