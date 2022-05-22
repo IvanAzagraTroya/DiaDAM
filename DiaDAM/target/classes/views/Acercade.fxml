@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<!--Veronica Anchitipan -->
+
+<AnchorPane prefHeight="299.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
+   <children>
+      <Hyperlink fx:id="hiperlink" layoutX="15.0" layoutY="232.0" prefHeight="46.0" prefWidth="300.0" text="Hyperlink:    Repositorio ">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+         <padding>
+            <Insets left="8.0" />
+         </padding>
+      </Hyperlink>
+      <Label fx:id="nombre_proyecto" layoutX="16.0" layoutY="111.0" prefHeight="46.0" prefWidth="150.0" text="Integrantes:" textAlignment="JUSTIFY">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+         <padding>
+            <Insets left="8.0" />
+         </padding>
+      </Label>
+      <ImageView fx:id="imagrnGit" fitHeight="79.0" fitWidth="79.0" layoutX="355.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/git.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="15.0" layoutY="184.0" prefHeight="15.0" prefWidth="218.0" text="Repositorio: Proyecto DiaDAM">
+         <font>
+            <Font name="System Italic" size="15.0" />
+         </font>
+         <padding>
+            <Insets left="8.0" />
+         </padding>
+      </Label>
+      <Label layoutX="16.0" layoutY="21.0" prefHeight="51.0" prefWidth="218.0" text="Acerca De">
+         <font>
+            <Font name="Comic Sans MS Italic" size="36.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label layoutX="362.0" layoutY="255.0" prefHeight="31.0" prefWidth="71.0" text="Versiòn: 0.1.0" />
+   </children>
+</AnchorPane>
