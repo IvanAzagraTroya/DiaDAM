@@ -129,7 +129,7 @@ public class InterfazAdministradorController {
     @FXML
     private void onAcercaDeAction() throws IOException {
         logger.info("Se ha pulsado el Acerca de");
-        SceneManager.get().initAcercaDe();
+        //SceneManager.get().initAcercaDe();
     }
 
 
@@ -203,7 +203,7 @@ public class InterfazAdministradorController {
     @FXML
     private void onEstadisticasAction() throws IOException, SQLException {
         logger.info("Se ha pulsado accion Estadisticas");
-        SceneManager.get().initEstadisticas(productoRepository.findAll());
+       // SceneManager.get().initEstadisticas(productoRepository.findAll());
     }
 
 

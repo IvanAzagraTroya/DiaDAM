@@ -11,7 +11,7 @@
     <Pane prefHeight="122.0" prefWidth="600.0">
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/PersonaDefectoOscuro.png" />
+            <Image url="@../../../../images/PersonaDefectoOscuro.png" />
          </image></ImageView>
         <Button layoutX="449.0" layoutY="36.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
             <font>
@@ -20,7 +20,7 @@
         </Button>
         <ImageView fitHeight="36.0" fitWidth="91.0" layoutX="267.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/Dia.png" />
+            <Image url="@../../../../images/Dia.png" />
          </image></ImageView>
         <ToggleButton layoutX="14.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" textAlignment="JUSTIFY">
             <font>
@@ -29,7 +29,7 @@
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/ModoOscuro.png" />
+                  <Image url="@../../../../images/ModoOscuro.png" />
                </image>
             </ImageView>
          </graphic>
@@ -57,7 +57,7 @@
          <graphic>
             <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/CarroOscuro.png" />
+                  <Image url="@../../../../images/CarroOscuro.png" />
                </image>
             </ImageView>
          </graphic>

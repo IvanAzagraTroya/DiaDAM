@@ -40,7 +40,7 @@ public class InterfazSplashController implements Initializable {
             try {
                 sceneManager.initInterfazCliente();
             } catch (IOException e) {
-                logger.error(e.getMessage());
+                logger.error("No se pudo hacer la transición a Interfaz Cliente, error: "+e.getMessage());
                 e.printStackTrace();
             }
 

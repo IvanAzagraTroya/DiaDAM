@@ -11,7 +11,6 @@ import java.util.UUID;
  * @author Álvaro
  */
 @Data
-@Builder
 public class Persona {
     private String id = UUID.randomUUID().toString();
     private final StringProperty nombre;

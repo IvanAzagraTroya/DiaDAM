@@ -3,6 +3,7 @@ package es.diadam.diadam.managers;
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.controllers.EstadisticasController;
 import es.diadam.diadam.controllers.InterfazAdministradorController;
+import es.diadam.diadam.controllers.InterfazClienteController;
 import es.diadam.diadam.controllers.RegistroSesionController;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.utils.Properties;
@@ -23,8 +24,6 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-
-import static es.diadam.diadam.utils.Properties.*;
 
 /**
  * @author Iván Azagra
@@ -55,16 +54,6 @@ public class SceneManager {
         return instance;
     }
 
-    public void changeScene(Node node, Views view) throws IOException {
-        logger.info("Cargando la escena " +view.get());
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(appClass.getResource(view.get())));
-        Scene newScene = new Scene(root, Properties.APP_WIDTH, Properties.APP_HEIGHT);
-        logger.info("Escena: "+view.get() + " cargada");
-        stage.setScene(newScene);
-        stage.show();
-    }
-
     public void initInterfazCliente() throws IOException {
         logger.info("Iniciando el catálogo");
         Platform.setImplicitExit(true);
@@ -78,15 +67,14 @@ public class SceneManager {
         logger.info("Escena Main cargada");
         // Por si la app es cerrada
         stage.setOnCloseRequest(event -> {
-            // TODO realizar la acción de salir asociada a un botón
-           //fxmlLoader.getController().onSalirAction();
+            fxmlLoader.<InterfazClienteController>getController().onSalirAction();
         });
         stage.setScene(scene);
         mainStage = stage;
         stage.show();
     }
 
-    public void initSplash(Stage stage) throws IOException, InterruptedException {
+    /*public void initSplash(Stage stage) throws IOException, InterruptedException {
         Platform.setImplicitExit(false);
         logger.info("Iniciando splash");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.SPLASH.get()));
@@ -97,6 +85,20 @@ public class SceneManager {
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         logger.info("Escena splash cargada");
+        stage.show();
+    }*/
+
+    public void initSplash(Stage stage) throws IOException, InterruptedException {
+        Platform.setImplicitExit(false);
+        logger.info("Iniciando Splash");
+        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.SPLASH.get()));
+        Scene scene = new Scene(fxmlLoader.load(), Properties.SPLASH_WIDTH, Properties.SPLASH_HEIGHT);
+        stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
+        stage.setTitle(Properties.APP_TITLE);
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        logger.info("Scene Splash loaded");
         stage.show();
     }
 

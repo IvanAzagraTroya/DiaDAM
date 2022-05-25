@@ -121,4 +121,10 @@ public class InterfazClienteController {
         logger.info("Accediendo a catálogo...");
         productoCatalog.setItems(productoRepository.findAll());
     }
+
+    @FXML
+    private void onChangeMode() {
+        logger.info("Cambiando paleta de colores");
+        // TODO meter los estilos aquí
+    }
 }
