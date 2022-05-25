@@ -11,6 +11,6 @@
       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
    </padding>
    <ImageView fx:id="imagenDiaDAM" fitHeight="300.0" fitWidth="488.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../../../images/Splash.png" />
+      <Image url="@../images/Splash.png" />
    </ImageView>
 </AnchorPane>

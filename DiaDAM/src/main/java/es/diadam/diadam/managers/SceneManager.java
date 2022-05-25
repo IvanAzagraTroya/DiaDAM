@@ -1,10 +1,7 @@
 package es.diadam.diadam.managers;
 
 import es.diadam.diadam.DiaApplication;
-import es.diadam.diadam.controllers.EstadisticasController;
-import es.diadam.diadam.controllers.InterfazAdministradorController;
-import es.diadam.diadam.controllers.InterfazClienteController;
-import es.diadam.diadam.controllers.RegistroSesionController;
+import es.diadam.diadam.controllers.*;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.utils.Properties;
 import es.diadam.diadam.utils.Resources;
@@ -74,7 +71,7 @@ public class SceneManager {
         stage.show();
     }
 
-    /*public void initSplash(Stage stage) throws IOException, InterruptedException {
+    public void initSplash(Stage stage) throws IOException, InterruptedException {
         Platform.setImplicitExit(false);
         logger.info("Iniciando splash");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.SPLASH.get()));
@@ -85,20 +82,6 @@ public class SceneManager {
         stage.setScene(scene);
         stage.initStyle(StageStyle.TRANSPARENT);
         logger.info("Escena splash cargada");
-        stage.show();
-    }*/
-
-    public void initSplash(Stage stage) throws IOException, InterruptedException {
-        Platform.setImplicitExit(false);
-        logger.info("Iniciando Splash");
-        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.SPLASH.get()));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.SPLASH_WIDTH, Properties.SPLASH_HEIGHT);
-        stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
-        stage.setTitle(Properties.APP_TITLE);
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
-        logger.info("Scene Splash loaded");
         stage.show();
     }
 
@@ -112,7 +95,7 @@ public class SceneManager {
         stage.setTitle("Iniciar sesión");
         logger.info("Escena inicio sesión cargada");
         stage.setResizable(false);
-        RegistroSesionController controller = fxmlLoader.getController();
+        IniciarSesionController controller = fxmlLoader.getController();
         // Aquí irán los métodos a usar del controlador
         stage.showAndWait();
     }
@@ -128,7 +111,7 @@ public class SceneManager {
         stage.setTitle("Registro");
         logger.info("Escena registro cargada");
         stage.setResizable(false);
-        RegistroSesionController controller = fxmlLoader.getController();
+        IniciarSesionController controller = fxmlLoader.getController();
         // Aquí irán los métodos a usar del controlador
         stage.showAndWait();
     }
@@ -164,10 +147,11 @@ public class SceneManager {
     }
 
     public void initInterfazAdministrador() throws IOException{
-
+        logger.info("Iniciando interfaz administrador");
+        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
     }
 
-    /*public boolean initProductoEditar(boolean edicion, Producto p) throws IOException{
+    public boolean initProductoEditar(boolean edicion, Producto p) throws IOException{
         logger.info("Iniciando edición de producto");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
         Scene scene = new Scene(fxmlLoader.load(), Properties.PRODUCTOEDITAR_WIDTH, Properties.PRODUCTOEDITAR_HEIGHT);
@@ -175,8 +159,7 @@ public class SceneManager {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setTitle(edicion ? "Editar Producto" : "Nuevo Producto");
         stage.setResizable(false);
-        ProductoViewEditarController controller = fxmlLoader.getController();
-        // TODO REVISAR CON EL CONTROLADOR DE JORGE CUANDO LO SUBA
+        ProductoEditarViewController controller = fxmlLoader.getController();
         controller.setDialogStage(stage);
         controller.setEditarModo(edicion);
         controller.setProducto(p);
@@ -185,7 +168,7 @@ public class SceneManager {
         stage.showAndWait();
         return controller.isAceptarClicked();
 
-    }*/
+    }
 
     public void initCarrito() throws IOException {
         logger.info("Iniciando carrito");

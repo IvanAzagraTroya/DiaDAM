@@ -1,5 +1,8 @@
 package es.diadam.diadam.controllers;
 
+import es.diadam.diadam.models.Persona;
+import es.diadam.diadam.repositories.PersonasRepository;
+import es.diadam.diadam.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -8,16 +11,20 @@ import javafx.scene.control.TextField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import javax.inject.Inject;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Optional;
 
 /**
- * @author Iván Azagra
- * @version 1.0
+ * @author Iván Azagra Troya
  */
-public class IniciarSesionController {
 
+public class IniciarSesionController {
     Logger logger = LogManager.getLogger(IniciarSesionController.class);
+
+    @Inject
+    PersonasRepository personasRepository;
 
     @FXML
     // Se introduce el email del usuario que se tendrá que mirar mediante regex
@@ -27,39 +34,7 @@ public class IniciarSesionController {
     // COntraseña del usuario
     private TextField txtContrasenia;
 
-    @FXML
-    private void btnIniciarSesion(ActionEvent event) {
-        logger.info("Iniciar sesión en progreso");
-        accionIniciarSesion();
-    }
-
-    @FXML
-    private void btnSalirClick(ActionEvent event) {
-        logger.info("Saliendo del programa");
-        accionSalir();
-    }
-
-    @FXML
-    private void btnLimpiarClick(ActionEvent event) {
-        logger.info("Borrando texto introducido");
-        accionLimpiar();
-    }
-
-    @FXML
-    private void linkGoogle(ActionEvent event) {
-        try {
-            new ProcessBuilder("x-www-browser", "https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2FEditPasswd%3Fhl%3Des&followup=https%3A%2F%2Faccounts.google.com%2FEditPasswd%3Fhl%3Des&hl=es&flowName=GlifWebSignIn&flowEntry=ServiceLogin").start();
-        }catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error al abrir la página");
-            alert.setContentText(e.getMessage());
-            e.printStackTrace();
-        }
-    }
-    /**
-     * Este método comprobará si se ha introducido correctamente, las comprobaciones se harán en métodos aparte.
-     */
-    private void accionIniciarSesion() {
+    private void accionRegistrarse() throws SQLException {
         // Se pasan los parámetros del usuario al método
         String email = txtEmail.getText();
         String contra = txtContrasenia.getText();
@@ -70,7 +45,7 @@ public class IniciarSesionController {
 
         // Si se introducen mal los campos se muestra un mensaje de error.
         Alert alert;
-        if (email.isEmpty() || contra.isEmpty()) {
+        if (email.isEmpty() || contra.isEmpty() || !Utils.isEmail(txtEmail.getText()) || compruebaEmail()) {
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Uno de los campos está vacío.");
             alert.setContentText("Asegurese de introducir email y contraseña");
@@ -78,7 +53,6 @@ public class IniciarSesionController {
                 txtEmail.requestFocus();
             else txtContrasenia.requestFocus();
         }
-        // TODO Aquí irán las llamadas a métodos o método que compruebe el regex
         else {
             alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Datos introducidos");
@@ -106,5 +80,27 @@ public class IniciarSesionController {
         txtEmail.setText("");
         txtContrasenia.setText("");
         txtEmail.requestFocus();
+    }
+    @FXML
+    private void linkGoogle(ActionEvent event) {
+        try {
+            new ProcessBuilder("x-www-browser", "https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2FEditPasswd%3Fhl%3Des&followup=https%3A%2F%2Faccounts.google.com%2FEditPasswd%3Fhl%3Des&hl=es&flowName=GlifWebSignIn&flowEntry=ServiceLogin").start();
+        }catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error al abrir la página");
+            alert.setContentText(e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private boolean compruebaEmail() throws SQLException {
+        boolean existe = false;
+        for(Persona persona: personasRepository.findAll()){
+            if(persona.getEmail() == txtEmail.getText()) {
+                existe = true;
+            }
+            return existe;
+        }
+        return false;
     }
 }

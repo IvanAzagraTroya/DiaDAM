@@ -1,17 +1,19 @@
 package es.diadam.diadam.views;
 
+import java.io.File;
+
 public enum Views {
-    SPLASH("es/diadam/diadam/views/splash-view.fxml"),
-    INTERFAZCLIENTE("es/diadam/diadam/views/InterfazCliente-view.fxml"),
-    INTERFAZADMIN("es/diadam/diadam/views/Interfaz-Administrador-view.fxml"),
-    MAIN("es/diadam/diadam/views/agenda-view.fxml"),
-    ACERCADE("es/diadam/diadam/views/acercade-view.fxml"),
-    PRODUCTOEDITAR("es/diadam/diadam/views/productoeditar-view.fxml"),
-    INICIOSESION("es/diadam/diadam/views/InicioSesion-view.fxml"),
-    REGISTROSESION("es/diadam/diadam/views/RegistroSesion.fxml"),
-    CARRITO("es/diadam/diadam/views/CarritoView.fxml"),
-    PERSONAEDITAR("es/diadam/diadam/views/personaeditar-view.fxml"),
-    ESTADISTICAS("es/diadam/diadam/views/estadisticas-view.fxml");
+    SPLASH("views"+ File.separator +"splash-view.fxml"),
+    INTERFAZCLIENTE("views"+ File.separator+ "InterfazCliente-view.fxml"),
+    INTERFAZADMIN("views"+ File.separator+ "Interfaz-Administrador-view.fxml"),
+    MAIN("views"+ File.separator+"agenda-view.fxml"),
+    ACERCADE("views"+ File.separator+"acercade-view.fxml"),
+    PRODUCTOEDITAR("views"+ File.separator+"productoeditar-view.fxml"),
+    INICIOSESION("views"+ File.separator+"InicioSesion-view.fxml"),
+    REGISTROSESION("views"+ File.separator+"RegistroSesion.fxml"),
+    CARRITO("views"+ File.separator+"CarritoView.fxml"),
+    PERSONAEDITAR("views"+ File.separator+"personaeditar-view.fxml"),
+    ESTADISTICAS("views"+ File.separator+"estadisticas-view.fxml");
 
     private final String view;
 

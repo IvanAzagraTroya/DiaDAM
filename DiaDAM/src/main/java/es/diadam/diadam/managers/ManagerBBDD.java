@@ -59,16 +59,6 @@ public class ManagerBBDD {
         password = "";
     }
 
-    // Carga la configuración de acceso al servidor de base de datos desde properties
-    /*private void initConfigFromFiles() {
-        ApplicationProperties properties = new ApplicationProperties();
-        serverUrl = properties.readProperty("database.server.url");
-        serverPort = properties.readProperty("database.server.port");
-        dataBaseName = properties.readProperty("database.name");
-        jdbcDriver = properties.readProperty("database.jdbc.driver");
-        user = properties.readProperty("database.user");
-        password = properties.readProperty("database.password");
-    }*/
 
     /**
      * Abre la base de datos

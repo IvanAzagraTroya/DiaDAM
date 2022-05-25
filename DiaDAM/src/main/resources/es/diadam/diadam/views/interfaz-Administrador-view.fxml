@@ -125,7 +125,7 @@
                                 </HBox>
                                 <ImageView fx:id="avatarImageView" fitHeight="80.0" fitWidth="80.0" layoutX="264.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                                     <image>
-                                        <Image url="@../../../../images/ImagenPorDefecto.png" />
+                                        <Image url="@../images/ImagenPorDefecto.png" />
                                     </image>
                                     <cursor>
                                         <Cursor fx:constant="DEFAULT" />
