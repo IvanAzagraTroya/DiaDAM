@@ -26,8 +26,6 @@ import java.util.Objects;
  * @author Iván Azagra
  */
 public class SceneManager {
-
-    // TODO iniciar sesión, registro usuario, producto editar
     private static SceneManager instance;
     private final Class<?> appClass;
     Logger logger = LogManager.getLogger(SceneManager.class);

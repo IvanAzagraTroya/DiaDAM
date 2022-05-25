@@ -1,4 +1,4 @@
-package repositories;
+/*package repositories;
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Persona;
@@ -143,3 +143,4 @@ public class PersonasRepositoryTest {
 
 }
 
+*/

@@ -30,7 +30,7 @@ public class ProductoRepositoryTest {
     @BeforeAll
     static void setUpAll(){
         //Inicializamos la base de datos, estructura de tablas
-        DataBase.init();
+        //DataBase.init();
     }
 
     @BeforeEach
@@ -94,7 +94,7 @@ public class ProductoRepositoryTest {
         );
     }
 
-    @Test
+    /*@Test
     void delete() throws SQLException{
         var res = productoRepository.delete(productoTest.getId()).get();
         Optional<Producto> paisOp = productoRepository.findByDescripcion(productoTest.getDescripcion());
@@ -104,6 +104,6 @@ public class ProductoRepositoryTest {
                 () -> assertEquals(res.getDescripcion(), productoTest.getDescripcion()),
                 () -> assertFalse(paisOp.isPresent())
         );
-    }
+    }*/
 
 }

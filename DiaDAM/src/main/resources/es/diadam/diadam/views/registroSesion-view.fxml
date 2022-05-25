@@ -34,7 +34,7 @@
             </cursor>
             <graphic>
                 <ImageView fitHeight="15.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../images/delete-alert.png" />
+                    <Image url="es/diadam/diadam/images/delete-alert.png" />
                 </ImageView>
             </graphic>
         </Button>
@@ -43,12 +43,12 @@
         <Hyperlink layoutX="121.0" layoutY="193.0" onAction="#linkGoogle" text="Iniciar sesión con Google">
             <graphic>
                 <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../images/google.png" />
+                    <Image url="es/diadam/diadam/images/google.png" />
                 </ImageView>
             </graphic>
         </Hyperlink>
         <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="158.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../images/Dia.png" />
+            <Image url="es/diadam/diadam/images/Dia.png" />
         </ImageView>
     </Pane>
 </GridPane>

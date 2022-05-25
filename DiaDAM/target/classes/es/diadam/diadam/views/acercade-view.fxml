@@ -28,7 +28,7 @@
       </Label>
       <ImageView fx:id="imagrnGit" fitHeight="79.0" fitWidth="79.0" layoutX="355.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/git.png" />
+            <Image url="es/diadam/diadam/images/git.png" />
          </image>
       </ImageView>
       <Label layoutX="15.0" layoutY="184.0" prefHeight="15.0" prefWidth="218.0" text="Repositorio: Proyecto DiaDAM">
