@@ -1,5 +1,6 @@
 package es.diadam.diadam.controllers;
 
+import es.diadam.diadam.managers.SceneManager;
 import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.utils.Utils;
@@ -40,8 +41,8 @@ public class IniciarSesionController {
         String contra = txtContrasenia.getText();
 
         // Depuración
-        System.out.println("Email: ["+email+ "]");
-        System.out.println("Contraseña: ["+contra+"]");
+        logger.info("Email: ["+email+ "]");
+        logger.info("Contraseña: ["+contra+"]");
 
         // Si se introducen mal los campos se muestra un mensaje de error.
         Alert alert;
@@ -58,6 +59,44 @@ public class IniciarSesionController {
             alert.setTitle("Datos introducidos");
             alert.setHeaderText("Los datos han sido introducidos correctamente: ");
             alert.setContentText("Email: "+email+ System.lineSeparator()+"Contraseña: " +contra);
+        }
+        alert.showAndWait();
+    }
+    
+    private void accionIniciar() throws SQLException, IOException {
+        // Se pasan los parámetros del usuario al método
+        String email = txtEmail.getText();
+        String contra = txtContrasenia.getText();
+
+        // Depuración
+        logger.info("Email: ["+email+ "]");
+        logger.info("Contraseña: ["+contra+"]");
+
+        // Si se introducen mal los campos se muestra un mensaje de error.
+        Alert alert;
+        if (email.isEmpty() || contra.isEmpty() || !Utils.isEmail(txtEmail.getText())) {
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Uno de los campos está vacío.");
+            alert.setContentText("Asegurese de introducir email y contraseña");
+            if(email.isEmpty())
+                txtEmail.requestFocus();
+            else txtContrasenia.requestFocus();
+        }
+        else {
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Datos introducidos");
+            alert.setHeaderText("Los datos han sido introducidos correctamente: ");
+            alert.setContentText("Email: "+email+ System.lineSeparator()+"Contraseña: " +contra);
+            if(compruebaEmail() && compruebaContraseña())
+                SceneManager.get().initCarrito();
+            else{
+                alert.setTitle("Ha ocurrido un error");
+                alert.setContentText("Email o contraseña incorrectos");
+                if(!compruebaEmail())
+                    txtEmail.requestFocus();
+                else if(!compruebaContraseña())
+                    txtContrasenia.requestFocus();
+            }
         }
         alert.showAndWait();
     }
@@ -92,6 +131,18 @@ public class IniciarSesionController {
             e.printStackTrace();
         }
     }
+    
+    @FXML
+    private void accionLimpiarbtn(ActionEvent event) {
+        logger.info("Limpiar datos");
+        accionLimpiar();
+    }
+    
+    @FXML
+    private void accionIniciarbtn(ActionEvent event) throws SQLException, IOException{
+        logger.info("Se ha iniciado sesión");
+        accionIniciar();
+    }
 
     private boolean compruebaEmail() throws SQLException {
         boolean existe = false;
@@ -102,5 +153,14 @@ public class IniciarSesionController {
             return existe;
         }
         return false;
+    }
+    
+    private boolean compruebaContraseña() throws SQLException {
+        boolean valid = false;
+        for(Persona persona : personasRepository.findAll()) {
+            if(persona.getContrasenia() == txtContrasenia.getText())
+                valid = true;
+        }
+        return valid;
     }
 }

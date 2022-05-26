@@ -33,7 +33,7 @@
         </font>
         </TextField>
         <Button fx:id="btnLimpiar" cancelButton="true" layoutX="39.0" layoutY="155.0" mnemonicParsing="false"
-                onAction="#btnLimpiarClick" text="Limpiar campos">
+                onAction="#accionLimpiarbtn" text="Limpiar campos">
             <cursor>
                 <Cursor fx:constant="HAND"/>
             </cursor>
@@ -44,7 +44,7 @@
             </graphic>
         </Button>
         <Button fx:id="btnIniciarSesion" defaultButton="true" layoutX="176.0" layoutY="154.0" mnemonicParsing="false"
-                onAction="#btnIniciarSesion" prefHeight="26.0" prefWidth="92.0" text="Iniciar Sesión"/>
+                onAction="#accionIniciarbtn" prefHeight="26.0" prefWidth="92.0" text="Iniciar Sesión"/>
         <Button fx:id="btnSalirClick" layoutX="291.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnSalirClick"
                 prefHeight="26.0" prefWidth="64.0" text="Salir"/>
         <Hyperlink layoutX="14.0" layoutY="193.0" onAction="#linkGoogle" text="Iniciar sesión con Google">

@@ -13,7 +13,7 @@
          <image>
             <Image url="es/diadam/diadam/images/PersonaDefectoOscuro.png" />
          </image></ImageView>
-        <Button layoutX="449.0" layoutY="36.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
+        <Button layoutX="449.0" layoutY="36.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY" onAction="#onIniciarSesionButton">
             <font>
                 <Font size="11.0" />
             </font>

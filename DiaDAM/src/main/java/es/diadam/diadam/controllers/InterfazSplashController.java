@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * @author Veronica Anchitipan
+ * @author Veronica Anchitipan e Iván Azagra
  */
 
 public class InterfazSplashController implements Initializable {
