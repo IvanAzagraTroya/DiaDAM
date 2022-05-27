@@ -1,4 +1,4 @@
-/*package es.diadam.diadam.controllers;
+package es.diadam.diadam.controllers;
 
 import es.diadam.diadam.controller.Controller;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ class PersonaEditarViewControllerTest {
                 () -> assertFalse(Controller.isNombre(nombreIncorrecto2)),
                 () -> assertFalse(Controller.isNombre(nombreIncorrecto3))
 
-        )
+        );
     }
 
     @Test
@@ -54,7 +54,7 @@ class PersonaEditarViewControllerTest {
                 () -> assertFalse(Controller.IsDireccion(direccionIncorrecta3)),
                 () -> assertFalse(Controller.IsDireccion(direccionIncorrecta4))
 
-        )
+        );
     }
 
     @Test
@@ -70,7 +70,7 @@ class PersonaEditarViewControllerTest {
                 () -> assertFalse(Controller.IsTelefono(telefonoIncorrecto2)),
                 () -> assertFalse(Controller.IsTelefono(telefonoIncorrecto3))
 
-        )
+        );
     }
 
     @Test
@@ -102,7 +102,7 @@ class PersonaEditarViewControllerTest {
                 () -> assertFalse(Controller.isEmail(emailIncorrecto2)),
                 () -> assertFalse(Controller.isEmail(emailIncorrecto3))
 
-        )
+        );
     }
 
 
@@ -118,9 +118,9 @@ class PersonaEditarViewControllerTest {
                 () -> assertFalse(Controller.isContrasenia(contraseniaIncorrecta1)),
                 () -> assertFalse(Controller.isContrasenia(contraseniaIncorrecta2))
 
-        )
+        );
     }
 
 
 
-}*/
+}
