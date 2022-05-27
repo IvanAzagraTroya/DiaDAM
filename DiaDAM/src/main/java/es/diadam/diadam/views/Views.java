@@ -6,7 +6,6 @@ public enum Views {
     SPLASH("views"+ File.separator +"splash-view.fxml"),
     INTERFAZCLIENTE("views"+ File.separator+ "interfazCliente-view.fxml"),
     INTERFAZADMIN("views"+ File.separator+ "interfaz-Administrador-view.fxml"),
-    MAIN("views"+ File.separator+"agenda-view.fxml"),
     ACERCADE("views"+ File.separator+"acercade-view.fxml"),
     PRODUCTOEDITAR("views"+ File.separator+"productoeditar-view.fxml"),
     INICIOSESION("views"+ File.separator+"inicioSesion-view.fxml"),

@@ -32,9 +32,6 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección, esta está hecha con javafx
-    //private ProductoRepository productoRepository = DaggerRepositoryFactory.create().build();
-
     // Inyección realizada con javafx
     @Inject
     ProductoRepository productoRepository;
@@ -47,8 +44,6 @@ public class InterfazClienteController {
 
     @FXML
     private void initialize() {
-        // Mismo problema que antes
-        //DaggerRepositoryFactory.create().inject(this);
         try {
             loadData();
 

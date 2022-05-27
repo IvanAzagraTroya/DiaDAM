@@ -11,16 +11,16 @@ public class Properties {
     // Interfaz cliente
     public static final String APP_TITLE = "DIA DAM";
     public static final int APP_HEIGHT = 450;
-    public static final int APP_WIDTH = 850;
+    public static final int APP_WIDTH = 610;
     public static final String APP_ICON = "images/Dia.png";
 
     // Splash de inicio
     public static final int SPLASH_HEIGHT = 300;
-    public static final int SPLASH_WIDTH = 480;
+    public static final int SPLASH_WIDTH = 430;
 
     // Inicio Sesión / Registro Sesión
-    public static final int INICIOSESION_HEIGHT = 260;
-    public static final int INICIOSESION_WIDTH = 480;
+    public static final int INICIOSESION_HEIGHT = 100;
+    public static final int INICIOSESION_WIDTH = 150;
 
     // Acerca de
     public static final String APP_VERSION = "0.0.1";
@@ -28,12 +28,12 @@ public class Properties {
     public static final String GITHUB_REPO = "Repositorio";
     public static final String GITHUB_LINK = "https://github.com/IvanAzagraTroya/DiaDAM";
     // Valores momentaneos para rellenar, cambiar conforme a gusto
-    public static final int ACERCADE_HEIGHT = 260; // Cambia la altura de la aplicación
+    public static final int ACERCADE_HEIGHT = 350; // Cambia la altura de la aplicación
     public static final int ACERCADE_WIDTH = 480; // Cambia el ancho de la aplicación
 
     // Editor del admin
-    public static final int PRODUCTOEDITAR_HEIGHT = 420;
-    public static final int PRODUCTOEDITAR_WIDTH = 800;
+    public static final int PRODUCTOEDITAR_HEIGHT = 450;
+    public static final int PRODUCTOEDITAR_WIDTH = 610;
 
     // Ventana de estadísticas
     public static final int ESTADISTICAS_HEIGHT = 400;

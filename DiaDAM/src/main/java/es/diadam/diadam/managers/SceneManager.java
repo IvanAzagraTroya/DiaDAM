@@ -92,7 +92,6 @@ public class SceneManager {
         logger.info("Escena inicio sesión cargada");
         stage.setResizable(false);
         IniciarSesionController controller = fxmlLoader.getController();
-        // Aquí irán los métodos a usar del controlador
         stage.showAndWait();
     }
 
@@ -118,7 +117,9 @@ public class SceneManager {
         Scene scene = new Scene(fxmlLoader.load(), Properties.ACERCADE_WIDTH, Properties.ACERCADE_HEIGHT);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(mainStage);
         stage.setTitle("Acerca De: ");
+        fxmlLoader.<InterfazAcercaDeController>getController().setDialogStage(stage);
         stage.setScene(scene);
         logger.info("Escena Acerca De cargada");
         stage.showAndWait();

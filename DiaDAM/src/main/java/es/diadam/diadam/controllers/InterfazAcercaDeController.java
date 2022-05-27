@@ -19,7 +19,7 @@ import org.apache.logging.log4j.Logger;
 
 public class InterfazAcercaDeController {
     Logger logger = LogManager.getLogger(InterfazAcercaDeController.class);
-    // complementos equipo
+    
     private Stage dialogStage;
 
     @FXML
@@ -29,7 +29,7 @@ public class InterfazAcercaDeController {
     @FXML
     private Label version;
     @FXML
-    private Hyperlink hyperlink;
+    private Hyperlink repositorio;
     
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -37,11 +37,11 @@ public class InterfazAcercaDeController {
     @FXML
     private void initialize() {
         version.setText(Properties.APP_VERSION);
-        autores.setText(Properties.APP_AUTHORS);
-        hyperlink.setText(Properties.GITHUB_REPO);
-        repo.setText(Properties.APP_TITLE);
+        autores.setText("Autores: "+Properties.APP_AUTHORS);
+        repositorio.setText(Properties.GITHUB_REPO);
+        repo.setText("Repositorio: "+Properties.APP_TITLE);
         
-        hyperlink.setOnAction(event -> githubAction());
+        repositorio.setOnAction(event -> githubAction());
     }
     
     @FXML
@@ -49,9 +49,11 @@ public class InterfazAcercaDeController {
         dialogStage.close();
     }
     
+    @FXML
     private void githubAction() {
         try{
              Utils.openBrowser(Properties.GITHUB_LINK);
+             new ProcessBuilder("x-www-browser", Properties.GITHUB_LINK).start();
         }catch (IOException e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error al abrir la página");
