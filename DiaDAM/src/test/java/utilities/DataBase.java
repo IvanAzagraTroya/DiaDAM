@@ -1,6 +1,7 @@
 package utilities;
 
 //import com.sun.tools.javac.Main;
+import com.sun.tools.javac.Main;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.utils.ApplicationProperties;
 
@@ -9,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.sql.SQLException;
 
 public class DataBase {
-    /*public static void init() {
+    public static void init() {
         ApplicationProperties properties = new ApplicationProperties();
         boolean init = Boolean.parseBoolean(properties.readProperty("database.initdata"));
         if (init) {
@@ -28,7 +29,7 @@ public class DataBase {
                 System.exit(1);
             }
         }
-    }*/
+    }
 
     /**
      * Borra todas las tablas, que cuesta menos que tirar toda la base de datos y levantarla de nuevo

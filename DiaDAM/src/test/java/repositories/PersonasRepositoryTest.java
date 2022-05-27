@@ -1,4 +1,4 @@
-/*package repositories;
+package repositories;
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Persona;
@@ -90,11 +90,11 @@ public class PersonasRepositoryTest {
     @Test
     void save() throws SQLException, IOException {
         Persona personaTest = new Persona(UUID.randomUUID().toString(), "mario", "gonzalez", "madrid, calle: baja, numero:10 ", "616494531", "9198765987658908", "mario@gmail.com", "19234678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE");
-        var res = personaRepository.create(pTest1);
-        Optional<Producto> productoOp = personaRepository.findById(res.getId());
+        personaRepository.create(pTest1);
+        Optional<Persona> productoOp = Optional.ofNullable(personaRepository.findById(pTest1.getId()));
 
         assertAll(
-                () -> assertEquals(res.getId(), personaTest.getId()),
+                () -> assertEquals(pTest1.getId(), personaTest.getId()),
                 () -> assertTrue(productoOp.isPresent())
         );
     }
@@ -106,8 +106,8 @@ public class PersonasRepositoryTest {
 
     @Test
     void delete() throws SQLException, IOException {
-        var res = personaRepository.delete(pTest2);
-        Optional<Producto> personaOp = personaRepository.findById(pTest2.getId());
+        var res = personaRepository.delete(pTest2).get();
+        Optional<Persona> personaOp = Optional.ofNullable(personaRepository.findById(pTest2.getId()));
         assertAll(
                 () -> assertEquals(res.getId(), pTest2.getId()),
                 () -> assertEquals(res.getNombre(), pTest2.getNombre()),
@@ -116,16 +116,16 @@ public class PersonasRepositoryTest {
         );
     }
 
-     @Test
+    @Test
     void update() throws SQLException, IOException {
-         pTest1V2.setNombre("pepe");
-         pTest1V2.setApellido("ronaldo");
-         pTest1V2.setTarjeta("1234567890987654");
-         pTest1V2.setTelefono("");
-         pTest1V2.setTarjeta("1234567890987654");
-         pTest1V2.setEmail("pepe@gmail.com");
-         pTest1V2.setContrasenia("12345434");
-         pTest1V2.setEmail("CLIENTE");
+        pTest1V2.setNombre("pepe");
+        pTest1V2.setApellido("ronaldo");
+        pTest1V2.setTarjeta("1234567890987654");
+        pTest1V2.setTelefono("");
+        pTest1V2.setTarjeta("1234567890987654");
+        pTest1V2.setEmail("pepe@gmail.com");
+        pTest1V2.setContrasenia("12345434");
+        pTest1V2.setEmail("CLIENTE");
 
         var res = personaRepository.update(pTest1V2).get();
         Optional<Persona> personaOp = Optional.ofNullable(personaRepository.findById(pTest1V2.getId()));
@@ -133,14 +133,9 @@ public class PersonasRepositoryTest {
         assertAll(
                 () -> assertEquals(res.getId(), pTest1V2.getId()),
                 () -> assertEquals(res.getNombre(), pTest1V2.getNombre()),
-                () -> assertEquals(res.getId(), pTest1V2.getId()),
-                () -> assertTrue(pTest1V2.isPresent()),
-                () -> assertEquals(pTest1V2.get().getId(), pTest1V2.getId()),
-                () -> assertEquals(pTest1V2.get().getNombre(), pTest1V2.getNombre()),
-                () -> assertEquals(pTest1V2.get().toString(), pTest1V2.toString())
+                () -> assertEquals(res.getId(), pTest1V2.getId())
         );
     }
 
 }
 
-*/

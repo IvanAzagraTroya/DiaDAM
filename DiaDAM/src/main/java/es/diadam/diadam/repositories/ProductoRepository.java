@@ -30,16 +30,20 @@ import java.util.stream.Collectors;
 
 
 public class ProductoRepository implements IProductosRepository{
+    private static ProductoRepository instance;
     private final ObservableList<Producto> repository = FXCollections.observableArrayList();
-    private final Storage storage;
+    private final Storage storage = Storage.getInstance();
     Logger logger = LogManager.getLogger(ProductoRepository.class);
-    private final ManagerBBDD db ;
+    ManagerBBDD db = ManagerBBDD.getInstance();
 
 
-    @Inject
-    public ProductoRepository(Storage storage, ManagerBBDD db) {
-        this.storage = storage;
-        this.db = db;
+    private ProductoRepository() {}
+
+    public static ProductoRepository getInstance() {
+        if (instance == null) {
+            instance = new ProductoRepository();
+        }
+        return instance;
     }
 
 
@@ -110,10 +114,10 @@ public class ProductoRepository implements IProductosRepository{
         });
     }
     @Override
-    public Optional<Producto> findByDescripcion(String descripcion) throws SQLException {
-        String query = "SELECT * FROM producto WHERE descripcion = ?";
+    public Optional<Producto> findById(String id) throws SQLException {
+        String query = "SELECT * FROM producto WHERE id = ?";
         db.open();
-        ResultSet result = db.select(query, descripcion).orElseThrow(() -> new SQLException("Error al consultar producto con descripcion " + descripcion));
+        ResultSet result = db.select(query, id).orElseThrow(() -> new SQLException("Error al consultar producto con id " + id));
         if (result.first()) {
             Producto producto = new Producto(
                     result.getString("id"),
@@ -186,6 +190,12 @@ public class ProductoRepository implements IProductosRepository{
         storage.copyFile(source, destination);
         producto.setAvatar(destination);
     }
-
+    @Override
+    public void deleteAll() throws SQLException {
+        String sql = "DELETE FROM productos";
+        db.open();
+        db.delete(sql);
+        db.close();
+    }
 
 }

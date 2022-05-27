@@ -22,7 +22,8 @@ public interface IProductosRepository extends CRUDRepository<Producto, Integer> 
 
     void storeAvatar(Producto producto) throws IOException;
 
-    Optional<Producto> findByDescripcion(String descripcion) throws SQLException;
+    Optional<Producto> findById(String id) throws SQLException;
+    void deleteAll() throws SQLException;
 
 
 }
