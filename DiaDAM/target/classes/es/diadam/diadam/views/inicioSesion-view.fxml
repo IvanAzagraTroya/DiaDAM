@@ -45,9 +45,9 @@
         </Button>
         <Button fx:id="btnIniciarSesion" defaultButton="true" layoutX="176.0" layoutY="154.0" mnemonicParsing="false"
                 onAction="#accionIniciarbtn" prefHeight="26.0" prefWidth="92.0" text="Iniciar Sesión"/>
-        <Button fx:id="btnSalirClick" layoutX="291.0" layoutY="154.0" mnemonicParsing="false" onAction="#btnSalirClick"
+        <Button fx:id="btnSalirClick" layoutX="291.0" layoutY="154.0" mnemonicParsing="false" onAction="#accionSalirbtn"
                 prefHeight="26.0" prefWidth="64.0" text="Salir"/>
-        <Hyperlink layoutX="14.0" layoutY="193.0" onAction="#linkGoogle" text="Iniciar sesión con Google">
+        <Hyperlink layoutX="14.0" layoutY="193.0" onAction="#linkGooglebtn" text="Iniciar sesión con Google">
         <graphic>
             <ImageView fitHeight="14.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="es/diadam/diadam/images/google.png"/>
@@ -55,8 +55,8 @@
         </graphic>
         </Hyperlink>
         <ImageView fitHeight="47.0" fitWidth="200.0" layoutX="158.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="es/diadam/diadam/images/images/Dia.png"/>
+            <Image url="es/diadam/diadam/images/Dia.png"/>
         </ImageView>
-        <Button layoutX="268.0" layoutY="192.0" mnemonicParsing="false" text="No tienes cuenta?"/>
+        <Button fx:id="btnReigstrobtn" layoutX="268.0" layoutY="192.0" mnemonicParsing="false" onAction="#accionRegistrobtn" text="No tienes cuenta?"/>
     </Pane>
 </GridPane>

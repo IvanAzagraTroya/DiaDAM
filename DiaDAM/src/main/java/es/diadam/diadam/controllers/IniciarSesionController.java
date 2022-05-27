@@ -32,7 +32,7 @@ public class IniciarSesionController {
     private TextField txtEmail;
 
     @FXML
-    // COntraseña del usuario
+    // Contraseña del usuario
     private TextField txtContrasenia;
 
     private void accionRegistrarse() throws SQLException {
@@ -87,6 +87,9 @@ public class IniciarSesionController {
             alert.setTitle("Datos introducidos");
             alert.setHeaderText("Los datos han sido introducidos correctamente: ");
             alert.setContentText("Email: "+email+ System.lineSeparator()+"Contraseña: " +contra);
+            // Comprueba los métodos del email y la contraseña con la persona para ver si existe
+            // si devuelven true se carga la escena del carrito, sino entra en el else y hace el focus
+            // al campo equivocado, o al menos debería.
             if(compruebaEmail() && compruebaContraseña())
                 SceneManager.get().initCarrito();
             else{
@@ -120,8 +123,12 @@ public class IniciarSesionController {
         txtContrasenia.setText("");
         txtEmail.requestFocus();
     }
+    
+    private void accionRegistro() throws IOException {
+        SceneManager.get().initRegistro();
+    }
     @FXML
-    private void linkGoogle(ActionEvent event) {
+    private void linkGooglebtn(ActionEvent event) {
         try {
             new ProcessBuilder("x-www-browser", "https://accounts.google.com/signin/v2/identifier?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2FEditPasswd%3Fhl%3Des&followup=https%3A%2F%2Faccounts.google.com%2FEditPasswd%3Fhl%3Des&hl=es&flowName=GlifWebSignIn&flowEntry=ServiceLogin").start();
         }catch (IOException e) {
@@ -142,6 +149,19 @@ public class IniciarSesionController {
     private void accionIniciarbtn(ActionEvent event) throws SQLException, IOException{
         logger.info("Se ha iniciado sesión");
         accionIniciar();
+    }
+    
+    @FXML 
+    private void accionSalirbtn(ActionEvent event){
+        logger.info("Se va a salir");
+        accionSalir();
+    }
+    
+    @FXML
+    private void accionRegistrobtn(ActionEvent event) throws IOException{
+        logger.info("Se abre la pantalla de registro");
+        accionRegistro();
+        
     }
 
     private boolean compruebaEmail() throws SQLException {
