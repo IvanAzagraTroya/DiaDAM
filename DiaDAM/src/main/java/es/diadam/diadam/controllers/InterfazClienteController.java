@@ -6,8 +6,6 @@ import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
 
 import es.diadam.diadam.utils.Resources;
-import es.diadam.diadam.utils.Temas;
-import es.diadam.diadam.utils.Themes;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -32,6 +30,9 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
+    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección, esta está hecha con javafx
+    //private ProductoRepository productoRepository = DaggerRepositoryFactory.create().build();
+
     // Inyección realizada con javafx
     @Inject
     ProductoRepository productoRepository;
@@ -44,6 +45,8 @@ public class InterfazClienteController {
 
     @FXML
     private void initialize() {
+        // Mismo problema que antes
+        //DaggerRepositoryFactory.create().inject(this);
         try {
             loadData();
 
@@ -80,6 +83,10 @@ public class InterfazClienteController {
         }
     }
 
+    /*private void clearDataInfo() {
+        algoLabel.setText("");
+    }*/
+
     @FXML
     private void onAcercaDeButton() throws IOException {
         logger.info("Iniciando la ventana Acerca De");
@@ -90,12 +97,6 @@ public class InterfazClienteController {
     private void onCarritoButton() throws IOException {
         logger.info("Iniciando ventana carrito");
         SceneManager.get().initCarrito();
-    }
-    
-    @FXML
-    private void onIniciarSesionButton() throws IOException {
-        logger.info("Iniciando ventana iniciar sesión");
-        SceneManager.get().initIniciarSesion();
     }
 
     @FXML
@@ -118,13 +119,12 @@ public class InterfazClienteController {
     @FXML
     private void loadData() throws SQLException {
         logger.info("Accediendo a catálogo...");
-        // El catálogo está vacío así que esto da error TODO ver este problema.
-        //productoCatalog.setItems(productoRepository.findAll());
+        productoCatalog.setItems(productoRepository.findAll());
     }
 
     @FXML
-    private void onChangeMode() throws IOException {
-        logger.info("Cambiando de tema");
-        Temas.set(this.avatarImageView, Themes.OSCURO.get());
+    private void onChangeMode() {
+        logger.info("Cambiando paleta de colores");
+        // TODO meter los estilos aquí
     }
 }
