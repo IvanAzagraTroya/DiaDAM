@@ -12,6 +12,7 @@ module es.diadam.diadam {
     requires javax.inject;
     requires dagger;
     requires java.compiler;
+    requires com.google.gson;
 
     exports es.diadam.diadam;
     exports es.diadam.diadam.controllers;

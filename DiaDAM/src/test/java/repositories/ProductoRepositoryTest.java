@@ -19,7 +19,11 @@ class ProductoRepositoryTest {
     private final Producto pTest2 = new Producto(UUID.randomUUID().toString(), "Solomillo", 5, 2.50, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png"));
     private final Producto pTest3 = new Producto(UUID.randomUUID().toString(), "Pescadilla", 19, 1.50, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png"));
 
-
+    @BeforeAll
+    static void setUpAll(){
+        //Inicializamos la base de datos, estructura de tablas
+        DataBase.init();
+    }
     @BeforeAll
     static void setUp() throws SQLException {
         productoRepository.deleteAll();
@@ -31,12 +35,12 @@ class ProductoRepositoryTest {
             productoRepository.create(pTest1);
             productoRepository.create(pTest2);
             productoRepository.create(pTest3);
-            var resLleno = productoRepository.findAll();
+            var resLlenoOptional = productoRepository.findAll();
             assertAll(
-                    () -> assertEquals(3, resLleno.size()),
-                    () -> assertEquals(pTest1, resLleno.get(0)),
-                    () -> assertEquals(pTest2, resLleno.get(1)),
-                    () -> assertEquals(pTest3, resLleno.get(2))
+                    () -> assertEquals(3, resLlenoOptional.size()),
+                    () -> assertEquals(pTest1, resLlenoOptional.get(0)),
+                    () -> assertEquals(pTest2, resLlenoOptional.get(1)),
+                    () -> assertEquals(pTest3, resLlenoOptional.get(2))
             );
         }catch (Exception e){
             throw new SQLException(e.getMessage());
