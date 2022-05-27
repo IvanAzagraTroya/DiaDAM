@@ -1,7 +1,8 @@
 package utilities;
 
 //import com.sun.tools.javac.Main;
-import com.sun.tools.javac.Main;
+
+import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.utils.ApplicationProperties;
 
@@ -17,7 +18,7 @@ public class DataBase {
             ManagerBBDD controller = ManagerBBDD.getInstance();
             String dataPath = "sql" + File.separator + "init-db.sql";
             try {
-                var sqlFile = Main.class.getClassLoader().getResource(dataPath).getPath();
+                var sqlFile = DiaApplication.class.getClassLoader().getResource(dataPath).getPath();
                 controller.open();
                 controller.initData(sqlFile, false);
                 controller.close();
