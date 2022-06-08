@@ -82,16 +82,17 @@ public class SceneManager {
     }
 
     public void initIniciarSesion() throws IOException {
-        // TODO Meter funcion de botones inicio sesión
         logger.info("Abriendo iniciar sesión");
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(DiaApplication.class.getResource(Views.INICIOSESION.get())));
-        Scene scene =  new Scene(fxmlLoader.load(), Properties.INICIOSESION_WIDTH, Properties.INICIOSESION_HEIGHT);
+        Scene scene = new Scene(fxmlLoader.load(), Properties.INICIOSESION_WIDTH, Properties.INICIOSESION_HEIGHT);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Iniciar sesión");
-        logger.info("Escena inicio sesión cargada");
-        stage.setResizable(false);
+        stage.initOwner(mainStage);
+        stage.setTitle("Inicio sesión: ");
+        fxmlLoader.<IniciarSesionController>getController().setDialogStage(stage);
         IniciarSesionController controller = fxmlLoader.getController();
+        logger.info("Escena Inicio Sesión cargada");
+        stage.setResizable(false);
         stage.showAndWait();
     }
 

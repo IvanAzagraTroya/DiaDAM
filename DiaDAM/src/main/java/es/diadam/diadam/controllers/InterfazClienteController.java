@@ -30,12 +30,9 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-    //No me detecta el DaggerRepositoryFactory así que de momento usaré la Inyección, esta está hecha con javafx
-    //private ProductoRepository productoRepository = DaggerRepositoryFactory.create().build();
-
     // Inyección realizada con javafx
-    @Inject
-    ProductoRepository productoRepository;
+
+    ProductoRepository productoRepository = ProductoRepository.getInstance();
 
     @FXML
     private ListView<Producto> productoCatalog;
@@ -120,6 +117,12 @@ public class InterfazClienteController {
     private void loadData() throws SQLException {
         logger.info("Accediendo a catálogo...");
         productoCatalog.setItems(productoRepository.findAll());
+    }
+
+    @FXML
+    private void onIniciarSesionButton() throws IOException {
+        logger.info("Iniciando ventana iniciar sesión");
+        SceneManager.get().initIniciarSesion();
     }
 
     @FXML

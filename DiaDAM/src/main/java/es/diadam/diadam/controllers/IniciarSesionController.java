@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,6 +35,12 @@ public class IniciarSesionController {
     @FXML
     // Contraseña del usuario
     private TextField txtContrasenia;
+
+    private Stage dialogStage;
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
 
     private void accionRegistrarse() throws SQLException {
         // Se pasan los parámetros del usuario al método
@@ -61,6 +68,7 @@ public class IniciarSesionController {
             alert.setContentText("Email: "+email+ System.lineSeparator()+"Contraseña: " +contra);
         }
         alert.showAndWait();
+        dialogStage.close();
     }
     
     private void accionIniciar() throws SQLException, IOException {
@@ -102,6 +110,7 @@ public class IniciarSesionController {
             }
         }
         alert.showAndWait();
+        dialogStage.close();
     }
 
     private void accionSalir() {
