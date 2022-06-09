@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -24,8 +25,8 @@ import java.util.Optional;
 public class IniciarSesionController {
     Logger logger = LogManager.getLogger(IniciarSesionController.class);
 
-    @Inject
-    PersonasRepository personasRepository;
+
+    PersonasRepository personasRepository = PersonasRepository.getInstance();
 
     @FXML
     // Se introduce el email del usuario que se tendrá que mirar mediante regex
@@ -34,6 +35,12 @@ public class IniciarSesionController {
     @FXML
     // Contraseña del usuario
     private TextField txtContrasenia;
+
+    private Stage dialogStage;
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
 
     private void accionRegistrarse() throws SQLException {
         // Se pasan los parámetros del usuario al método
@@ -61,6 +68,7 @@ public class IniciarSesionController {
             alert.setContentText("Email: "+email+ System.lineSeparator()+"Contraseña: " +contra);
         }
         alert.showAndWait();
+        dialogStage.close();
     }
     
     private void accionIniciar() throws SQLException, IOException {
@@ -91,7 +99,14 @@ public class IniciarSesionController {
             // si devuelven true se carga la escena del carrito, sino entra en el else y hace el focus
             // al campo equivocado, o al menos debería.
             if(compruebaEmail() && compruebaContraseña())
-                SceneManager.get().initCarrito();
+                // comprueba si el tipo del usuario es cliente o administrador, para así cargar la escena de edición de productos.
+                if(compruebaTipo()) {
+                    SceneManager.get().initInterfazAdministrador();
+                } else {
+                    // Si el tipo es de cliente se carga la escena del catalogo.
+                    SceneManager.get().initInterfazCliente();
+                }
+
             else{
                 alert.setTitle("Ha ocurrido un error");
                 alert.setContentText("Email o contraseña incorrectos");
@@ -102,6 +117,7 @@ public class IniciarSesionController {
             }
         }
         alert.showAndWait();
+        dialogStage.close();
     }
 
     private void accionSalir() {
@@ -179,6 +195,15 @@ public class IniciarSesionController {
         boolean valid = false;
         for(Persona persona : personasRepository.findAll()) {
             if(persona.getContrasenia() == txtContrasenia.getText())
+                valid = true;
+        }
+        return valid;
+    }
+
+    private boolean compruebaTipo() throws SQLException {
+        boolean valid = false;
+        for(Persona persona : personasRepository.findAll()) {
+            if(persona.getTipo() == "Administrador")
                 valid = true;
         }
         return valid;

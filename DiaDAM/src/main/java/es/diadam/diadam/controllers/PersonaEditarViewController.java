@@ -22,7 +22,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 
 /**
- * @author Alvaro Mingo Castillo
+ * @author Alvaro Mingo
  */
 public class PersonaEditarViewController {
     Logger logger = LogManager.getLogger(PersonaEditarViewController.class);

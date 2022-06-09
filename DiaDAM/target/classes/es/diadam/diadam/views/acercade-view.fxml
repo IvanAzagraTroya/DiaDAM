@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<!--Veronica Anchitipan -->
+<!--Iván Azagra -->
 
 <AnchorPane prefHeight="299.0" prefWidth="463.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAcercaDeController">
    <children>
@@ -21,7 +21,7 @@
       </Label>
       <ImageView fx:id="imagenGit" fitHeight="79.0" fitWidth="79.0" layoutX="300.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="es/diadam/diadam/images/github.png" />
+            <Image url="@../images/github.png" />
          </image>
       </ImageView>
       <Label fx:id="repo" layoutX="15.0" layoutY="184.0" prefHeight="15.0" prefWidth="218.0">

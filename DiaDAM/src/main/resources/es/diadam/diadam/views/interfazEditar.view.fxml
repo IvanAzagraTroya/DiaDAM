@@ -49,7 +49,7 @@
         </HBox>
         <ImageView fx:id="avatarImageView" fitHeight="80.0" fitWidth="80.0" onMouseClicked="#onAvatarAction" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <image>
-                <Image url="@es/diadam/diadam/images/ImagenPorDefecto.png"/>
+                <Image url="@../images/ImagenPorDefecto.png"/>
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />

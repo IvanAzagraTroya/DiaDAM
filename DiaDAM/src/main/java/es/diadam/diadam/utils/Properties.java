@@ -19,8 +19,8 @@ public class Properties {
     public static final int SPLASH_WIDTH = 430;
 
     // Inicio Sesión / Registro Sesión
-    public static final int INICIOSESION_HEIGHT = 100;
-    public static final int INICIOSESION_WIDTH = 150;
+    public static final int INICIOSESION_HEIGHT = 400;
+    public static final int INICIOSESION_WIDTH = 550;
 
     // Acerca de
     public static final String APP_VERSION = "0.0.1";

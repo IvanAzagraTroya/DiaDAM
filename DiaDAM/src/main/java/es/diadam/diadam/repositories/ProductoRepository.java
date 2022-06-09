@@ -47,6 +47,7 @@ public class ProductoRepository implements IProductosRepository{
     }
 
 
+
     private void initData() {
         if(repository.isEmpty()){
             logger.info("Inicializando datos");

@@ -52,6 +52,7 @@ public class Persona {
         this.tipo= new SimpleStringProperty(tipo);
 
     }
+
     public Persona(){this(null, null, null, null, null, null, null, null,null,null);}
 
     public String getId() {
