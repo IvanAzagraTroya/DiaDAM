@@ -6,6 +6,11 @@ import es.diadam.diadam.models.Venta;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+/**
+ * @author Alvaro Mingo Castillo
+ */
+
 public class VentasRepository {
     private static VentasRepository instance;
     Map<String, Venta> ventas;

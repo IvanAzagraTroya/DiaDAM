@@ -3,10 +3,12 @@ package es.diadam.diadam.controllers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import es.diadam.diadam.DiaApplication;
+import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.*;
 import es.diadam.diadam.repositories.CarritoRepository;
 import es.diadam.diadam.repositories.ProductoRepository;
 import es.diadam.diadam.repositories.VentasRepository;
+import es.diadam.diadam.services.Storage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,8 +29,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class CarritoController {
-
-    private final ProductoRepository productosRepository = ProductoRepository.getInstance();
+    private static final ManagerBBDD db = ManagerBBDD.getInstance();
+    private static final Storage storage = Storage.getInstance();
+    private final ProductoRepository productosRepository = ProductoRepository.getInstance(db,storage);
     private final CarritoRepository carritoRepository = CarritoRepository.getInstance();
     private final ObservableList<Integer> cantidadList = FXCollections.observableArrayList();
     @FXML

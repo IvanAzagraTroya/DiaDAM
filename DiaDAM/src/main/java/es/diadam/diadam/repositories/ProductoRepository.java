@@ -32,19 +32,24 @@ import java.util.stream.Collectors;
 public class ProductoRepository implements IProductosRepository{
     private static ProductoRepository instance;
     private final ObservableList<Producto> repository = FXCollections.observableArrayList();
-    private final Storage storage = Storage.getInstance();
     Logger logger = LogManager.getLogger(ProductoRepository.class);
-    ManagerBBDD db = ManagerBBDD.getInstance();
+    private final Storage storage;
+    ManagerBBDD db;
 
 
-    private ProductoRepository() {}
 
-    public static ProductoRepository getInstance() {
+    private ProductoRepository(ManagerBBDD db, Storage storage) {
+        this.db = db;
+        this.storage = storage;
+
+    }
+    public static ProductoRepository getInstance(ManagerBBDD db, Storage storage) {
         if (instance == null) {
-            instance = new ProductoRepository();
+            instance = new ProductoRepository(db, storage);
         }
         return instance;
     }
+
 
 
 
@@ -92,13 +97,11 @@ public class ProductoRepository implements IProductosRepository{
         return repository;
     }
 
-    // Backup de la lista de productos.
     public void backup() throws IOException {
         List<ProductoDTO> producto = repository.stream().map(ProductoDTO::new).collect(Collectors.toList());
         storage.backup(producto);
     }
 
-    // Restaura la lista de productos.
     public void restore() throws IOException, ClassNotFoundException, SQLException {
         List<ProductoDTO> productos = storage.restore();
         repository.clear();

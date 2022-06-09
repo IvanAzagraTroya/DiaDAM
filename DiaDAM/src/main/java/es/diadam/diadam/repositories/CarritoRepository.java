@@ -3,7 +3,9 @@ package es.diadam.diadam.repositories;
 import es.diadam.diadam.models.Carrito;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+/**
+ * @author Alvaro Mingo Castillo
+ */
 public class CarritoRepository {
     private static CarritoRepository instance;
 
@@ -23,12 +25,14 @@ public class CarritoRepository {
         return items;
     }
 
-    public void addItem(Carrito item) {
+    public Carrito addItem(Carrito item) {
         items.add(item);
+        return item;
     }
 
-    public void removeItem(Carrito item) {
+    public Carrito removeItem(Carrito item) {
         items.remove(item);
+        return item;
     }
 
     public double getTotal() {

@@ -7,8 +7,6 @@ import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.utils.Resources;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import utilities.DataBase;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -29,11 +27,6 @@ public class PersonasRepositoryTest {
             UUID.randomUUID().toString(), "maria", "gonzalez", "madrid, calle: baja, numero:10 ", "616497321", "9198765345678908", "maria@gmail.com", "19275678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
     );
 
-    @BeforeAll
-    static void setUpAll(){
-        //Inicializamos la base de datos, estructura de tablas
-        DataBase.init();
-    }
 
     @BeforeAll
     void setUp() throws SQLException, IOException {
