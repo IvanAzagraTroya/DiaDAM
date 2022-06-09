@@ -87,4 +87,12 @@ class ProductoRepositoryTest {
             throw new SQLException(e.getMessage());
         }
     }
+    @Test
+    void create(){
+
+
+
+
+
+    }
 }

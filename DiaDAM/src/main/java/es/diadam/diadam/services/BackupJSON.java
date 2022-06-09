@@ -56,4 +56,16 @@ public class BackupJSON implements IBackupJSON{
         return gson.fromJson(json, new TypeToken<List<Persona>>(){
         }.getType());
     }
+
+//restore en json
+    void restore(String fileName) throws IOException {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+                .create();
+        String json = "";
+        json = Files.readString(new File(BACKUP_FILE + fileName).toPath());
+        System.out.println(json);
+    }
+
+
 }

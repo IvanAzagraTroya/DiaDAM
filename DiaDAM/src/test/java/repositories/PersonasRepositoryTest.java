@@ -99,11 +99,6 @@ public class PersonasRepositoryTest {
         );
     }
 
-
-
-
-
-
     @Test
     void delete() throws SQLException, IOException {
         var res = personaRepository.delete(pTest2).get();
@@ -115,6 +110,11 @@ public class PersonasRepositoryTest {
                 () -> assertFalse( personaOp.isPresent())
         );
     }
+
+
+
+
+
 
     @Test
     void update() throws SQLException, IOException {
