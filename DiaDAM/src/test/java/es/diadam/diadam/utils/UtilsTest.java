@@ -18,18 +18,6 @@ public class UtilsTest {
     }
 
     @Test
-    public void isTarjetaCreditoTest(){
-        String tarjeta = "4657818439124503";
-        String tarjetaIncorrecto = "398709897654788";
-        String tarjetaIncorrecto2 = "13245674121232341";
-        String tarjetaIncorrecto3 = "G234167412123234";
-        assertAll(
-                () -> assertTrue(Utils.isTarjeta(tarjeta)),
-                () -> assertFalse(Utils.isTarjeta(tarjetaIncorrecto)),
-                () -> assertFalse(Utils.isTarjeta(tarjetaIncorrecto2)),
-                () -> assertFalse(Utils.isTarjeta(tarjetaIncorrecto3))
-        );
-    }
     public void isTelefonoTest(){
         String telefono = "636123143";
         String telefonoIncorrecto = "6361231431";
@@ -56,6 +44,20 @@ public class UtilsTest {
                 () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto9)),
                 () -> assertFalse(Utils.isTarjeta(telefonoIncorrecto10))
 
+        );
+    }
+
+    @Test
+    public void isTarjetaCreditoTest(){
+        String tarjeta = "4657818439124503";
+        String tarjetaIncorrecto = "398709897654788";
+        String tarjetaIncorrecto2 = "13245674121232341";
+        String tarjetaIncorrecto3 = "G234167412123234";
+        assertAll(
+                () -> assertTrue(Utils.isTarjeta(tarjeta)),
+                () -> assertFalse(Utils.isTarjeta(tarjetaIncorrecto)),
+                () -> assertFalse(Utils.isTarjeta(tarjetaIncorrecto2)),
+                () -> assertFalse(Utils.isTarjeta(tarjetaIncorrecto3))
         );
     }
 

@@ -7,7 +7,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * @author Jorge Sanchez Berrocoso
+ */
 @DisplayName("Carro Compra Test")
 public class CarritoRepositoryTest {
     private final CarritoRepository carritoRepository = CarritoRepository.getInstance();
