@@ -16,8 +16,6 @@ public class CarritoRepositoryTest {
 
     private final Carrito pTest1 = new Carrito("Hamburguesa",5.0, 6, "");
 
-
-
     @BeforeAll
     void setUp(){
         carritoRepository.clear();
