@@ -53,7 +53,7 @@ public class SceneManager {
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(appClass.getResource(Views.INTERFAZCLIENTE.get())));
         Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGHT);
         Stage stage = new Stage();
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
         stage.setTitle(Properties.APP_TITLE);
         stage.initStyle(StageStyle.DECORATED);
@@ -67,7 +67,26 @@ public class SceneManager {
         stage.show();
     }
 
-    public void initSplash(Stage stage) throws IOException, InterruptedException {
+    public void initInterfazAdministrador() throws IOException{
+        logger.info("Iniciando interfaz administrador");
+        Platform.setImplicitExit(true);
+        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
+        Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGHT);
+        Stage stage = new Stage();
+        stage.setResizable(false);
+        stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
+        stage.setTitle(Properties.APP_TITLE);
+        stage.initStyle(StageStyle.DECORATED);
+        logger.info("Escena Administrador editar cargada");
+        stage.setOnCloseRequest(event -> {
+            fxmlLoader.<InterfazClienteController>getController().onSalirAction();
+        });
+        stage.setScene(scene);
+        mainStage = stage;
+        stage.show();
+    }
+
+    public void initSplash(Stage stage) throws IOException {
         Platform.setImplicitExit(false);
         logger.info("Iniciando splash");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.SPLASH.get()));
@@ -89,8 +108,9 @@ public class SceneManager {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(mainStage);
         stage.setTitle("Inicio sesión: ");
-        fxmlLoader.<IniciarSesionController>getController().setDialogStage(stage);
+        stage.setScene(scene);
         IniciarSesionController controller = fxmlLoader.getController();
+        controller.setDialogStage(stage);
         logger.info("Escena Inicio Sesión cargada");
         stage.setResizable(false);
         stage.showAndWait();
@@ -142,11 +162,6 @@ public class SceneManager {
         stage.setScene(scene);
         logger.info("Escena de estadísticas cargada");
         stage.showAndWait();
-    }
-
-    public void initInterfazAdministrador() throws IOException{
-        logger.info("Iniciando interfaz administrador");
-        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
     }
 
     public boolean initProductoEditar(boolean edicion, Producto p) throws IOException{
