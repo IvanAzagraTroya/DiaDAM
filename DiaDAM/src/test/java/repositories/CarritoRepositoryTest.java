@@ -77,8 +77,21 @@ public class CarritoRepositoryTest {
             carritoRepository.addItem(pTest1);
             var res = carritoRepository.getTotal();
             assertAll(
-                    () -> assertEquals(2f, res)
+                    () -> assertEquals(5.0, res)
             );
+        }catch (Exception e){
+            fail();
+        }
+    }
+
+    @Test
+    void clear(){
+        try {
+            carritoRepository.addItem(pTest1);
+            carritoRepository.clear();
+
+            assertTrue(carritoRepository.getItems().isEmpty());
+
         }catch (Exception e){
             fail();
         }
