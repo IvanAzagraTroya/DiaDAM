@@ -32,8 +32,11 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
+
     ManagerBBDD db;
     Storage storage;
+
+
 
     ProductoRepository productoRepository = ProductoRepository.getInstance(db, storage);
 
@@ -59,6 +62,7 @@ public class InterfazClienteController {
     private void onProductoSelected(Producto producto) {
         // TODO método que interactúe con el carrito
         // Aquí se llevaría al carrito de compra?
+
     }
 
 
@@ -101,7 +105,7 @@ public class InterfazClienteController {
 
     @FXML
     public void onSalirAction() {
-        logger.info("Se ha pulsado el botón salir");
+        logger.info("Se ha pulsado el botón erssalir");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
         alert.setHeaderText("Desea salir de la aplicación?");

@@ -20,10 +20,10 @@ public class PersonasRepositoryTest {
     private final Persona pTest1 = new Persona(
             UUID.randomUUID().toString(), "raul", "Mingo", "madrid, calle: lopez, numero:20 ", "616497321", "9123212345678908", "antionio@gmail.com", "12945678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
     );
-    private final Persona pTest1V2 = new Persona(
+    private final Persona pTest2 = new Persona(
             UUID.randomUUID().toString(), "ruben", "torres", "madrid, calle: bernard, numero:30 ", "616497321", "9123212345123458", "rubenio@gmail.com", "65745678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
     );
-    private final Persona pTest2 = new Persona(
+    private final Persona pTest3 = new Persona(
             UUID.randomUUID().toString(), "maria", "gonzalez", "madrid, calle: baja, numero:10 ", "616497321", "9198765345678908", "maria@gmail.com", "19275678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
     );
 
@@ -40,7 +40,7 @@ public class PersonasRepositoryTest {
             var resVacioOptional = personaRepository.findAll();
 
             personaRepository.create(pTest1);
-            personaRepository.create(pTest2);
+            personaRepository.create(pTest3);
 
             var resLlenoOptional = personaRepository.findAll();
 
@@ -48,7 +48,7 @@ public class PersonasRepositoryTest {
                     () -> assertEquals(0, resLlenoOptional.size()),
                     () -> assertEquals(3, resLlenoOptional.size()),
                     () -> assertEquals(pTest1, resLlenoOptional.get(0)),
-                    () -> assertEquals(pTest2, resLlenoOptional.get(1))
+                    () -> assertEquals(pTest3, resLlenoOptional.get(1))
 
             );
         } catch (Exception e) {
@@ -94,12 +94,12 @@ public class PersonasRepositoryTest {
 
     @Test
     void delete() throws SQLException, IOException {
-        var res = personaRepository.delete(pTest2).get();
+        var res = personaRepository.delete(pTest3).get();
         Optional<Persona> personaOp = Optional.ofNullable(personaRepository.findById(pTest2.getId()));
         assertAll(
-                () -> assertEquals(res.getId(), pTest2.getId()),
-                () -> assertEquals(res.getNombre(), pTest2.getNombre()),
-                () -> assertEquals(res.getApellido(), pTest2.getApellido()),
+                () -> assertEquals(res.getId(), pTest3.getId()),
+                () -> assertEquals(res.getNombre(), pTest3.getNombre()),
+                () -> assertEquals(res.getApellido(), pTest3.getApellido()),
                 () -> assertFalse( personaOp.isPresent())
         );
     }
@@ -111,22 +111,22 @@ public class PersonasRepositoryTest {
 
     @Test
     void update() throws SQLException, IOException {
-        pTest1V2.setNombre("pepe");
-        pTest1V2.setApellido("ronaldo");
-        pTest1V2.setTarjeta("1234567890987654");
-        pTest1V2.setTelefono("");
-        pTest1V2.setTarjeta("1234567890987654");
-        pTest1V2.setEmail("pepe@gmail.com");
-        pTest1V2.setContrasenia("12345434");
-        pTest1V2.setEmail("CLIENTE");
+        pTest2.setNombre("pepe");
+        pTest2.setApellido("ronaldo");
+        pTest2.setTarjeta("1234567890987654");
+        pTest2.setTelefono("");
+        pTest2.setTarjeta("1234567890987654");
+        pTest2.setEmail("pepe@gmail.com");
+        pTest2.setContrasenia("12345434");
+        pTest2.setEmail("CLIENTE");
 
-        var res = personaRepository.update(pTest1V2).get();
-        Optional<Persona> personaOp = Optional.ofNullable(personaRepository.findById(pTest1V2.getId()));
+        var res = personaRepository.update(pTest2).get();
+        Optional<Persona> personaOp = Optional.ofNullable(personaRepository.findById(pTest2.getId()));
 
         assertAll(
-                () -> assertEquals(res.getId(), pTest1V2.getId()),
-                () -> assertEquals(res.getNombre(), pTest1V2.getNombre()),
-                () -> assertEquals(res.getId(), pTest1V2.getId())
+                () -> assertEquals(res.getId(), pTest2.getId()),
+                () -> assertEquals(res.getNombre(), pTest2.getNombre()),
+                () -> assertEquals(res.getId(), pTest2.getId())
         );
     }
 

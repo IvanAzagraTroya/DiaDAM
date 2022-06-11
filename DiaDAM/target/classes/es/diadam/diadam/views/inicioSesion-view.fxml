@@ -45,26 +45,26 @@
                           <Font name="System Italic" size="12.0" />
                       </font>
                   </TextField>
-                  <Button layoutX="394.0" layoutY="352.0" mnemonicParsing="false" onAction="#accionRegistrobtn" prefHeight="25.0" prefWidth="111.0" text="No tienes cuenta?" />
-                  <Button layoutX="410.0" layoutY="307.0" mnemonicParsing="false" onAction="#accionSalirbtn" prefHeight="25.0" prefWidth="85.0" text="Salir" />
-                  <Button layoutX="245.0" layoutY="307.0" mnemonicParsing="false" onAction="#accionIniciarbtn" prefHeight="25.0" prefWidth="111.0" text="Iniciar Sesión" />
+                  <Button layoutX="410.0" layoutY="356.0" mnemonicParsing="false" text="No tienes cuenta?" />
+                  <Button layoutX="410.0" layoutY="307.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Salir" />
+                  <Button layoutX="245.0" layoutY="307.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Iniciar Sesión" />
                   <Hyperlink layoutX="45.0" layoutY="355.0" text="Iniciar sesión con Google">
                      <graphic>
                         <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/google.png" />
+                              <Image url="es/diadam/diadam/images/google.png" />
                            </image></ImageView>
                      </graphic>
                   </Hyperlink>
-                  <ImageView fitHeight="90.0" fitWidth="170.0" layoutX="215.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="90.0" fitWidth="171.0" layoutX="215.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Dia.png" />
+                        <Image url="es/diadam/diadam/images/Dia.png" />
                      </image></ImageView>
-                  <Button layoutX="74.0" layoutY="305.0" mnemonicParsing="false" onAction="#accionLimpiarbtn" text="Limpiar campos">
+                  <Button layoutX="74.0" layoutY="305.0" mnemonicParsing="false" text="Limpiar campos">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/delete-alert.png" />
+                              <Image url="es/diadam/diadam/images/delete-alert.png" />
                            </image></ImageView>
                      </graphic>
                   </Button>

@@ -39,8 +39,7 @@ public class CarritoController {
     private Stage dialogStage;
     @FXML
     private ListView<Producto> listProductos;
-    @FXML
-    private ListView<Producto> listProductosOferta;
+
     @FXML
     private TableView<Carrito> carritoTable;
     @FXML
@@ -61,7 +60,7 @@ public class CarritoController {
     private void initialize() {
         cantidadList.addAll(1, 2, 3, 4, 5);
         // Iniciamos las vistas
-        initProductosView();
+
         initTableView();
         // Cargamos los datos
         initData();
@@ -126,62 +125,9 @@ public class CarritoController {
         }
     }
 
-    private void initProductosView() {
-        // Factoria de celdas
-        listProductos.setCellFactory(param -> new ListCell<>() {
-            @Override
-            public void updateItem(Producto item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setText(null);
-                    setGraphic(null);
-                } else {
-                    HBox hBox = new HBox();
-                    hBox.setSpacing(10);
 
-                    VBox vbox = new VBox();
-                    vbox.setSpacing(10);
-                    Label nombre = new Label(item.getNombre());
-                    nombre.setStyle("-fx-font-weight: bold");
-                    Label precio = new Label(item.getPrecio() + " €");
-                    vbox.getChildren().addAll(nombre, precio);
-                    // Imagen
-                    ImageView imageView = new ImageView();
-                    imageView.setFitHeight(75);
-                    imageView.setFitWidth(50);
-                    var dirImage = Paths.get(System.getProperty("user.dir") + File.separator + "img" + File.separator + item.getAvatar());
-                    //System.out.println(dirImage);
-                    imageView.setImage(new Image(dirImage.toUri().toString()));
-                    // Boton
-                    Button button = new Button("Añadir");
-                    button.setOnAction(event -> {
-                        añadirProducto(item);
-                    });
-                    var iconPath = DiaApplication.class.getResource("icons" + File.separator + "add-cart.png");
-                    Image icon = new Image(iconPath.toString());
-                    ImageView iconView = new ImageView(icon);
-                    iconView.setFitHeight(20);
-                    iconView.setFitWidth(20);
-                    button.setGraphic(iconView);
-                    button.setStyle("-fx-background-color: #9cb7e5");
-                    hBox.setAlignment(Pos.CENTER);
-                    hBox.getChildren().addAll(imageView, vbox, button);
 
-                    // Se lo asignamos al list cell
-                    setGraphic(hBox);
-                }
-            }
-        });
-
-        listProductos.setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
-                Producto producto = listProductos.getSelectionModel().getSelectedItem();
-                añadirProducto(producto);
-            }
-        });
-    }
-
-    private void añadirProducto(Producto item) {
+    public void añadirProducto(Producto item) {
         System.out.println("Añadir producto");
         System.out.println(item);
         Carrito carritoItem = new Carrito(item.getNombre(),  item.getPrecio(),1,item.getAvatar());
