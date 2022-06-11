@@ -9,8 +9,8 @@ public enum Views {
     ACERCADE("views"+ File.separator+"acercade-view.fxml"),
     PRODUCTOEDITAR("views"+ File.separator+"productoeditar-view.fxml"),
     INICIOSESION("views"+ File.separator+"inicioSesion-view.fxml"),
-    REGISTROSESION("views"+ File.separator+"registroSesion.fxml"),
-    CARRITO("views"+ File.separator+"carritoView.fxml"),
+    REGISTROSESION("views"+ File.separator+"registroSesion-view.fxml"),
+    CARRITO("views"+ File.separator+"carrito-view.fxml"),
     PERSONAEDITAR("views"+ File.separator+"personaeditar-view.fxml"),
     ESTADISTICAS("views"+ File.separator+"estadisticas-view.fxml");
 

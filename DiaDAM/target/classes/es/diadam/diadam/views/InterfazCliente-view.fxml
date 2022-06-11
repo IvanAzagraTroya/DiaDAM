@@ -13,7 +13,7 @@
          <image>
             <Image url="@../images/PersonaDefectoOscuro.png" />
          </image></ImageView>
-        <Button layoutX="449.0" layoutY="36.0" mnemonicParsing="false" text="INICIAR SESIÓN" textAlignment="JUSTIFY" onAction="#onIniciarSesionButton">
+        <Button layoutX="449.0" layoutY="36.0" mnemonicParsing="false" onAction="#onIniciarSesionButton" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
             <font>
                 <Font size="11.0" />
             </font>
@@ -48,7 +48,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" onAction="#onAcercaDeButton"/>
+              <MenuItem mnemonicParsing="false" onAction="#onAcercaDeButton" text="About" />
             </items>
           </Menu>
         </menus>
@@ -63,18 +63,7 @@
          </graphic>
       </Button>
     </Pane>
-    <SplitPane dividerPositions="0.3" prefHeight="404.0" prefWidth="600.0">
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-            <Button layoutX="62.0" layoutY="124.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="62.0" layoutY="170.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="62.0" layoutY="212.0" mnemonicParsing="false" text="Button" />
-            <Button layoutX="62.0" layoutY="256.0" mnemonicParsing="false" text="Button" />
-            <Label layoutX="66.0" layoutY="77.0" text="FILTROS" />
-        </AnchorPane>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-         <children>
-            <ListView layoutY="-2.0" prefHeight="356.0" prefWidth="416.0" />
-         </children>
-        </AnchorPane>
+    <SplitPane prefHeight="404.0" prefWidth="600.0">
+      <ListView prefHeight="356.0" prefWidth="129.0" />
     </SplitPane>
 </VBox>

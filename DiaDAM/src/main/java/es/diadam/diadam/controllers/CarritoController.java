@@ -20,6 +20,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -34,6 +35,8 @@ public class CarritoController {
     private final ProductoRepository productosRepository = ProductoRepository.getInstance(db,storage);
     private final CarritoRepository carritoRepository = CarritoRepository.getInstance();
     private final ObservableList<Integer> cantidadList = FXCollections.observableArrayList();
+
+    private Stage dialogStage;
     @FXML
     private ListView<Producto> listProductos;
     @FXML
@@ -51,6 +54,9 @@ public class CarritoController {
     @FXML
     private TableColumn<Carrito, Integer> cantidadColumn;
 
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
     @FXML
     private void initialize() {
         cantidadList.addAll(1, 2, 3, 4, 5);
