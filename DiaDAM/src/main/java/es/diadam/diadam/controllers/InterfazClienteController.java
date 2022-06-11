@@ -1,10 +1,12 @@
 package es.diadam.diadam.controllers;
 
 import es.diadam.diadam.DiaApplication;
+import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.managers.SceneManager;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
 
+import es.diadam.diadam.services.Storage;
 import es.diadam.diadam.utils.Resources;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -30,9 +32,10 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-    // Inyección realizada con javafx
+    ManagerBBDD db;
+    Storage storage;
 
-    ProductoRepository productoRepository = ProductoRepository.getInstance();
+    ProductoRepository productoRepository = ProductoRepository.getInstance(db, storage);
 
     @FXML
     private ListView<Producto> productoCatalog;
