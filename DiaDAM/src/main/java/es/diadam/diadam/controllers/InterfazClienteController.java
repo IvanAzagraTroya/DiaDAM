@@ -124,7 +124,7 @@ public class InterfazClienteController {
     private void loadData() throws SQLException {
         logger.info("Accediendo a catálogo...");
         //productoCatalog.getItems().addAll(productoRepository.findAll());
-        productoCatalog.setItems(productoRepository.findAll());
+        //productoCatalog.setItems(productoRepository.findAll());
     }
 
     @FXML

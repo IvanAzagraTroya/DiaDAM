@@ -176,11 +176,11 @@ public class SceneManager {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initOwner(mainStage);
-        stage.setTitle("Inicio sesión: ");
+        stage.setTitle("Carrito: ");
         stage.setScene(scene);
-        IniciarSesionController controller = fxmlLoader.getController();
+        CarritoController controller = fxmlLoader.getController();
         controller.setDialogStage(stage);
-        logger.info("Escena Inicio Sesión cargada");
+        logger.info("Escena carrito cargada");
         stage.setResizable(false);
         stage.showAndWait();
     }
