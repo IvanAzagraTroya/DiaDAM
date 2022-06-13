@@ -149,24 +149,6 @@ public class SceneManager {
         stage.showAndWait();
     }
 
-    public void initEstadisticas(List<Producto> productos) throws IOException {
-        logger.info("Iniciando estadísticas");
-        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.ESTADISTICAS.get()));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.ESTADISTICAS_WIDTH, Properties.ESTADISTICAS_HEIGHT);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        // Como esta pantalla es subordinada necesita que le especifiquen su dueño
-        stage.initOwner(mainStage);
-        stage.setTitle("Estadísticas:");
-        stage.setResizable(false);
-        EstadisticasController controller = fxmlLoader.getController();
-        // TODO hacer el set producto dentro de estadísticas controller
-        //controller.setProductoData(productos);
-        stage.setScene(scene);
-        logger.info("Escena de estadísticas cargada");
-        stage.showAndWait();
-    }
-
     public boolean initProductoEditar(boolean edicion, Producto p) throws IOException{
         logger.info("Iniciando edición de producto");
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
