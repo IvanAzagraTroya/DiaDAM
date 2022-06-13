@@ -46,17 +46,9 @@ public class ManagerBBDD {
         }
         return controller;
     }
-
-    // Con sqlite solo hace falta el driver, como es para testeo solo pondré el jdbc
-    // En el initConfigFromFiles irán todos los componentes para dar la posibilidad
-    // A poder cambiar todos los componentes a preferencia del usuario.
+    
     private void initConfig() {
-        serverUrl = "localhost";
-        serverPort = "3306";
-        dataBaseName = "diadam.sqlite";
         jdbcDriver = "org.sqlite.JDBC";
-        user = "";
-        password = "";
     }
 
 

@@ -14,7 +14,6 @@ import javafx.collections.ObservableList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -73,8 +72,8 @@ public class ProductoRepository implements IProductosRepository{
 
 
     @Override
-    public  ObservableList<Producto>  findAll() throws SQLException {
-        String sql = "select * from productos";
+    public ObservableList<Producto> findAll() throws SQLException {
+        String sql = "SELECT * FROM productos";
         db.open();
         ResultSet rs = db.select(sql).orElseThrow(() -> new SQLException("Error al obtener todos las productos"));
         repository.clear();
@@ -85,8 +84,9 @@ public class ProductoRepository implements IProductosRepository{
                             rs.getString("nombre"),
                             rs.getInt("stock"),
                             rs.getDouble("cantidad"),
-                            rs.getString("avatar"),
-                            rs.getString("descripcion")
+                            rs.getString("descripcion"),
+                            rs.getString("avatar")
+                           
                     )
             );
         }
