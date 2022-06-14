@@ -49,7 +49,7 @@ public class ProductoRepository implements IProductosRepository{
 
 
 
-
+/*
     private void initData() {
         if(repository.isEmpty()){
             logger.info("Inicializando datos");
@@ -67,6 +67,7 @@ public class ProductoRepository implements IProductosRepository{
             }
         }
     }
+*/
 
 
 
@@ -75,9 +76,9 @@ public class ProductoRepository implements IProductosRepository{
         String sql = "SELECT * FROM productos";
         db.open();
         ResultSet rs = db.select(sql).orElseThrow(() -> new SQLException("Error al obtener todos las productos"));
-        repository.clear();
+        ArrayList<Producto> list = new ArrayList<>();
         while (rs.next()) {
-            repository.add(
+            list.add(
                     new Producto(
                             rs.getString("id"),
                             rs.getString("nombre"),
@@ -90,10 +91,8 @@ public class ProductoRepository implements IProductosRepository{
             );
         }
     db.close();
-        if(repository.isEmpty()){
-            initData();
-        }
-         return repository;
+
+        return FXCollections.observableList(list);
     }
 
     public void backup() throws IOException {
