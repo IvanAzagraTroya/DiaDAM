@@ -63,18 +63,18 @@ public class CarritoController {
 
         initTableView();
         // Cargamos los datos
-        initData();
+//        initData();
 
     }
 
-    private void initData() {
-        try {
-            listProductos.setItems(productosRepository.findAll());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        carritoTable.setItems(carritoRepository.getItems());
-    }
+//    private void initData() {
+//        try {
+//            listProductos.setItems(productosRepository.findAll());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        carritoTable.setItems(carritoRepository.getItems());
+//    }
 
 
     @FXML

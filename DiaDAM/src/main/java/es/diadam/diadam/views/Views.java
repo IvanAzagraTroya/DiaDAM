@@ -10,9 +10,7 @@ public enum Views {
     PRODUCTOEDITAR("views"+ File.separator+"productoeditar-view.fxml"),
     INICIOSESION("views"+ File.separator+"inicioSesion-view.fxml"),
     REGISTROSESION("views"+ File.separator+"registroSesion-view.fxml"),
-    CARRITO("views"+ File.separator+"carrito-view.fxml"),
-    PERSONAEDITAR("views"+ File.separator+"personaeditar-view.fxml"),
-    ESTADISTICAS("views"+ File.separator+"estadisticas-view.fxml");
+    CARRITO("views"+ File.separator+"carrito-view.fxml");
 
     private final String view;
 
