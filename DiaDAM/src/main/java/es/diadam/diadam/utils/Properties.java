@@ -58,6 +58,7 @@ public class Properties {
     public static final String IMAGES_DIR = DATA_DIR + File.separator + "images";
 
     // Base de datos
+    
     public static final String DB_DIR = APP_PATH + File.separator + "db";
-    public static final String DB_FILE = DB_DIR + File.separator + "diadam.sqlite";
+    public static final String DB_FILE = DB_DIR + File.separator + "diadam.db";
 }

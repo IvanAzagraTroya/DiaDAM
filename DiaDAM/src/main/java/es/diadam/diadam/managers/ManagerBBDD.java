@@ -14,6 +14,9 @@ import java.util.Optional;
  */
 public class ManagerBBDD {
     private static ManagerBBDD controller;
+    
+       
+    
     // No leemos de propiedades
     private final boolean  fromProperties = false;
     private String serverUrl;

@@ -27,7 +27,7 @@ public class VentasRepositoryTest {
     List<LineaVenta> venta = new ArrayList<LineaVenta>();
 
 
-
+/*
     @Test
     void save(){
         Persona personaTest = new Persona(UUID.randomUUID().toString(), "mario", "gonzalez", "madrid, calle: baja, numero:10 ", "616494531", "9198765987658908", "mario@gmail.com", "19234678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE");
@@ -39,4 +39,5 @@ public class VentasRepositoryTest {
                 () -> assertTrue(productoOp.isPresent())
         );
     }
+*/
 }

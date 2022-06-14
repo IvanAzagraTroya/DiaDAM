@@ -193,7 +193,7 @@ public class InterfazAdministradorController {
     @FXML
     private void onEstadisticasAction() throws IOException, SQLException {
         logger.info("Se ha pulsado accion Estadisticas");
-       SceneManager.get().initEstadisticas(productoRepository.findAll());
+      // SceneManager.get().initEstadisticas(productoRepository.findAll());
     }
 
 

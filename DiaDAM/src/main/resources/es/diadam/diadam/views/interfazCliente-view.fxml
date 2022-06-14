@@ -64,6 +64,6 @@
       </Button>
     </Pane>
     <SplitPane prefHeight="404.0" prefWidth="600.0">
-      <ListView prefHeight="356.0" prefWidth="129.0" />
+      <ListView prefHeight="356.0" fx:id="productoCatalog" prefWidth="129.0" />
     </SplitPane>
 </VBox>

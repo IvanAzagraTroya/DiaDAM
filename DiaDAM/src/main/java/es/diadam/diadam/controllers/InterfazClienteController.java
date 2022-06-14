@@ -3,7 +3,9 @@ package es.diadam.diadam.controllers;
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.managers.SceneManager;
+import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.models.Producto;
+import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.repositories.ProductoRepository;
 
 import es.diadam.diadam.services.Storage;
@@ -38,7 +40,7 @@ public class InterfazClienteController {
 
 
 
-    ProductoRepository productoRepository = ProductoRepository.getInstance(db, storage);
+    ProductoRepository productoRepository = ProductoRepository.getInstance();
 
     @FXML
     private ListView<Producto> productoCatalog;
@@ -50,12 +52,17 @@ public class InterfazClienteController {
     private void initialize() {
         // Mismo problema que antes
         //DaggerRepositoryFactory.create().inject(this);
+
         try {
             loadData();
 
         }catch(SQLException e) {
             logger.error("No se ha podido acceder al catálogo de productos");
         }
+
+
+
+
         // TODO revisar por si falta algo
     }
 
@@ -120,7 +127,7 @@ public class InterfazClienteController {
         }
     }
 
-    @FXML
+
     private void loadData() throws SQLException {
         logger.info("Accediendo a catálogo...");
         //productoCatalog.getItems().addAll(productoRepository.findAll());

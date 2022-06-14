@@ -35,12 +35,12 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="74.0" layoutY="169.0" prefHeight="25.0" prefWidth="406.0" promptText="Introduzca su email">
+                  <TextField layoutX="74.0" layoutY="169.0" prefHeight="25.0" prefWidth="406.0" fx:id="txtEmail" promptText="Introduzca su email">
                      <font>
                         <Font name="System Italic" size="12.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="74.0" layoutY="243.0" prefHeight="25.0" prefWidth="406.0" promptText="Introduzca su contraseña">
+                  <TextField layoutX="74.0" layoutY="243.0" prefHeight="25.0" prefWidth="406.0" fx:id="txtContrasenia" promptText="Introduzca su contraseña">
                       <font>
                           <Font name="System Italic" size="12.0" />
                       </font>

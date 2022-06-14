@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductoRepositoryTest {
     private static final ManagerBBDD db = ManagerBBDD.getInstance();
     private static final Storage storage = Storage.getInstance();
-    private static final ProductoRepository productoRepository = ProductoRepository.getInstance(db,storage);
+    private static final ProductoRepository productoRepository = ProductoRepository.getInstance();
     private final Producto pTest1 = new Producto(UUID.randomUUID().toString(), "Pollo", 10, 2.50, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png"));
 
     @BeforeAll

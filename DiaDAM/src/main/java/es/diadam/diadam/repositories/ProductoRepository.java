@@ -3,6 +3,7 @@ package es.diadam.diadam.repositories;
 import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.dto.ProductoDTO;
 import es.diadam.diadam.managers.ManagerBBDD;
+import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.services.Storage;
 import es.diadam.diadam.utils.Properties;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -32,19 +34,15 @@ public class ProductoRepository implements IProductosRepository{
     private static ProductoRepository instance;
     private final ObservableList<Producto> repository = FXCollections.observableArrayList();
     Logger logger = LogManager.getLogger(ProductoRepository.class);
-    private final Storage storage;
-    ManagerBBDD db;
+    Storage storage;
+    ManagerBBDD db =ManagerBBDD.getInstance();
 
 
 
-    private ProductoRepository(ManagerBBDD db, Storage storage) {
-        this.db = db;
-        this.storage = storage;
-
-    }
-    public static ProductoRepository getInstance(ManagerBBDD db, Storage storage) {
+  
+    public static ProductoRepository getInstance() {
         if (instance == null) {
-            instance = new ProductoRepository(db, storage);
+            instance = new ProductoRepository();
         }
         return instance;
     }
@@ -56,19 +54,20 @@ public class ProductoRepository implements IProductosRepository{
         if(repository.isEmpty()){
             logger.info("Inicializando datos");
             try{
-                create(new Producto(UUID.randomUUID().toString(), "Pollo", 10, 2.50, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
-                create(new Producto(UUID.randomUUID().toString(), "Merluza", 15, 2.00, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
-                create(new Producto(UUID.randomUUID().toString(), "Ternera", 12, 2.30, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
-                create(new Producto(UUID.randomUUID().toString(), "Pescadilla", 19, 1.50, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
-                create(new Producto(UUID.randomUUID().toString(), "Solomillo", 9, 2.90, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
-                create(new Producto(UUID.randomUUID().toString(), "Salmon", 17, 2.20, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
-                create(new Producto(UUID.randomUUID().toString(), "Pavo", 10, 2.50, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
-                create(new Producto(UUID.randomUUID().toString(), "Atun", 10, 3.00, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
-            }catch(SQLException | IOException e ){
+            repository.add(new Producto(UUID.randomUUID().toString(), "Pollo", 10, 2.50, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
+            repository.add(new Producto(UUID.randomUUID().toString(), "Merluza", 15, 2.00, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
+            repository.add(new Producto(UUID.randomUUID().toString(), "Ternera", 12, 2.30, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
+            repository.add(new Producto(UUID.randomUUID().toString(), "Pescadilla", 19, 1.50, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
+            repository.add(new Producto(UUID.randomUUID().toString(), "Solomillo", 9, 2.90, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
+            repository.add(new Producto(UUID.randomUUID().toString(), "Salmon", 17, 2.20, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
+            repository.add(new Producto(UUID.randomUUID().toString(), "Pavo", 10, 2.50, "Carne", Resources.getPath(DiaApplication.class, "images/carne.png")));
+            repository.add(new Producto(UUID.randomUUID().toString(), "Atun", 10, 3.00, "Pescado", Resources.getPath(DiaApplication.class, "images/pescado.png")));
+            }catch(Exception e){
                 logger.error("Error al inicializar datos");
             }
         }
     }
+
 
 
     @Override
@@ -94,7 +93,7 @@ public class ProductoRepository implements IProductosRepository{
         if(repository.isEmpty()){
             initData();
         }
-        return repository;
+         return repository;
     }
 
     public void backup() throws IOException {
