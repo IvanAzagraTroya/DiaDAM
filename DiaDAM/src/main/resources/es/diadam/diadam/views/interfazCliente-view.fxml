@@ -7,7 +7,7 @@
 
 <!--@author Iván Azagra-->
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
     <Pane prefHeight="122.0" prefWidth="600.0">
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -63,7 +63,21 @@
          </graphic>
       </Button>
     </Pane>
-    <SplitPane prefHeight="404.0" prefWidth="600.0">
-      <ListView prefHeight="356.0" fx:id="productoCatalog" prefWidth="129.0" />
-    </SplitPane>
+   <SplitPane prefHeight="414.0" prefWidth="600.0">
+     <items>
+       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+               <TableView fx:id="tablaProducto" prefHeight="361.0" prefWidth="598.0">
+                 <columns>
+                   <TableColumn fx:id="idColumn" prefWidth="104.33332574367523" text="ID" />
+                   <TableColumn fx:id="nombreColumn" prefWidth="109.00000762939453" text="Nombre" />
+                     <TableColumn fx:id="stockColumn" prefWidth="105.66667175292969" text="Stock" />
+                     <TableColumn fx:id="precioColumn" prefWidth="130.66665649414062" text="Precio" />
+                     <TableColumn fx:id="descripcionColumn" prefWidth="150.66671752929688" text="Descripción" />
+                 </columns>
+               </TableView>
+            </children>
+         </AnchorPane>
+     </items>
+   </SplitPane>
 </VBox>

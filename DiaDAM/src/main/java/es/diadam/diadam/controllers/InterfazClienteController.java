@@ -11,10 +11,13 @@ import es.diadam.diadam.repositories.ProductoRepository;
 import es.diadam.diadam.services.Storage;
 import es.diadam.diadam.utils.Resources;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.apache.logging.log4j.LogManager;
@@ -42,11 +45,24 @@ public class InterfazClienteController {
 
     ProductoRepository productoRepository = ProductoRepository.getInstance();
 
-    @FXML
-    private ListView<Producto> productoCatalog;
 
     @FXML
-    private ImageView avatarImageView;
+    TableView<Producto> tablaProducto;
+
+    @FXML
+    TableColumn<Producto, String> idColumn;
+
+    @FXML
+    TableColumn<Producto, String> nombreColumn;
+
+    @FXML
+    TableColumn<Producto, Integer> stockColumn;
+
+    @FXML
+    TableColumn<Producto, Double> precioColumn;
+
+    @FXML
+    TableColumn<Producto, String> descripcionColumn;
 
     @FXML
     private void initialize() {
@@ -54,15 +70,18 @@ public class InterfazClienteController {
         //DaggerRepositoryFactory.create().inject(this);
 
         try {
+            System.out.println("Cargando tabla");
             loadData();
 
         }catch(SQLException e) {
             logger.error("No se ha podido acceder al catálogo de productos");
         }
 
-
-
-
+        idColumn.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().getId()));
+        nombreColumn.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().getNombre()));
+        stockColumn.setCellValueFactory(cellData-> new SimpleIntegerProperty(cellData.getValue().getStock()).asObject());
+        precioColumn.setCellValueFactory(cellData-> new SimpleDoubleProperty(cellData.getValue().getPrecio()).asObject());
+        descripcionColumn.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().getDescripcion()));
         // TODO revisar por si falta algo
     }
 
@@ -72,7 +91,7 @@ public class InterfazClienteController {
 
     }
 
-
+/*
     private void setProductInfo(Producto producto) {
         logger.info("Se ha seleccionado: "+producto+" producto");
         // TODO mirar los componentes dentro del listView
@@ -92,7 +111,9 @@ public class InterfazClienteController {
             producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
             logger.warn("Se ha establecido la imagen por defecto en el producto"+ producto);
         }
-    }
+
+
+ */
 
     /*private void clearDataInfo() {
         algoLabel.setText("");
@@ -131,7 +152,8 @@ public class InterfazClienteController {
     private void loadData() throws SQLException {
         logger.info("Accediendo a catálogo...");
         //productoCatalog.getItems().addAll(productoRepository.findAll());
-        productoCatalog.setItems(productoRepository.findAll());
+        tablaProducto.setItems(productoRepository.findAll());
+
     }
 
     @FXML
