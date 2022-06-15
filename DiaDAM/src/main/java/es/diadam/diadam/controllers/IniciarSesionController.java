@@ -34,6 +34,10 @@ public class IniciarSesionController {
     @FXML
     // Contraseña del usuario
     private TextField txtContrasenia;
+    
+    // ----------------------------- parametros de registro --------------------------
+
+    //---------------------------------------------------------------------------------
 
     private Stage dialogStage;
 
@@ -41,35 +45,6 @@ public class IniciarSesionController {
         this.dialogStage = dialogStage;
     }
 
-    private void accionRegistrarse() throws SQLException {
-        // Se pasan los parámetros del usuario al método
-        String email = txtEmail.getText();
-        String contra = txtContrasenia.getText();
-
-        // Depuración
-        logger.info("Email: ["+email+ "]");
-        logger.info("Contraseña: ["+contra+"]");
-
-        // Si se introducen mal los campos se muestra un mensaje de error.
-        Alert alert;
-        if (email.isEmpty() || contra.isEmpty() || !Utils.isEmail(txtEmail.getText()) || compruebaEmail()) {
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Uno de los campos está vacío.");
-            alert.setContentText("Asegurese de introducir email y contraseña");
-            if(email.isEmpty())
-                txtEmail.requestFocus();
-            else txtContrasenia.requestFocus();
-        }
-        else {
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Datos introducidos");
-            alert.setHeaderText("Los datos han sido introducidos correctamente: ");
-            alert.setContentText("Email: "+email+ System.lineSeparator()+"Contraseña: " +contra);
-        }
-        alert.showAndWait();
-        dialogStage.close();
-    }
-    
     private void accionIniciar() throws SQLException, IOException {
         // Se pasan los parámetros del usuario al método
         String email = txtEmail.getText();
@@ -81,7 +56,7 @@ public class IniciarSesionController {
 
         // Si se introducen mal los campos se muestra un mensaje de error.
         Alert alert;
-        if (email.isEmpty() || contra.isEmpty() || !Utils.isEmail(txtEmail.getText())) {
+        if (email.isEmpty() || contra.isEmpty() || !Utils.isEmail(txtEmail.getText()) || !compruebaContraseña()) {
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Uno de los campos está vacío.");
             alert.setContentText("Asegurese de introducir email y contraseña");
@@ -178,16 +153,11 @@ public class IniciarSesionController {
         accionRegistro();
         
     }
-    
-    @FXML
-    private void accionCrearUsuariobtn(ActionEvent event) throws SQLException, IOException {
-        logger.info("Se ha creado un nuevo usuario");
-        accionRegistrarse();
-    }
 
     private boolean compruebaEmail() throws SQLException {
         boolean existe = false;
         for(Persona persona: personasRepository.findAll()){
+            logger.info(persona);
             if(persona.getEmail() == txtEmail.getText()) {
                 existe = true;
             }
@@ -199,6 +169,7 @@ public class IniciarSesionController {
     private boolean compruebaContraseña() throws SQLException {
         boolean valid = false;
         for(Persona persona : personasRepository.findAll()) {
+            logger.info(persona);
             if(persona.getContrasenia() == txtContrasenia.getText())
                 valid = true;
         }

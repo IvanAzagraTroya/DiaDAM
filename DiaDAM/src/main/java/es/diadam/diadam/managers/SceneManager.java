@@ -128,7 +128,7 @@ public class SceneManager {
         stage.setScene(scene);
         logger.info("Escena registro cargada");
         stage.setResizable(false);
-        IniciarSesionController controller = fxmlLoader.getController();
+        RegistroSesionController controller = fxmlLoader.getController();
         controller.setDialogStage(stage);
         // Aquí irán los métodos a usar del controlador
         stage.showAndWait();
