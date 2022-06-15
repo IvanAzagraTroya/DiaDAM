@@ -34,11 +34,11 @@ public class PersonasRepository {
     private final ObservableList<Persona> repository = FXCollections.observableArrayList();
     private final StoragePersona storage = StoragePersona.getInstance();
     Logger logger = LogManager.getLogger(PersonasRepository.class);
-    ManagerBBDD db =ManagerBBDD.getInstance();
+    ManagerBBDD db = ManagerBBDD.getInstance();
 
 
     // Datos de ejemplo....
-    public void initData(){
+    /*public void initData(){
         if (repository.isEmpty()) {
             logger.info("Inicializando datos de ejemplo");
             try {
@@ -46,13 +46,13 @@ public class PersonasRepository {
                     repository.add(new Persona(UUID.randomUUID().toString(),"Jorge","Sanchez","Leganes, calle: Tijuana","644243244","98789876" ,"jorgesanchezs@gmail.com" ,"3343343" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE"));
                     repository.add(new Persona(UUID.randomUUID().toString(),"Ivan","Castillo","Colmenar de oreja, calle: benito","636432123","613241234" ,"ivanforever@gmail.com" ,"5467328" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE"));
 
-            }catch(/*SQLException | IOException*/ Exception e ){
+            }catch(SQLException | IOException Exception e ){
                 // TODO mirar qué error no permite usar SQLException
                 logger.error("Error al inicializar datos");
             }
 
         }
-    }
+    }*/
 
 
 
@@ -88,7 +88,7 @@ public class PersonasRepository {
         }
         db.close();
         if (repository.isEmpty()) {
-            initData();
+            //initData();
         }
         return repository;
     }

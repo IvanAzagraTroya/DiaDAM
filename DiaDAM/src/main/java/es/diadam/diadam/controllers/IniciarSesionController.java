@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.inject.Inject;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -178,6 +177,12 @@ public class IniciarSesionController {
         logger.info("Se abre la pantalla de registro");
         accionRegistro();
         
+    }
+    
+    @FXML
+    private void accionCrearUsuariobtn(ActionEvent event) throws SQLException, IOException {
+        logger.info("Se ha creado un nuevo usuario");
+        accionRegistrarse();
     }
 
     private boolean compruebaEmail() throws SQLException {
