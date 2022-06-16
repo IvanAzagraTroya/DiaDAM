@@ -6,6 +6,7 @@ import es.diadam.diadam.utils.Resources;
 import es.diadam.diadam.utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -23,6 +24,9 @@ import java.nio.file.Paths;
  */
 public class ProductoEditarViewController {
     Logger logger = LogManager.getLogger(ProductoEditarViewController.class);
+
+    @FXML
+    Label stockLabel;
 
     @FXML
     TextField nombreTxt;
@@ -60,10 +64,12 @@ public class ProductoEditarViewController {
     }
 
     private void setDataInfo() {
+
         nombreTxt.setText(producto.getNombre());
         stockTxt.setText(producto.getStock().toString());
         precioTxt.setText(producto.getPrecio().toString());
         descripcionTxt.setText(producto.getDescripcion());
+      /* 
         // La imagen
         if (!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))) {
             logger.info("Cargando imagen: " + producto.getAvatar());
@@ -76,8 +82,10 @@ public class ProductoEditarViewController {
             producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
             logger.warn("Nueva información de imagen: " + producto);
         }
+*/
 
     }
+
 
     public void setEditarModo(boolean editarModo) {
         this.editarModo = editarModo;

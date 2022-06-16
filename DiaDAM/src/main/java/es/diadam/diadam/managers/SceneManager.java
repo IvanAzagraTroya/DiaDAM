@@ -150,7 +150,7 @@ public class SceneManager {
 
     public boolean initProductoEditar(boolean edicion, Producto p) throws IOException{
         logger.info("Iniciando edición de producto");
-        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
+        FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.PRODUCTOEDITAR.get()));
         Scene scene = new Scene(fxmlLoader.load(), Properties.PRODUCTOEDITAR_WIDTH, Properties.PRODUCTOEDITAR_HEIGHT);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
