@@ -32,13 +32,13 @@
             </rowConstraints>
             <children>
                 <Label styleClass="label-bright" text="Nombre:" />
-                <Label styleClass="label-bright" text="Stock:" GridPane.rowIndex="1" />
+                <Label styleClass="label-bright" fx:id="stockLabel" text="Stock:" GridPane.rowIndex="1" />
                 <Label styleClass="label-bright" text="Precio:" GridPane.rowIndex="2" />
                 <Label styleClass="label-bright" text="Descripción" GridPane.rowIndex="3" />
                 <TextField fx:id="nombreTxt" prefHeight="32.0" prefWidth="270.0" promptText="nombre" styleClass="text-field" GridPane.columnIndex="1" />
-                <TextField fx:id="apellidosTxt" promptText="stock" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <TextField fx:id="calleTxt" promptText="precio" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <TextField fx:id="ciudadTxt" promptText="descripción" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="stockTxt" promptText="stock" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="precioTxt" promptText="precio" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="descripcionTxt" promptText="descripción" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
         </GridPane>
         <HBox spacing="8.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">

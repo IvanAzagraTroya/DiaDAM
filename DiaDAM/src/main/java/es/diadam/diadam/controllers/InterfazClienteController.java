@@ -121,7 +121,7 @@ public class InterfazClienteController {
 
     @FXML
     public void onSalirAction() {
-        logger.info("Se ha pulsado el botón erssalir");
+        logger.info("Se ha pulsado el botón salir");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
         alert.setHeaderText("Desea salir de la aplicación?");

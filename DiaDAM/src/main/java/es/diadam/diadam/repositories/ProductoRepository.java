@@ -139,11 +139,12 @@ public class ProductoRepository implements IProductosRepository{
 
     @Override
     public Optional<Producto> create(Producto producto) throws SQLException, IOException {
-        storeAvatar(producto);
 
-        String sql = "INSERT INTO personas (id, nombre, stock, precio, descripcion, avatar) VALUES (?, ?, ?, ?, ?, ?)";
+       // storeAvatar(producto);
+
+        String sql = "INSERT INTO productos (id, nombre, stock, cantidad, descripcion, avatar) VALUES (?, ?, ?, ?, ?, ?)";
         db.open();
-        ResultSet res= db.insert(sql, producto.getId(), producto.getNombre(), producto.getStock(), producto.getPrecio(), producto.getDescripcion(), producto.getAvatar())
+        ResultSet res= db.insert(sql, UUID.randomUUID().toString(), producto.getNombre(), producto.getStock(), producto.getPrecio(), producto.getDescripcion(), producto.getAvatar())
                 .orElseThrow(() -> new SQLException("Error al insertar pais"));
         if (res.first()) {
             producto.setId(res.getString(1));
@@ -157,31 +158,35 @@ public class ProductoRepository implements IProductosRepository{
     @Override
     public Optional<Producto> update(Producto producto) throws SQLException, IOException {
         int index = repository.indexOf(producto);
-        storeAvatar(producto);
-        String sql = "UPDATE personas SET nombre = ?, apellidos = ?, calle = ?, ciudad = ?, email = ?, cumpleaños = ?, avatar = ? WHERE id = ?";
+        //storeAvatar(producto);
+        String sql = "UPDATE productos SET nombre = ?, stock = ?, cantidad = ?, descripcion = ?, avatar = ? WHERE id = ?";
         db.open();
         int res = db.update(sql, producto.getId(), producto.getNombre(), producto.getStock(), producto.getPrecio(), producto.getDescripcion(), producto.getAvatar());
         db.close();
         repository.set(index, producto);
+        
         return Optional.of(producto);
     }
 
     @Override
     public Optional<Producto> delete(Producto producto) throws SQLException, IOException {
-        deleteAvatar(producto);
-        String sql = "DELETE FROM personas WHERE id = ?";
+
+        String sql = "DELETE FROM productos WHERE nombre = ?";
         db.open();
-        db.delete(sql, producto.getId());
+        db.delete(sql, producto.getNombre());
         db.close();
         repository.remove(producto);
         return Optional.of(producto);
     }
 
     @Override
-    public void deleteAvatar(Producto producto) throws IOException {
+    public void deleteAvatar(Producto producto) throws IOException {/*
         String source = Properties.IMAGES_DIR + File.separator + producto.getId() + "." + Utils.getFileExtension(producto.getAvatar()).orElse("png");
         storage.deleteFile(source);
+        */
     }
+
+
 
     @Override
     public void storeAvatar(Producto producto) throws IOException {
@@ -192,6 +197,7 @@ public class ProductoRepository implements IProductosRepository{
         storage.copyFile(source, destination);
         producto.setAvatar(destination);
     }
+
     @Override
     public void deleteAll() throws SQLException {
         String sql = "DELETE FROM productos";
