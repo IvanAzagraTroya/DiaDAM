@@ -1,19 +1,16 @@
 package es.diadam.diadam.repositories;
-import es.diadam.diadam.DiaApplication;
+
 import es.diadam.diadam.dto.PersonaDTO;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Persona;
-import es.diadam.diadam.utils.Resources;
-import es.diadam.diadam.services.Storage;
 import es.diadam.diadam.services.StoragePersona;
 import es.diadam.diadam.utils.Properties;
 import es.diadam.diadam.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-// import org.apache.ibatis.io.Resources; Este import no es el necesario
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +18,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -156,9 +152,9 @@ public class PersonasRepository {
         // Salvamos su avatar.
         storeAvatar(persona);
         // Salvamos en la BBDD.
-        String sql = "INSERT INTO personas (id, nombre, apellidos, direccion, telefono, tarjeta, email, contraseña, avatar, tipo) VALUES (null, ?, ?, ?, ?, ?, ?, ?,?, ?)";
+        String sql = "INSERT INTO personas (id, nombre, apellidos, direccion, telefono, tarjeta, email, contraseña, avatar, tipo) VALUES (? , ?, ?, ?, ?, ?, ?, ?,?, ?)";
         db.open();
-        db.insert(sql, persona.getId(), persona.getNombre(), persona.getApellido(), persona.getDireccion(), persona.getTelefono(), persona.getEmail(), persona.getContrasenia(), persona.getFoto());
+        db.insert(sql, persona.getId(), persona.getNombre(), persona.getApellido(), persona.getDireccion(), persona.getTelefono(), persona.getTarjeta(), persona.getEmail(), persona.getContrasenia(), persona.getFoto(), persona.getTipo());
         db.close();
         // Salvamos en memoria
         repository.add(persona);

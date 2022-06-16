@@ -16,6 +16,7 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
+import javafx.scene.image.ImageView;
 
 /**
  * @author Iván Azagra Troya
@@ -35,9 +36,8 @@ public class IniciarSesionController {
     // Contraseña del usuario
     private TextField txtContrasenia;
     
-    // ----------------------------- parametros de registro --------------------------
-
-    //---------------------------------------------------------------------------------
+    @FXML
+    private ImageView avatar;
 
     private Stage dialogStage;
 
@@ -47,8 +47,8 @@ public class IniciarSesionController {
 
     private void accionIniciar() throws SQLException, IOException {
         // Se pasan los parámetros del usuario al método
-        String email = txtEmail.getText();
-        String contra = txtContrasenia.getText();
+        String email = txtEmail.getText().toString();
+        String contra = txtContrasenia.getText().toString();
 
         // Depuración
         logger.info("Email: ["+email+ "]");
@@ -158,7 +158,7 @@ public class IniciarSesionController {
         boolean existe = false;
         for(Persona persona: personasRepository.findAll()){
             logger.info(persona);
-            if(persona.getEmail() == txtEmail.getText()) {
+            if(persona.getEmail().equals(txtEmail.getText())) {
                 existe = true;
             }
             return existe;
@@ -169,8 +169,7 @@ public class IniciarSesionController {
     private boolean compruebaContraseña() throws SQLException {
         boolean valid = false;
         for(Persona persona : personasRepository.findAll()) {
-            logger.info(persona);
-            if(persona.getContrasenia() == txtContrasenia.getText())
+            if(persona.getContrasenia().equals(txtContrasenia.getText()))
                 valid = true;
         }
         return valid;
@@ -179,7 +178,7 @@ public class IniciarSesionController {
     private boolean compruebaTipo() throws SQLException {
         boolean valid = false;
         for(Persona persona : personasRepository.findAll()) {
-            if(persona.getTipo() == "Administrador")
+            if(persona.getTipo().equals("ADMIN"))
                 valid = true;
         }
         return valid;
