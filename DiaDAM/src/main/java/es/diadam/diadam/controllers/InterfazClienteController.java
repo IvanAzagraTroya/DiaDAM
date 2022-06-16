@@ -133,7 +133,7 @@ public class InterfazClienteController {
 
     @FXML
     public void onSalirAction() {
-        logger.info("Se ha pulsado el botón erssalir");
+        logger.info("Se ha pulsado el botón salir");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
         alert.setHeaderText("Desea salir de la aplicación?");
@@ -159,7 +159,7 @@ public class InterfazClienteController {
     @FXML
     private void onIniciarSesionButton() throws IOException {
         logger.info("Iniciando ventana iniciar sesión");
-        SceneManager.get().initIniciarSesion();
+        SceneManager.get().initInterfazAdministrador();
     }
 
     @FXML

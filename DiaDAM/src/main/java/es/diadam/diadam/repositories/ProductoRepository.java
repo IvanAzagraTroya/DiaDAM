@@ -168,20 +168,23 @@ public class ProductoRepository implements IProductosRepository{
 
     @Override
     public Optional<Producto> delete(Producto producto) throws SQLException, IOException {
-        deleteAvatar(producto);
-        String sql = "DELETE FROM personas WHERE id = ?";
+
+        String sql = "DELETE FROM productos WHERE nombre = ?";
         db.open();
-        db.delete(sql, producto.getId());
+        db.delete(sql, producto.getNombre());
         db.close();
         repository.remove(producto);
         return Optional.of(producto);
     }
 
     @Override
-    public void deleteAvatar(Producto producto) throws IOException {
+    public void deleteAvatar(Producto producto) throws IOException {/*
         String source = Properties.IMAGES_DIR + File.separator + producto.getId() + "." + Utils.getFileExtension(producto.getAvatar()).orElse("png");
         storage.deleteFile(source);
+        */
     }
+
+
 
     @Override
     public void storeAvatar(Producto producto) throws IOException {

@@ -1,26 +1,17 @@
 package es.diadam.diadam.controllers;
 
-import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.managers.SceneManager;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
 import es.diadam.diadam.utils.Properties;
-import es.diadam.diadam.utils.Resources;
 import es.diadam.diadam.utils.Temas;
-import es.diadam.diadam.utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javafx.application.Platform;
-
-import javax.inject.Inject;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -32,8 +23,8 @@ import java.util.Optional;
 public class InterfazAdministradorController {
     private Logger logger = LogManager.getLogger(InterfazAdministradorController.class);
 
-    @Inject
-    ProductoRepository productoRepository;
+
+    ProductoRepository productoRepository = new ProductoRepository();
 
     //Tabla de productos
     @FXML
@@ -42,15 +33,20 @@ public class InterfazAdministradorController {
     @FXML
     private TableColumn<Producto, String> nombreColumn;
 
-    @FXML
-    private Label nombreLabel;
-    @FXML
-    private Label stockLabel;
+  
 
     @FXML
-    private Label precioLabel;
+    private TextField nombreField;
+
     @FXML
-    private Label descripcionLabel;
+    private TextField stockField;
+
+    @FXML
+    private TextField precioField;
+
+    @FXML
+    private TextField descripcionField;
+
 
     @FXML
     private ImageView avatarImageView;
@@ -79,12 +75,21 @@ public class InterfazAdministradorController {
 
     private void onProductoSelecionado(Producto newValue){
         if(newValue != null){
-            setDataInfo(newValue);
+          onObtenerDatosAlumno(newValue);
         }else{
             clearDataInfo();
         }
     }
 
+    private void onObtenerDatosAlumno(Producto a){
+        if(a!=null){
+            nombreField.setText(a.getNombre());
+            stockField.setText(String.valueOf(a.getStock()));
+            precioField.setText(String.valueOf(a.getPrecio()));
+            descripcionField.setText(a.getDescripcion());
+        }
+    }
+/*
     private void setDataInfo(Producto producto){
         logger.info("Se ha seleccionado el producto: "+producto);
         nombreLabel.setText(producto.getNombre());
@@ -104,23 +109,22 @@ public class InterfazAdministradorController {
             producto.setAvatar(Resources.getPath(DiaApplication.class,"images/ImagenPorDefecto.png"));
             logger.warn("Nueva informacion de imagen: "+producto);
         }
-
-
-
     }
 
+ */
+
     private void clearDataInfo(){
-        nombreLabel.setText("");
-        stockLabel.setText("");
-        precioLabel.setText("");
-        descripcionLabel.setText("");
+        nombreField.setText("");
+        stockField.setText("");
+        precioField.setText("");
+        descripcionField.setText("");
     }
 
 
     @FXML
     private void onAcercaDeAction() throws IOException {
         logger.info("Se ha pulsado el Acerca de");
-        //SceneManager.get().initAcercaDe();
+        SceneManager.get().initAcercaDe();
     }
 
 
@@ -128,14 +132,16 @@ public class InterfazAdministradorController {
 
     @FXML
     public void onSalirAction() {
-        logger.info("Se ha pulsado el menú salir");
+
+        logger.info("Se ha pulsado el botón salir");
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Salir");
-        alert.setContentText("¿Quieres salir de agenda?");
+        alert.setHeaderText("Desea salir de la aplicación?");
 
         Optional<ButtonType> result = alert.showAndWait();
-        if(result.get() == ButtonType.OK){
-            backup();
+        if (result.get() == ButtonType.OK) {
+            // Haríamos el backup si fuese admin, pero no estoy seguro si en clientes haría falta para el carrito
+            //backup();
             Platform.exit();
         }else {
             alert.close();
@@ -153,26 +159,15 @@ public class InterfazAdministradorController {
             }catch(SQLException | IOException e){
                 logger.error("Error al crear producto: " + e.getMessage());
             }
-            setDataInfo(producto);
+            onObtenerDatosAlumno(producto);
         }
     }
 
     @FXML
-    private void onBorrarAction() {
-        logger.info("Se ha pulsado accion Borrar");
-        Producto p = productosTable.getSelectionModel().getSelectedItem();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Borrar");
-        alert.setHeaderText("¿Borrar " + p.getNombre() + "?");
-        alert.setContentText("¿Está seguro/a de borrar? Esta opción no se puede deshacer.");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK) {
-            try {
-                productoRepository.delete(p);
-            } catch (SQLException | IOException e) {
-                logger.error("Error al Eliminar: " + e.getMessage());
-            }
-        }
+    public void onBorrarAction() throws IOException, SQLException {
+        logger.info("Se ha pulsado accion borrar");
+        Producto producto = productosTable.getSelectionModel().getSelectedItem();
+        productoRepository.delete(producto);
     }
 
     @FXML
@@ -186,16 +181,9 @@ public class InterfazAdministradorController {
             } catch (SQLException | IOException e) {
                 logger.error("Error al actualizar producto: " + e.getMessage());
             }
-            setDataInfo(producto);
+            onObtenerDatosAlumno(producto);
         }
     }
-
-    @FXML
-    private void onEstadisticasAction() throws IOException, SQLException {
-        logger.info("Se ha pulsado accion Estadisticas");
-      // SceneManager.get().initEstadisticas(productoRepository.findAll());
-    }
-
 
 
     @FXML
