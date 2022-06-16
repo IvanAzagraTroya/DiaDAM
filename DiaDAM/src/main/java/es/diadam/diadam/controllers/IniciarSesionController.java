@@ -1,5 +1,6 @@
 package es.diadam.diadam.controllers;
 
+import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.managers.SceneManager;
 import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.repositories.PersonasRepository;
@@ -16,6 +17,8 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.ImageView;
 
 /**
@@ -27,6 +30,7 @@ public class IniciarSesionController {
 
 
     PersonasRepository personasRepository = PersonasRepository.getInstance();
+    ManagerBBDD db = ManagerBBDD.getInstance();
 
     @FXML
     // Se introduce el email del usuario que se tendrá que mirar mediante regex
@@ -56,7 +60,7 @@ public class IniciarSesionController {
 
         // Si se introducen mal los campos se muestra un mensaje de error.
         Alert alert;
-        if (email.isEmpty() || contra.isEmpty() || !Utils.isEmail(txtEmail.getText()) || !compruebaContraseña()) {
+        if (email.isEmpty() || contra.isEmpty() || !Utils.isEmail(email)) {
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Uno de los campos está vacío.");
             alert.setContentText("Asegurese de introducir email y contraseña");
@@ -72,22 +76,22 @@ public class IniciarSesionController {
             // Comprueba los métodos del email y la contraseña con la persona para ver si existe
             // si devuelven true se carga la escena del carrito, sino entra en el else y hace el focus
             // al campo equivocado, o al menos debería.
-            if(compruebaEmail() && compruebaContraseña())
+            if(compruebaEmail(contra, email)){
+                logger.info("Se han comprobado correctamente email y contrasenia");
                 // comprueba si el tipo del usuario es cliente o administrador, para así cargar la escena de edición de productos.
-                if(compruebaTipo()) {
+                if(compruebaTipo(email)){
                     SceneManager.get().initInterfazAdministrador();
                 } else {
                     // Si el tipo es de cliente se carga la escena del catalogo.
+                    logger.info("Se ha iniciado sesión con éxito");
                     SceneManager.get().initInterfazCliente();
                 }
-
+            }
             else{
                 alert.setTitle("Ha ocurrido un error");
                 alert.setContentText("Email o contraseña incorrectos");
-                if(!compruebaEmail())
+                if(!compruebaEmail(contra, email))
                     txtEmail.requestFocus();
-                else if(!compruebaContraseña())
-                    txtContrasenia.requestFocus();
             }
         }
         alert.showAndWait();
@@ -154,33 +158,43 @@ public class IniciarSesionController {
         
     }
 
-    private boolean compruebaEmail() throws SQLException {
-        boolean existe = false;
-        for(Persona persona: personasRepository.findAll()){
-            logger.info(persona);
-            if(persona.getEmail().equals(txtEmail.getText())) {
-                existe = true;
-            }
-            return existe;
+    private boolean compruebaEmail(String contra, String email) throws SQLException {
+        String sql = "SELECT * FROM personas WHERE email = ?, contraseña = ?, tipo = ?";
+        final ObservableList<Persona> repository = FXCollections.observableArrayList();
+        db.open();
+        var rs = db.select(sql, contra, email).orElseThrow(SQLException::new);
+        while(rs.next()) {
+            repository.add(new Persona(
+                    rs.getString("id"),
+                    rs.getString("nombre"),
+                    rs.getString("apellidos"),
+                    rs.getString("direccion"),
+                    rs.getString("telefono"),
+                    rs.getString("tarjeta"),
+                    rs.getString("email"),
+                    rs.getString("contraseña"),
+                    rs.getString("avatar"),
+                    rs.getString("tipo")
+                )
+            );
         }
-        return false;
-    }
-    
-    private boolean compruebaContraseña() throws SQLException {
-        boolean valid = false;
-        for(Persona persona : personasRepository.findAll()) {
-            if(persona.getContrasenia().equals(txtContrasenia.getText()))
-                valid = true;
-        }
-        return valid;
+        db.close();
+        if(repository.isEmpty()) return false;
+        return true;
     }
 
-    private boolean compruebaTipo() throws SQLException {
-        boolean valid = false;
-        for(Persona persona : personasRepository.findAll()) {
-            if(persona.getTipo().equals("ADMIN"))
-                valid = true;
+
+    private boolean compruebaTipo(String email) throws SQLException {
+        String sql = "SELECT tipo FROM persona WHERE email = ?";
+        db.open();
+        var rs = db.select(sql, email).orElseThrow(SQLException::new);
+        while(rs.next()) {
+            if (rs.getString("tipo").equals("ADMIN")) {
+                db.close();
+                return true;
+            }
         }
-        return valid;
+        db.close();
+        return false;
     }
 }
