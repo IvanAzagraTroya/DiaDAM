@@ -6,6 +6,7 @@ import es.diadam.diadam.utils.Utils;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
+import java.util.UUID;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -24,6 +25,8 @@ public class RegistroSesionController {
     Logger logger = LogManager.getLogger(RegistroSesionController.class);
     
     PersonasRepository personasRepository = PersonasRepository.getInstance();
+    
+    private String id = UUID.randomUUID().toString();
     
     @FXML
     // Se introduce el email del usuario que se tendrá que mirar mediante regex
@@ -90,7 +93,7 @@ public class RegistroSesionController {
             alert.setHeaderText("Los datos han sido introducidos correctamente: ");
             alert.setContentText("Email: "+emailRegistro+ System.lineSeparator()+"Contraseña: " +contraRegistro);
            
-            newPersona.getId();
+            newPersona.setId(id);
             newPersona.setNombre(nombre);
             newPersona.setApellido(apellidos);
             newPersona.setDireccion(direccion);
@@ -99,6 +102,7 @@ public class RegistroSesionController {
             newPersona.setEmail(emailRegistro);
             newPersona.setContrasenia(contraRegistro);
             newPersona.setFoto("images/PersonaDefectoClaro.png");
+            newPersona.setTipo("CLIENTE");
             personasRepository.create(newPersona);
             
         }

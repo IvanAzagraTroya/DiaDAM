@@ -2,7 +2,6 @@ package es.diadam.diadam.models;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.UUID;

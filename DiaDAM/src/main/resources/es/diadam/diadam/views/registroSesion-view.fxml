@@ -49,9 +49,9 @@
                                 <Font name="System Italic" size="12.0" />
                             </font>
                         </TextField>
-                        <Button layoutX="477.0" layoutY="362.0" mnemonicParsing="false" onAction="#accionSalirbtn" prefHeight="25.0" prefWidth="85.0" text="Salir" />
+                        <Button layoutX="467.0" layoutY="362.0" mnemonicParsing="false" onAction="#accionSalirbtn" prefHeight="25.0" prefWidth="85.0" text="Salir" />
                         <Button layoutX="333.0" layoutY="362.0" mnemonicParsing="false" onAction="#accionCrearUsuariobtn" prefHeight="25.0" prefWidth="111.0" text="Iniciar Sesión" />
-                        <Hyperlink layoutX="29.0" layoutY="363.0" onAction="#linkGooglebtn" text="Iniciar sesión con Google">
+                        <Hyperlink layoutX="24.0" layoutY="364.0" onAction="#linkGooglebtn" text="Iniciar sesión con Google">
                             <graphic>
                                 <ImageView fitHeight="16.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
