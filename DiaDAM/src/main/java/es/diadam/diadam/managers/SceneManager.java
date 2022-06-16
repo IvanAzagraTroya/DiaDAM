@@ -117,7 +117,6 @@ public class SceneManager {
     }
 
     public void initRegistro() throws IOException {
-        // TODO Meter funciones de botones
         logger.info("Abriendo registro usuario");
         Platform.setImplicitExit(true);
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(DiaApplication.class.getResource(Views.REGISTROSESION.get())));
@@ -129,7 +128,7 @@ public class SceneManager {
         stage.setScene(scene);
         logger.info("Escena registro cargada");
         stage.setResizable(false);
-        IniciarSesionController controller = fxmlLoader.getController();
+        RegistroSesionController controller = fxmlLoader.getController();
         controller.setDialogStage(stage);
         // Aquí irán los métodos a usar del controlador
         stage.showAndWait();

@@ -34,11 +34,11 @@ public class PersonasRepository {
     private final ObservableList<Persona> repository = FXCollections.observableArrayList();
     private final StoragePersona storage = StoragePersona.getInstance();
     Logger logger = LogManager.getLogger(PersonasRepository.class);
-    ManagerBBDD db =ManagerBBDD.getInstance();
+    ManagerBBDD db = ManagerBBDD.getInstance();
 
 
     // Datos de ejemplo....
-    public void initData(){
+    /*public void initData(){
         if (repository.isEmpty()) {
             logger.info("Inicializando datos de ejemplo");
             try {
@@ -46,13 +46,13 @@ public class PersonasRepository {
                     repository.add(new Persona(UUID.randomUUID().toString(),"Jorge","Sanchez","Leganes, calle: Tijuana","644243244","98789876" ,"jorgesanchezs@gmail.com" ,"3343343" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE"));
                     repository.add(new Persona(UUID.randomUUID().toString(),"Ivan","Castillo","Colmenar de oreja, calle: benito","636432123","613241234" ,"ivanforever@gmail.com" ,"5467328" ,Resources.getPath(DiaApplication.class,"images/PersonaDefectoClaro.png"),"CLIENTE"));
 
-            }catch(/*SQLException | IOException*/ Exception e ){
+            }catch(SQLException | IOException Exception e ){
                 // TODO mirar qué error no permite usar SQLException
                 logger.error("Error al inicializar datos");
             }
 
         }
-    }
+    }*/
 
 
 
@@ -88,7 +88,7 @@ public class PersonasRepository {
         }
         db.close();
         if (repository.isEmpty()) {
-            initData();
+            //initData();
         }
         return repository;
     }
@@ -156,7 +156,7 @@ public class PersonasRepository {
         // Salvamos su avatar.
         storeAvatar(persona);
         // Salvamos en la BBDD.
-        String sql = "INSERT INTO personas (id, nombre, apellidos, direccion, telefono, tarjeta, email, contrasenia, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO personas (id, nombre, apellidos, direccion, telefono, tarjeta, email, contraseña, avatar, tipo) VALUES (null, ?, ?, ?, ?, ?, ?, ?,?, ?)";
         db.open();
         db.insert(sql, persona.getId(), persona.getNombre(), persona.getApellido(), persona.getDireccion(), persona.getTelefono(), persona.getEmail(), persona.getContrasenia(), persona.getFoto());
         db.close();
@@ -170,7 +170,7 @@ public class PersonasRepository {
         // Actualizamos su avatar.
         storeAvatar(persona);
         // Actualizamos en la base de datos
-        String sql = "UPDATE personas SET nombre = ?, apellidos = ?, direccion = ?, telefono = ?, tarjeta = ?, email = ?,contrasenia = ?, foto = ? WHERE id = ?";
+        String sql = "UPDATE personas SET nombre = ?, apellidos = ?, direccion = ?, telefono = ?, tarjeta = ?, email = ?,contraseña = ?, avatar = ? WHERE id = ?";
         db.open();
         db.update(sql, persona.getNombre(), persona.getApellido(), persona.getDireccion(), persona.getTelefono(), persona.getTarjeta(), persona.getEmail(),persona.getContrasenia(), persona.getFoto(), persona.getId());
         db.close();
