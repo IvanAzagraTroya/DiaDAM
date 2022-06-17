@@ -7,7 +7,7 @@
 
 <!--@author Iván Azagra-->
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
     <Pane prefHeight="122.0" prefWidth="600.0">
         <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,7 +22,7 @@
          <image>
             <Image url="@../images/Dia.png" />
          </image></ImageView>
-        <ToggleButton layoutX="14.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="29.0" textAlignment="JUSTIFY">
+        <ToggleButton fx:id="modeButton" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#onCambioBtn" prefHeight="26.0" prefWidth="29.0" textAlignment="JUSTIFY">
             <font>
                 <Font size="11.0" />
             </font>
@@ -51,6 +51,11 @@
               <MenuItem mnemonicParsing="false" onAction="#onAcercaDeButton" text="About" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Modos">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#onAcercaDeButton" text="About" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
       <Button layoutX="402.0" layoutY="35.0" mnemonicParsing="false" onAction="#onCarritoButton">

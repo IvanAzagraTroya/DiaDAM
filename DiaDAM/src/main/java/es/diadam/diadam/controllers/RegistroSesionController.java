@@ -1,13 +1,18 @@
 package es.diadam.diadam.controllers;
 
+import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.utils.Utils;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -26,7 +31,9 @@ public class RegistroSesionController {
     Logger logger = LogManager.getLogger(RegistroSesionController.class);
     
     PersonasRepository personasRepository = PersonasRepository.getInstance();
-    
+
+    ObservableList<Persona> repo = FXCollections.observableArrayList();
+    ManagerBBDD db = ManagerBBDD.getInstance();
     private String id = UUID.randomUUID().toString();
     
     @FXML
@@ -61,13 +68,13 @@ public class RegistroSesionController {
     
         private void accionRegistrarse() throws SQLException, IOException {
         // Se pasan los parámetros del usuario al método
-        String emailRegistro = txtEmailRegistro.getText().toString();
-        String contraRegistro = txtContraseniaRegistro.getText().toString();
-        String nombre = txtNombre.getText().toString();
-        String apellidos = txtApellidos.getText().toString();
-        String direccion = txtDireccion.getText().toString();
-        String telefono = txtTelefono.getText().toString();
-        String tarjeta = txtTarjeta.getText().toString();
+        String emailRegistro = txtEmailRegistro.getText();
+        String contraRegistro = txtContraseniaRegistro.getText();
+        String nombre = txtNombre.getText();
+        String apellidos = txtApellidos.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+        String tarjeta = txtTarjeta.getText();
         
         Persona newPersona = new Persona();
         
@@ -77,11 +84,11 @@ public class RegistroSesionController {
 
         // Si se introducen mal los campos se muestra un mensaje de error.
         Alert alert;
-        if (emailRegistro.isEmpty() || contraRegistro.isEmpty() || !Utils.isEmail(txtEmailRegistro.getText()) || compruebaEmail()) {
+        if (emailRegistro.isEmpty() || contraRegistro.isEmpty() || !Utils.isEmail(txtEmailRegistro.getText()) || compruebaEmail(emailRegistro)) {
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Uno de los campos está vacío.");
             alert.setContentText("Asegurese de introducir email y contraseña");
-            if(emailRegistro.isEmpty() || compruebaEmail()){
+            if(emailRegistro.isEmpty() || compruebaEmail(emailRegistro)){
                 txtEmailRegistro.requestFocus();
                 alert.setTitle("Email incorrecto");
                 alert.setContentText("El email o esta vacio o ya se encuentra registrado");
@@ -95,16 +102,22 @@ public class RegistroSesionController {
             alert.setContentText("Email: "+emailRegistro+ System.lineSeparator()+"Contraseña: " +contraRegistro);
            
             newPersona.setId(id);
-            newPersona.setNombre(nombre);
+            newPersona.setNombre(nombre.trim());
             newPersona.setApellido(apellidos);
             newPersona.setDireccion(direccion);
             newPersona.setTelefono(telefono);
             newPersona.setTarjeta(tarjeta);
-            newPersona.setEmail(emailRegistro);
-            newPersona.setContrasenia(contraRegistro);
+            newPersona.setEmail(emailRegistro.trim());
+            newPersona.setContrasenia(contraRegistro.trim());
             newPersona.setFoto("data"+File.separator+"images"+File.separator+newPersona.getId());
-            newPersona.setTipo("CLIENTE");
-            personasRepository.create(newPersona);
+            if (newPersona.getNombre().equalsIgnoreCase("ADMIN")) {
+                newPersona.setTipo("ADMIN");
+                personasRepository.create(newPersona);
+            } else {
+                newPersona.setTipo("CLIENTE");
+                personasRepository.create(newPersona);
+            }
+
             System.out.println(newPersona);
             
         }
@@ -164,15 +177,32 @@ public class RegistroSesionController {
     }
     
     // En este caso el metodo sirve para comprobar que no haya alguien con el mismo email
-    private boolean compruebaEmail() throws SQLException {
-        boolean existe = false;
-        for(Persona persona: personasRepository.findAll()){
-            if(persona.getEmail() == txtEmailRegistro.getText()) {
-                logger.info(persona);
-                existe = true;
-            }
-            return existe;
+    private boolean compruebaEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM personas WHERE email = ?";
+        db.open();
+        logger.info("Linea 177");
+        var rs = db.select(sql, email).orElseThrow(SQLException::new);
+        while(rs.next()) {
+            repo.add(new Persona(
+                            rs.getString("id"),
+                            rs.getString("nombre"),
+                            rs.getString("apellidos"),
+                            rs.getString("direccion"),
+                            rs.getString("telefono"),
+                            rs.getString("tarjeta"),
+                            rs.getString("email"),
+                            rs.getString("contraseña"),
+                            rs.getString("avatar"),
+                            rs.getString("tipo")
+                    )
+            );
         }
-        return false;
+        db.close();
+        if(repo.isEmpty()) {
+            logger.warn("El repositorio se encuentra vacío");
+            return false;
+        }
+        logger.info("Se pueden comprobar los emails ya registrados");
+        return true;
     }
 }

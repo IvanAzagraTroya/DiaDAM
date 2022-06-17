@@ -52,8 +52,8 @@ public class IniciarSesionController {
 
     private void accionIniciar() throws SQLException, IOException {
         // Se pasan los parámetros del usuario al método
-        String email = txtEmail.getText().toString();
-        String contra = txtContrasenia.getText().toString();
+        String email = txtEmail.getText().trim();
+        String contra = txtContrasenia.getText().trim();
 
         // Depuración
         logger.info("Email: ["+email+ "]");

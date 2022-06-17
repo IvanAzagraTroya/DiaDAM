@@ -6,15 +6,20 @@ import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
 
 import es.diadam.diadam.services.Storage;
+import es.diadam.diadam.utils.Temas;
+import es.diadam.diadam.utils.Themes;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -25,13 +30,11 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-
     ManagerBBDD db;
     Storage storage;
 
-
-
     ProductoRepository productoRepository = ProductoRepository.getInstance();
+
 
 
     @FXML
@@ -51,6 +54,12 @@ public class InterfazClienteController {
 
     @FXML
     TableColumn<Producto, String> descripcionColumn;
+
+    @FXML
+    private ImageView avatarImageView;
+
+    @FXML
+    private ToggleButton modeButton;
 
     @FXML
     private void initialize() {
@@ -97,13 +106,7 @@ public class InterfazClienteController {
             producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
             logger.warn("Se ha establecido la imagen por defecto en el producto"+ producto);
         }
-
-
  */
-
-    /*private void clearDataInfo() {
-        algoLabel.setText("");
-    }*/
 
     @FXML
     private void onAcercaDeButton() throws IOException {
@@ -134,6 +137,15 @@ public class InterfazClienteController {
         }
     }
 
+    @FXML
+    public void onCambioBtn() throws IOException {
+        if(modeButton.isSelected()) {
+            onMenuDark();
+        }else {
+            onMenuMetroAction();
+        }
+    }
+
 
     private void loadData() throws SQLException {
         logger.info("Accediendo a catálogo...");
@@ -149,8 +161,26 @@ public class InterfazClienteController {
     }
 
     @FXML
-    private void onChangeMode() {
-        logger.info("Cambiando paleta de colores");
-        // TODO meter los estilos aquí
+    private void onMenuMetroAction() throws IOException {
+        logger.info("Se ha pulsado accion Metro");
+        Temas.set(this.avatarImageView, Themes.METRO.get());
+    }
+
+    @FXML
+    public void onMenuDamAction() throws IOException {
+        logger.info("Se ha pulsado accion Dam");
+        Temas.set(this.avatarImageView, Themes.DAM.get());
+    }
+
+    @FXML
+    private void onMenuBootstrapt3Action() throws IOException {
+        logger.info("Se ha pulsado accion Bootstrap3");
+        Temas.set(this.avatarImageView, Themes.BOOTSTRAPT3.get());
+    }
+
+    @FXML
+    private void onMenuDark() throws IOException {
+        logger.info("Se ha pulsado accion Bootstrap3");
+        Temas.set(this.avatarImageView, Themes.DARKTHEME.get());
     }
 }
