@@ -30,6 +30,7 @@ public class IniciarSesionController {
 
 
     PersonasRepository personasRepository = PersonasRepository.getInstance();
+    ObservableList<Persona> repo = FXCollections.observableArrayList();
     ManagerBBDD db = ManagerBBDD.getInstance();
 
     @FXML
@@ -80,10 +81,11 @@ public class IniciarSesionController {
                 logger.info("Se han comprobado correctamente email y contrasenia");
                 // comprueba si el tipo del usuario es cliente o administrador, para así cargar la escena de edición de productos.
                 if(compruebaTipo(email)){
+                    logger.info("Abriendo interfaz de administrador logueado");
                     SceneManager.get().initInterfazAdministrador();
                 } else {
                     // Si el tipo es de cliente se carga la escena del catalogo.
-                    logger.info("Se ha iniciado sesión con éxito");
+                    logger.info("Se ha iniciado sesión con éxito, cliente logueado");
                     SceneManager.get().initInterfazCliente();
                 }
             }
@@ -159,12 +161,12 @@ public class IniciarSesionController {
     }
 
     private boolean compruebaEmail(String contra, String email) throws SQLException {
-        String sql = "SELECT * FROM personas WHERE email = ?, contraseña = ?, tipo = ?";
-        final ObservableList<Persona> repository = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM personas WHERE email = ? AND contraseña = ?";
         db.open();
-        var rs = db.select(sql, contra, email).orElseThrow(SQLException::new);
+        logger.info("Linea 165");
+        var rs = db.select(sql, email, contra).orElseThrow(SQLException::new);
         while(rs.next()) {
-            repository.add(new Persona(
+            repo.add(new Persona(
                     rs.getString("id"),
                     rs.getString("nombre"),
                     rs.getString("apellidos"),
@@ -179,15 +181,20 @@ public class IniciarSesionController {
             );
         }
         db.close();
-        if(repository.isEmpty()) return false;
+        if(repo.isEmpty()) {
+            logger.warn("El repositorio se encuentra vacío");
+            return false;
+        }
+        logger.info("El repositorio tiene personas dentro");
         return true;
     }
 
 
     private boolean compruebaTipo(String email) throws SQLException {
-        String sql = "SELECT tipo FROM persona WHERE email = ?";
+        String sql = "SELECT tipo FROM personas WHERE email = ?";
         db.open();
         var rs = db.select(sql, email).orElseThrow(SQLException::new);
+        logger.warn("Linea 195");
         while(rs.next()) {
             if (rs.getString("tipo").equals("ADMIN")) {
                 db.close();

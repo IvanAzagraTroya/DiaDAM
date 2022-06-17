@@ -70,7 +70,7 @@ public class InterfazClienteController {
         stockColumn.setCellValueFactory(cellData-> new SimpleIntegerProperty(cellData.getValue().getStock()).asObject());
         precioColumn.setCellValueFactory(cellData-> new SimpleDoubleProperty(cellData.getValue().getPrecio()).asObject());
         descripcionColumn.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().getDescripcion()));
-        // TODO revisar por si falta algo
+
     }
 
     private void onProductoSelected(Producto producto) {
@@ -82,10 +82,8 @@ public class InterfazClienteController {
 /*
     private void setProductInfo(Producto producto) {
         logger.info("Se ha seleccionado: "+producto+" producto");
-        // TODO mirar los componentes dentro del listView
         //nombreLabel.setText(producto.getNombre());
         //descLabel.setText(producto.getDescripcion());
-        // TODO revisar precioLabel en InterfazClienteController.
         //precioLabel.setText(producto.getPrecio().toString());
 
         if(!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))) {

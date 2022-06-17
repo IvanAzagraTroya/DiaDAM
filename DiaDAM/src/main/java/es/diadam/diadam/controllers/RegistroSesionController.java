@@ -103,7 +103,7 @@ public class RegistroSesionController {
             newPersona.setEmail(emailRegistro);
             newPersona.setContrasenia(contraRegistro);
             newPersona.setFoto("data"+File.separator+"images"+File.separator+newPersona.getId());
-            newPersona.setTipo("ADMIN");
+            newPersona.setTipo("CLIENTE");
             personasRepository.create(newPersona);
             System.out.println(newPersona);
             
