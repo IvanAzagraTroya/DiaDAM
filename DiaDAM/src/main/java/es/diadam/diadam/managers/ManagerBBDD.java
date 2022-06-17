@@ -163,7 +163,7 @@ public class ManagerBBDD {
     private int updateQuery(@NonNull String genericSQL, Object... params) throws SQLException {
         preparedStatement = connection.prepareStatement(genericSQL);
         for (int i = 0; i < params.length; i++) {
-            preparedStatement.setObject(i+ 1, params[i]);
+            preparedStatement.setObject(i + 1, params[i]);
         }
         return preparedStatement.executeUpdate();
     }

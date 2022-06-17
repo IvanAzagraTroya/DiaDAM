@@ -1,7 +1,9 @@
 package es.diadam.diadam.controllers;
 
 import es.diadam.diadam.DiaApplication;
+import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Producto;
+import es.diadam.diadam.repositories.ProductoRepository;
 import es.diadam.diadam.utils.Resources;
 import es.diadam.diadam.utils.Utils;
 import javafx.fxml.FXML;
@@ -16,14 +18,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.sql.SQLException;
+import java.util.UUID;
 
 /**
  * @author Jorge Sanchez Berrocoso
  */
 public class ProductoEditarViewController {
     Logger logger = LogManager.getLogger(ProductoEditarViewController.class);
+    private final ManagerBBDD db = ManagerBBDD.getInstance();
+    ProductoRepository productoRepository = ProductoRepository.getInstance();
 
     @FXML
     Label stockLabel;
@@ -98,13 +105,14 @@ public class ProductoEditarViewController {
     }
 
     @FXML
-    private void onAceptarAction() {
+    private void onAceptarAction() throws SQLException, IOException {
         logger.info("Aceptar");
         if (isInputValid()) {
             producto.setNombre(nombreTxt.getText());
             producto.setStock(Integer.parseInt(stockTxt.getText()));
             producto.setPrecio(Double.parseDouble(precioTxt.getText()));
             producto.setDescripcion(descripcionTxt.getText());
+            producto.setAvatar(avatarImageView.getImage().getUrl());
             producto.setAvatar(avatarImageView.getImage().getUrl());
             aceptarClicked = true;
             dialogStage.close();

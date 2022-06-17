@@ -39,7 +39,7 @@
                                 <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
                         </MenuItem>
-                        <MenuItem mnemonicParsing="false"  text="Borrar">
+                        <MenuItem mnemonicParsing="false" text="Borrar">
                             <accelerator>
                                 <KeyCodeCombination alt="UP" code="B" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                             </accelerator>
@@ -54,6 +54,10 @@
                 <Menu mnemonicParsing="false" text="Estilos">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#onMenuLimpiarAction" text="Limpiar" />
+                        <MenuItem mnemonicParsing="false" onAction="#onMenuDamAction" text="DAM" />
+                        <MenuItem mnemonicParsing="false" onAction="#onMenuDark" text="DARK" />
+                        <MenuItem mnemonicParsing="false" onAction="#onMenuBootstrapt3Action" text="BOOTSTRAP3" />
+                  <MenuItem mnemonicParsing="false" onAction="#onMenuMetroAction" text="METRO" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Backup">
@@ -62,7 +66,6 @@
                         <MenuItem mnemonicParsing="false" onAction="#restaurar" text="Restaurar" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Acerca de" />
             </menus>
         </MenuBar>
         <AnchorPane prefHeight="439.0" prefWidth="600.0">

@@ -34,7 +34,7 @@ public class ProductoRepository implements IProductosRepository{
     private static ProductoRepository instance;
     private final ObservableList<Producto> repository = FXCollections.observableArrayList();
     Logger logger = LogManager.getLogger(ProductoRepository.class);
-    Storage storage;
+    Storage storage = Storage.getInstance();
     ManagerBBDD db =ManagerBBDD.getInstance();
 
 
@@ -70,6 +70,10 @@ public class ProductoRepository implements IProductosRepository{
 */
 
 
+    public void backup() throws IOException {
+        List<ProductoDTO> producto = repository.stream().map(ProductoDTO::new).collect(Collectors.toList());
+        storage.backup(producto);
+    }
 
     @Override
     public ObservableList<Producto> findAll() throws SQLException {
@@ -95,10 +99,7 @@ public class ProductoRepository implements IProductosRepository{
         return FXCollections.observableList(list);
     }
 
-    public void backup() throws IOException {
-        List<ProductoDTO> producto = repository.stream().map(ProductoDTO::new).collect(Collectors.toList());
-        storage.backup(producto);
-    }
+
 
     public void restore() throws IOException, ClassNotFoundException, SQLException {
         List<ProductoDTO> productos = storage.restore();
@@ -139,12 +140,12 @@ public class ProductoRepository implements IProductosRepository{
 
     @Override
     public Optional<Producto> create(Producto producto) throws SQLException, IOException {
-
+      String id = UUID.randomUUID().toString();
        // storeAvatar(producto);
 
         String sql = "INSERT INTO productos (id, nombre, stock, cantidad, descripcion, avatar) VALUES (?, ?, ?, ?, ?, ?)";
         db.open();
-        ResultSet res= db.insert(sql, UUID.randomUUID().toString(), producto.getNombre(), producto.getStock(), producto.getPrecio(), producto.getDescripcion(), producto.getAvatar())
+        ResultSet res= db.insert(sql,id , producto.getNombre(), producto.getStock(), producto.getPrecio(), producto.getDescripcion(), producto.getAvatar())
                 .orElseThrow(() -> new SQLException("Error al insertar pais"));
         if (res.first()) {
             producto.setId(res.getString(1));
@@ -159,7 +160,7 @@ public class ProductoRepository implements IProductosRepository{
     public Optional<Producto> update(Producto producto) throws SQLException, IOException {
         int index = repository.indexOf(producto);
         //storeAvatar(producto);
-        String sql = "UPDATE productos SET nombre = ?, stock = ?, cantidad = ?, descripcion = ?, avatar = ? WHERE id = ?";
+        String sql = "UPDATE productos SET nombre = ?, stock = ?, cantidad = ?, descripcion = ?, avatar=? WHERE id = ?";
         db.open();
         int res = db.update(sql, producto.getId(), producto.getNombre(), producto.getStock(), producto.getPrecio(), producto.getDescripcion(), producto.getAvatar());
         db.close();

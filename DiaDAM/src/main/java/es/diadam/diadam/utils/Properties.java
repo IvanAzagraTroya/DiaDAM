@@ -50,10 +50,8 @@ public class Properties {
     // Data
     private static final String APP_PATH = System.getProperty("user.dir");
     public static final String DATA_DIR = APP_PATH + File.separator + "data";
-    // Backup para el administrador? Podría exportar el número de ventas de las estadísticas
-    // a un archivo json externo
+
     public static final String BACKUP_DIR = DATA_DIR + File.separator + "backup";
-    // Pongo ventas pensando en la orientación a backup de administrador, tendría sentido
     public static final String BACKUP_FILE = BACKUP_DIR + File.separator + "ventas.bak";
     public static final String IMAGES_DIR = DATA_DIR + File.separator + "images";
 

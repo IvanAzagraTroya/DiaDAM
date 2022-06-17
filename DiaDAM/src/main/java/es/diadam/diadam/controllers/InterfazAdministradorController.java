@@ -5,12 +5,14 @@ import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
 import es.diadam.diadam.utils.Properties;
 import es.diadam.diadam.utils.Temas;
+import es.diadam.diadam.utils.Themes;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javafx.application.Platform;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -25,6 +27,7 @@ public class InterfazAdministradorController {
 
 
     ProductoRepository productoRepository = new ProductoRepository();
+
 
     //Tabla de productos
     @FXML
@@ -46,7 +49,6 @@ public class InterfazAdministradorController {
 
     @FXML
     private TextField descripcionField;
-
 
     @FXML
     private ImageView avatarImageView;
@@ -193,7 +195,7 @@ public class InterfazAdministradorController {
     }
 
     @FXML
-    private void backup() {
+    private void backup() throws IOException, SQLException {
         try {
             productoRepository.backup();
             logger.info("Backup realizado en: " + Properties.BACKUP_DIR);
@@ -204,6 +206,7 @@ public class InterfazAdministradorController {
             logger.error("No se ha podido hacer el backup", e.getMessage());
             error.showAndWait();
         }
+
     }
 
     @FXML
@@ -226,6 +229,31 @@ public class InterfazAdministradorController {
             }
         }
     }
+
+    @FXML
+    private void onMenuMetroAction() throws IOException {
+        logger.info("Se ha pulsado accion Metro");
+        Temas.set(this.avatarImageView, Themes.METRO.get());
+    }
+
+    @FXML
+    public void onMenuDamAction() throws IOException {
+        logger.info("Se ha pulsado accion Dam");
+        Temas.set(this.avatarImageView, Themes.DAM.get());
+    }
+
+    @FXML
+    private void onMenuBootstrapt3Action() throws IOException {
+        logger.info("Se ha pulsado accion Bootstrap3");
+        Temas.set(this.avatarImageView, Themes.BOOTSTRAPT3.get());
+    }
+
+    @FXML
+    private void onMenuDark() throws IOException {
+        logger.info("Se ha pulsado accion Bootstrap3");
+        Temas.set(this.avatarImageView, Themes.DARKTHEME.get());
+    }
+
 
     @FXML
     private void loadData() throws SQLException{
