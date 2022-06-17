@@ -150,7 +150,7 @@ public class PersonasRepository {
 
     public void create(Persona persona) throws IOException, SQLException {
         // Salvamos su avatar.
-        storeAvatar(persona);
+        //storeAvatar(persona);
         // Salvamos en la BBDD.
         String sql = "INSERT INTO personas (id, nombre, apellidos, direccion, telefono, tarjeta, email, contraseña, avatar, tipo) VALUES (? , ?, ?, ?, ?, ?, ?, ?,?, ?)";
         db.open();
@@ -164,7 +164,7 @@ public class PersonasRepository {
     public Optional<Persona> update(Persona persona) throws IOException, SQLException {
         int index = repository.indexOf(persona);
         // Actualizamos su avatar.
-        storeAvatar(persona);
+        //storeAvatar(persona);
         // Actualizamos en la base de datos
         String sql = "UPDATE personas SET nombre = ?, apellidos = ?, direccion = ?, telefono = ?, tarjeta = ?, email = ?,contraseña = ?, avatar = ? WHERE id = ?";
         db.open();
@@ -175,9 +175,7 @@ public class PersonasRepository {
         return Optional.of(persona);
     }
     public void deleteAll() throws IOException, SQLException {
-
         // Eliminamos de la base de datos
-
         String sql = "DELETE FROM personas";
         db.open();
         db.delete(sql);

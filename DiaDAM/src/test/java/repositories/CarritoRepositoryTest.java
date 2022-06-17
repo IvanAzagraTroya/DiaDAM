@@ -10,26 +10,22 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * @author Jorge Sanchez Berrocoso
  */
-@DisplayName("Carro Compra Test")
+
 public class CarritoRepositoryTest {
     private final CarritoRepository carritoRepository = CarritoRepository.getInstance();
 
-    private final Carrito pTest1 = new Carrito("Hamburguesa",5.0, 6, "");
-
-    @BeforeAll
-    void setUp(){
-        carritoRepository.clear();
-    }
+    private final Carrito pTest1 = new Carrito("Hamburguesa",5.0, 6, null);
 
     @Test
     void findAll(){
         try {
+            carritoRepository.clear();
             var resVacio = carritoRepository.getItems();
             carritoRepository.addItem(pTest1);
             var resLleno = carritoRepository.getItems();
 
             assertAll(
-                    () -> assertEquals(3, resLleno.size()),
+                    () -> assertEquals(1, resLleno.size()),
                     () -> assertEquals(pTest1, resLleno.get(0))
             );
         }catch (Exception e){
@@ -74,10 +70,11 @@ public class CarritoRepositoryTest {
     @Test
     void getTotal() {
         try {
+            carritoRepository.clear();
             carritoRepository.addItem(pTest1);
             var res = carritoRepository.getTotal();
             assertAll(
-                    () -> assertEquals(5.0, res)
+                    () -> assertEquals(30.0, res)
             );
         }catch (Exception e){
             fail();

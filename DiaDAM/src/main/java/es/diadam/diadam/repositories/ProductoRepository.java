@@ -118,22 +118,8 @@ public class ProductoRepository implements IProductosRepository{
     }
     @Override
     public Optional<Producto> findById(String id) throws SQLException {
-        String query = "SELECT * FROM producto WHERE id = ?";
-        db.open();
-        ResultSet result = db.select(query, id).orElseThrow(() -> new SQLException("Error al consultar producto con id " + id));
-        if (result.first()) {
-            Producto producto = new Producto(
-                    result.getString("id"),
-                    result.getString("nombre"),
-                    result.getInt("stock"),
-                    result.getDouble("cantidad"),
-                    result.getString("avatar"),
-                    result.getString("descripcion")
-            );
-            db.close();
-            return Optional.of(producto);
-        }
-        return Optional.empty();
+        return Optional.of(repository.stream().filter(producto -> producto.getId().equals(id)).findFirst().orElseThrow(() -> new SQLException("No existe producto con ese ID"))
+    );
     }
 
 
@@ -147,14 +133,11 @@ public class ProductoRepository implements IProductosRepository{
         db.open();
         ResultSet res= db.insert(sql,id , producto.getNombre(), producto.getStock(), producto.getPrecio(), producto.getDescripcion(), producto.getAvatar())
                 .orElseThrow(() -> new SQLException("Error al insertar pais"));
-        if (res.first()) {
-            producto.setId(res.getString(1));
         db.close();
         repository.add(producto);
         return Optional.of(producto);
     }
-        return Optional.empty();
-    }
+
 
     @Override
     public Optional<Producto> update(Producto producto) throws SQLException, IOException {

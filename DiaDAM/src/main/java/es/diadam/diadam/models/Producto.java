@@ -30,6 +30,8 @@ public class Producto {
         this.id = id;
     }
 
+
+
     public Producto(String nombre, int stock, double precio, String descripcion, String avatar) {
         this.nombre = new SimpleStringProperty(nombre);
         this.stock = new SimpleObjectProperty<Integer>(stock);

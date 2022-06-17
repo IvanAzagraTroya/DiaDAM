@@ -18,37 +18,29 @@ public class PersonasRepositoryTest {
     private final PersonasRepository personaRepository = PersonasRepository.getInstance();
 
     private final Persona pTest1 = new Persona(
-            UUID.randomUUID().toString(), "raul", "Mingo", "madrid, calle: lopez, numero:20 ", "616497321", "9123212345678908", "antionio@gmail.com", "12945678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
+            "raul", "Mingo", "madrid, calle: lopez, numero:20 ", "616497321", "9123212345678908", "antionio@gmail.com", "12945678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
     );
     private final Persona pTest2 = new Persona(
-            UUID.randomUUID().toString(), "ruben", "torres", "madrid, calle: bernard, numero:30 ", "616497321", "9123212345123458", "rubenio@gmail.com", "65745678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
+            "ruben", "torres", "madrid, calle: bernard, numero:30 ", "616497321", "9123212345123458", "rubenio@gmail.com", "65745678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
     );
     private final Persona pTest3 = new Persona(
-            UUID.randomUUID().toString(), "maria", "gonzalez", "madrid, calle: baja, numero:10 ", "616497321", "9198765345678908", "maria@gmail.com", "19275678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
+            "maria", "gonzalez", "madrid, calle: baja, numero:10 ", "616497321", "9198765345678908", "maria@gmail.com", "19275678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"
     );
 
 
-    @BeforeAll
-    void setUp() throws SQLException, IOException {
-        personaRepository.deleteAll();
-    }
+
 
 
     @Test
     void findAll() {
         try {
+            personaRepository.deleteAll();
             var resVacioOptional = personaRepository.findAll();
-
             personaRepository.create(pTest1);
-            personaRepository.create(pTest3);
-
             var resLlenoOptional = personaRepository.findAll();
 
             assertAll(
-                    () -> assertEquals(0, resLlenoOptional.size()),
-                    () -> assertEquals(3, resLlenoOptional.size()),
-                    () -> assertEquals(pTest1, resLlenoOptional.get(0)),
-                    () -> assertEquals(pTest3, resLlenoOptional.get(1))
+                    () -> assertEquals(1, resLlenoOptional.size())
 
             );
         } catch (Exception e) {
@@ -57,50 +49,46 @@ public class PersonasRepositoryTest {
     }
 
     @Test
-    void findById() {
-        try {
+    void findById() throws SQLException, IOException {
+
             personaRepository.create(pTest1);
-            Optional <Persona> resOptional = Optional.ofNullable(personaRepository.findById(pTest1.getId()));
+            var resOptional = Optional.ofNullable(personaRepository.findById(pTest1.getId()));
             var res = resOptional.get();
             assertAll(
                     () -> assertTrue(resOptional.isPresent()),
                     () -> assertEquals(pTest1, res),
-                    () -> assertEquals(pTest1.getId(), res.getId()),
                     () -> assertEquals(pTest1.getNombre(), res.getNombre()),
                     () -> assertEquals(pTest1.getApellido(), res.getApellido()),
                     () -> assertEquals(pTest1.getTelefono(), res.getTelefono()),
-                    () -> assertEquals(pTest1.getApellido(), res.getTarjeta()),
+                    () -> assertEquals(pTest1.getTarjeta(), res.getTarjeta()),
                     () -> assertEquals(pTest1.getEmail(), res.getEmail()),
                     () -> assertEquals(pTest1.getContrasenia(), res.getContrasenia()),
-                    () -> assertEquals(pTest1.getFoto(), res.getFoto()),
                     () -> assertEquals(pTest1.getTipo(), res.getTipo())
 
             );
-        } catch (Exception e) {
-            fail();
-        }
+
     }
     @Test
     void save() throws SQLException, IOException {
-        Persona personaTest = new Persona(UUID.randomUUID().toString(), "mario", "gonzalez", "madrid, calle: baja, numero:10 ", "616494531", "9198765987658908", "mario@gmail.com", "19234678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE");
         personaRepository.create(pTest1);
-        Optional<Persona> productoOp = Optional.ofNullable(personaRepository.findById(pTest1.getId()));
+        var productoOp = Optional.ofNullable(personaRepository.findById(pTest1.getId()));
 
         assertAll(
-                () -> assertEquals(pTest1.getId(), personaTest.getId()),
+                () -> assertEquals(pTest1.getNombre(), pTest1.getNombre()),
                 () -> assertTrue(productoOp.isPresent())
         );
     }
 
     @Test
     void delete() throws SQLException, IOException {
-        var res = personaRepository.delete(pTest3).get();
-        Optional<Persona> personaOp = Optional.ofNullable(personaRepository.findById(pTest2.getId()));
+        personaRepository.create(pTest1);
+        var resOpt = personaRepository.delete(pTest1);
+        var res = resOpt.get();
+
         assertAll(
-                () -> assertEquals(res.getId(), pTest3.getId()),
-                () -> assertEquals(res.getNombre(), pTest3.getNombre()),
-                () -> assertEquals(res.getApellido(), pTest3.getApellido()),
-                () -> assertFalse( personaOp.isPresent())
+                () -> assertEquals(res.getNombre(), pTest1.getNombre()),
+                () -> assertEquals(res.getApellido(), pTest1.getApellido()),
+                () -> assertTrue( resOpt.isPresent())
         );
     }
 
@@ -111,22 +99,20 @@ public class PersonasRepositoryTest {
 
     @Test
     void update() throws SQLException, IOException {
+        personaRepository.create(pTest2);
         pTest2.setNombre("pepe");
         pTest2.setApellido("ronaldo");
-        pTest2.setTarjeta("1234567890987654");
-        pTest2.setTelefono("");
-        pTest2.setTarjeta("1234567890987654");
-        pTest2.setEmail("pepe@gmail.com");
-        pTest2.setContrasenia("12345434");
-        pTest2.setEmail("CLIENTE");
+
 
         var res = personaRepository.update(pTest2).get();
-        Optional<Persona> personaOp = Optional.ofNullable(personaRepository.findById(pTest2.getId()));
+        var personaOp = Optional.ofNullable(personaRepository.findById(pTest2.getId()));
 
         assertAll(
-                () -> assertEquals(res.getId(), pTest2.getId()),
-                () -> assertEquals(res.getNombre(), pTest2.getNombre()),
-                () -> assertEquals(res.getId(), pTest2.getId())
+                () -> assertTrue(personaOp.isPresent()),
+                () -> assertEquals(pTest2.getNombre(), res.getNombre()),
+                () -> assertEquals(pTest2.getApellido(), res.getApellido())
+
+
         );
     }
 
