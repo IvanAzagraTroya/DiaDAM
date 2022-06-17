@@ -147,7 +147,7 @@ public class InterfazClienteController {
     @FXML
     private void onIniciarSesionButton() throws IOException {
         logger.info("Iniciando ventana iniciar sesión");
-        SceneManager.get().initInterfazCliente();
+        SceneManager.get().initIniciarSesion();
     }
 
     @FXML
