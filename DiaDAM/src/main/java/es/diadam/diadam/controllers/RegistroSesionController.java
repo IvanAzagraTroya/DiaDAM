@@ -84,11 +84,11 @@ public class RegistroSesionController {
 
         // Si se introducen mal los campos se muestra un mensaje de error.
         Alert alert;
-        if (emailRegistro.isEmpty() || contraRegistro.isEmpty() || !Utils.isEmail(txtEmailRegistro.getText()) || compruebaEmail(emailRegistro)) {
+        if (emailRegistro.isEmpty() || contraRegistro.isEmpty() || !Utils.isEmail(txtEmailRegistro.getText()) || personasRepository.compruebaEmail(emailRegistro)) {
             alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Uno de los campos está vacío.");
             alert.setContentText("Asegurese de introducir email y contraseña");
-            if(emailRegistro.isEmpty() || compruebaEmail(emailRegistro)){
+            if(emailRegistro.isEmpty() || personasRepository.compruebaEmail(emailRegistro)){
                 txtEmailRegistro.requestFocus();
                 alert.setTitle("Email incorrecto");
                 alert.setContentText("El email o esta vacio o ya se encuentra registrado");
@@ -176,33 +176,5 @@ public class RegistroSesionController {
         accionSalir();
     }
     
-    // En este caso el metodo sirve para comprobar que no haya alguien con el mismo email
-    private boolean compruebaEmail(String email) throws SQLException {
-        String sql = "SELECT * FROM personas WHERE email = ?";
-        db.open();
-        logger.info("Linea 177");
-        var rs = db.select(sql, email).orElseThrow(SQLException::new);
-        while(rs.next()) {
-            repo.add(new Persona(
-                            rs.getString("id"),
-                            rs.getString("nombre"),
-                            rs.getString("apellidos"),
-                            rs.getString("direccion"),
-                            rs.getString("telefono"),
-                            rs.getString("tarjeta"),
-                            rs.getString("email"),
-                            rs.getString("contraseña"),
-                            rs.getString("avatar"),
-                            rs.getString("tipo")
-                    )
-            );
-        }
-        db.close();
-        if(repo.isEmpty()) {
-            logger.warn("El repositorio se encuentra vacío");
-            return false;
-        }
-        logger.info("Se pueden comprobar los emails ya registrados");
-        return true;
-    }
+
 }

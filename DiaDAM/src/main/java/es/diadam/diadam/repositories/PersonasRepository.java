@@ -180,6 +180,35 @@ public class PersonasRepository {
         db.open();
         db.delete(sql);
         db.close();
+    }
 
+    // En este caso el metodo sirve para comprobar que no haya alguien con el mismo email
+    public boolean compruebaEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM personas WHERE email = ?";
+        db.open();
+        logger.info("Linea 177");
+        var rs = db.select(sql, email).orElseThrow(SQLException::new);
+        while(rs.next()) {
+            repository.add(new Persona(
+                            rs.getString("id"),
+                            rs.getString("nombre"),
+                            rs.getString("apellidos"),
+                            rs.getString("direccion"),
+                            rs.getString("telefono"),
+                            rs.getString("tarjeta"),
+                            rs.getString("email"),
+                            rs.getString("contraseña"),
+                            rs.getString("avatar"),
+                            rs.getString("tipo")
+                    )
+            );
+        }
+        db.close();
+        if(repository.isEmpty()) {
+            logger.warn("El repositorio se encuentra vacío");
+            return false;
+        }
+        logger.info("Se pueden comprobar los emails ya registrados");
+        return true;
     }
 }
