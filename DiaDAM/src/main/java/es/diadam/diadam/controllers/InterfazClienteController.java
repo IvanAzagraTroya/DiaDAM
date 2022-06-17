@@ -1,33 +1,21 @@
 package es.diadam.diadam.controllers;
 
-import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.managers.SceneManager;
-import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.models.Producto;
-import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.repositories.ProductoRepository;
 
 import es.diadam.diadam.services.Storage;
-import es.diadam.diadam.utils.Resources;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.inject.Inject;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Optional;
 

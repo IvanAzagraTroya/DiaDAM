@@ -3,6 +3,7 @@ package es.diadam.diadam.controllers;
 import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.utils.Utils;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -60,13 +61,13 @@ public class RegistroSesionController {
     
         private void accionRegistrarse() throws SQLException, IOException {
         // Se pasan los parámetros del usuario al método
-        String emailRegistro = txtEmailRegistro.getText();
-        String contraRegistro = txtContraseniaRegistro.getText();
-        String nombre = txtNombre.getText();
-        String apellidos = txtApellidos.getText();
-        String direccion = txtDireccion.getText();
-        String telefono = txtTelefono.getText();
-        String tarjeta = txtTarjeta.getText();
+        String emailRegistro = txtEmailRegistro.getText().toString();
+        String contraRegistro = txtContraseniaRegistro.getText().toString();
+        String nombre = txtNombre.getText().toString();
+        String apellidos = txtApellidos.getText().toString();
+        String direccion = txtDireccion.getText().toString();
+        String telefono = txtTelefono.getText().toString();
+        String tarjeta = txtTarjeta.getText().toString();
         
         Persona newPersona = new Persona();
         
@@ -101,9 +102,10 @@ public class RegistroSesionController {
             newPersona.setTarjeta(tarjeta);
             newPersona.setEmail(emailRegistro);
             newPersona.setContrasenia(contraRegistro);
-            newPersona.setFoto("images/PersonaDefectoClaro.png");
-            newPersona.setTipo("CLIENTE");
+            newPersona.setFoto("data"+File.separator+"images"+File.separator+newPersona.getId());
+            newPersona.setTipo("ADMIN");
             personasRepository.create(newPersona);
+            System.out.println(newPersona);
             
         }
         alert.showAndWait();
@@ -161,11 +163,12 @@ public class RegistroSesionController {
         accionSalir();
     }
     
+    // En este caso el metodo sirve para comprobar que no haya alguien con el mismo email
     private boolean compruebaEmail() throws SQLException {
         boolean existe = false;
         for(Persona persona: personasRepository.findAll()){
-            logger.info(persona);
             if(persona.getEmail() == txtEmailRegistro.getText()) {
+                logger.info(persona);
                 existe = true;
             }
             return existe;

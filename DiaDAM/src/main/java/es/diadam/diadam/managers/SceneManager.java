@@ -79,7 +79,7 @@ public class SceneManager {
         stage.initStyle(StageStyle.DECORATED);
         logger.info("Escena Administrador editar cargada");
         stage.setOnCloseRequest(event -> {
-            fxmlLoader.<InterfazClienteController>getController().onSalirAction();
+            fxmlLoader.<InterfazAdministradorController>getController().onSalirAction();
         });
         stage.setScene(scene);
         mainStage = stage;
