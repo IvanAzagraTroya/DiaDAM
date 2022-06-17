@@ -140,9 +140,9 @@ public class InterfazClienteController {
     @FXML
     public void onCambioBtn() throws IOException {
         if(modeButton.isSelected()) {
-            onMenuDark();
+            onMenuDamAction();
         }else {
-            onMenuMetroAction();
+            onMenuLimpiarAction();
         }
     }
 
@@ -182,5 +182,11 @@ public class InterfazClienteController {
     private void onMenuDark() throws IOException {
         logger.info("Se ha pulsado accion Bootstrap3");
         Temas.set(this.avatarImageView, Themes.DARKTHEME.get());
+    }
+
+    @FXML
+    private void onMenuLimpiarAction() throws IOException{
+        logger.info("Se ha pulsado la accion limpiar");
+        Temas.remove(this.avatarImageView);
     }
 }
