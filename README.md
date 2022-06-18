@@ -14,7 +14,7 @@ Si somos administradores podremos gestionar los diferentes productos del superme
 <hr>
 
 ### TRELLO
-https://trello.com/invite/b/yIVpHkpA/049e6d5f5cff775f88e59a509d5fb0f1/proyecto
+[https://trello.com/invite/b/yIVpHkpA/049e6d5f5cff775f88e59a509d5fb0f1/proyecto](https://trello.com/b/yIVpHkpA/proyecto)
 <hr>
 
 ### VIDEO EXPLICATIVO
