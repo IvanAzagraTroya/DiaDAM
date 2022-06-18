@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
+import javafx.stage.Stage;
 
 /**
  * @author Iván Azagra
@@ -66,12 +67,9 @@ public class InterfazClienteController {
 
     @FXML
     private ToggleButton modeButton;
-
+    
     @FXML
     private void initialize() {
-        // Mismo problema que antes
-        //DaggerRepositoryFactory.create().inject(this);
-
         try {
             System.out.println("Cargando tabla");
             loadData();
@@ -111,28 +109,6 @@ public class InterfazClienteController {
         carritoRepository.addItem(carritoItem);
         System.out.println(carritoRepository.getItems().toString());
     }
-
-
-
-/*
-    private void setProductInfo(Producto producto) {
-        logger.info("Se ha seleccionado: "+producto+" producto");
-        //nombreLabel.setText(producto.getNombre());
-        //descLabel.setText(producto.getDescripcion());
-        //precioLabel.setText(producto.getPrecio().toString());
-
-        if(!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))) {
-            logger.info("Cargando imagen: "+producto.getAvatar());
-            Image image = new Image(new File(producto.getAvatar()).toURI().toString());
-            logger.info("Imagen cargada: "+image.getUrl());
-            avatarImageView.setImage(image);
-        }else {
-            logger.warn("No se ha encontrado la foto, se usará una por defecto");
-            avatarImageView.setImage(new Image(Resources.get(DiaApplication.class, "images/defectoComida.png")));
-            producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
-            logger.warn("Se ha establecido la imagen por defecto en el producto"+ producto);
-        }
- */
 
     @FXML
     private void onAcercaDeButton() throws IOException {

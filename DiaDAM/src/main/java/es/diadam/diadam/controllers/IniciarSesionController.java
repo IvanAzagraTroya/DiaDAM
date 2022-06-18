@@ -122,6 +122,7 @@ public class IniciarSesionController {
 
     private void accionRegistro() throws IOException {
         SceneManager.get().initRegistro();
+        dialogStage.close();
     }
     @FXML
     private void linkGooglebtn(ActionEvent event) {
