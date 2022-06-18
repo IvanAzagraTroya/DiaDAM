@@ -47,7 +47,7 @@ public class SceneManager {
         return instance;
     }
 
-    public void initInterfazCliente() throws IOException {
+    public void initInterfazCliente(String email) throws IOException {
         logger.info("Iniciando el catálogo");
         Platform.setImplicitExit(true);
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(appClass.getResource(Views.INTERFAZCLIENTE.get())));
@@ -63,6 +63,8 @@ public class SceneManager {
             fxmlLoader.<InterfazClienteController>getController().onSalirAction();
         });
         stage.setScene(scene);
+        InterfazClienteController controller = fxmlLoader.getController();
+        controller.setEmail(email);
         mainStage = stage;
         stage.show();
     }
@@ -174,7 +176,7 @@ public class SceneManager {
 
     }
 
-    public void initCarrito() throws IOException {
+    public void initCarrito(String email) throws IOException {
         logger.info("Iniciando carrito");
         Platform.setImplicitExit(true);
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.CARRITO.get()));
@@ -186,8 +188,10 @@ public class SceneManager {
         stage.setScene(scene);
         CarritoController controller = fxmlLoader.getController();
         controller.setDialogStage(stage);
+        controller.setEmail(email);
         logger.info("Escena carrito cargada");
         stage.setResizable(false);
         stage.showAndWait();
     }
+
 }

@@ -47,7 +47,8 @@ public class Properties {
     // Data
     private static final String APP_PATH = System.getProperty("user.dir");
     public static final String DATA_DIR = APP_PATH + File.separator + "data";
-
+    public static final String FACTURA_DIR = DATA_DIR + File.separator + "factura";
+    public static final String FACTURA_FILE = FACTURA_DIR + File.separator + "Index.html";
     public static final String BACKUP_DIR = DATA_DIR + File.separator + "backup";
     public static final String BACKUP_FILE = BACKUP_DIR + File.separator + "ventas.bak";
     public static final String IMAGES_DIR = DATA_DIR + File.separator + "images";

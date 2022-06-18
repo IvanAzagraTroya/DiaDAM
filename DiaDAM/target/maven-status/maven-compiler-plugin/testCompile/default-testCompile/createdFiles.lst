@@ -1,2 +1,8 @@
+<<<<<<< HEAD
+repositories\ProductoRepositoryTest.class
+=======
+>>>>>>> 2b99d4449bf876f4341507e6cd2085bd3e128339
 es\diadam\diadam\utils\UtilsTest.class
+repositories\VentasRepositoryTest.class
+repositories\PersonasRepositoryTest.class
 repositories\CarritoRepositoryTest.class

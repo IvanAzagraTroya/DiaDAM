@@ -1,0 +1,39 @@
+<component name="ArtifactManager">
+  <artifact name="DiaDAM:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DiaDAM_jar</output-path>
+    <root id="root">
+      <element id="archive" name="DiaDAM.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="DiaDAM" />
+        <element id="module-test-output" name="DiaDAM" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:11.0.2" />
+      <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.17.1" />
+      <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-api:5.8.1" />
+      <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.1.0" />
+      <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.22" />
+      <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-engine:1.8.1" />
+      <element id="library" level="project" name="Maven: org.junit.platform:junit-platform-commons:1.8.1" />
+      <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.17.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:11.0.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:11.0.2" />
+      <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.9" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:11.0.2" />
+      <element id="library" level="project" name="Maven: com.google.dagger:dagger:2.41" />
+      <element id="library" level="project" name="Maven: com.dlsc.formsfx:formsfx-core:11.3.2" />
+      <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+      <element id="library" level="project" name="Maven: org.xerial:sqlite-jdbc:3.36.0.3" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:11.0.2" />
+      <element id="library" level="project" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.8.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:11.0.2" />
+      <element id="library" level="project" name="Maven: org.apiguardian:apiguardian-api:1.1.2" />
+      <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:11.0.2" />
+      <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.9.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:11.0.2" />
+      <element id="library" level="project" name="Maven: org.opentest4j:opentest4j:1.2.0" />
+    </root>
+  </artifact>
+</component>

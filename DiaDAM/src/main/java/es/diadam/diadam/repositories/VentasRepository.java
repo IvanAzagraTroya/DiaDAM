@@ -31,6 +31,6 @@ public class VentasRepository {
         Venta venta = new Venta(lineasVenta, cliente);
         ventas.put(venta.getId(), venta);
         // Simulamos esto que no es necesario
-        return ventas.get(venta.getId());
+        return venta;
     }
 }

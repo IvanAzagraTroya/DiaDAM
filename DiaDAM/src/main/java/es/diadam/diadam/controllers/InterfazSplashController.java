@@ -38,7 +38,7 @@ public class InterfazSplashController implements Initializable {
             // Visualización ventana principal
             SceneManager sceneManager = SceneManager.get();
             try {
-                sceneManager.initInterfazCliente();
+                sceneManager.initIniciarSesion();
             } catch (IOException e) {
                 logger.error("No se pudo hacer la transición a Interfaz Cliente, error: "+e.getMessage());
                 e.printStackTrace();

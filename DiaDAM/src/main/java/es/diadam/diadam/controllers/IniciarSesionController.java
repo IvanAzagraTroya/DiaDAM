@@ -54,6 +54,7 @@ public class IniciarSesionController {
         String email = txtEmail.getText().trim();
         String contra = txtContrasenia.getText().trim();
 
+
         // Depuración
         logger.info("Email: ["+email+ "]");
         logger.info("Contraseña: ["+contra+"]");
@@ -85,7 +86,7 @@ public class IniciarSesionController {
                 } else {
                     // Si el tipo es de cliente se carga la escena del catalogo.
                     logger.info("Se ha iniciado sesión con éxito, cliente logueado");
-                    SceneManager.get().initInterfazCliente();
+                    SceneManager.get().initInterfazCliente(email);
                 }
             }
             else{
@@ -118,10 +119,9 @@ public class IniciarSesionController {
         txtContrasenia.setText("");
         txtEmail.requestFocus();
     }
-    
+
     private void accionRegistro() throws IOException {
         SceneManager.get().initRegistro();
-        dialogStage.close();
     }
     @FXML
     private void linkGooglebtn(ActionEvent event) {
@@ -134,30 +134,30 @@ public class IniciarSesionController {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     private void accionLimpiarbtn(ActionEvent event) {
         logger.info("Limpiar datos");
         accionLimpiar();
     }
-    
+
     @FXML
     private void accionIniciarbtn(ActionEvent event) throws SQLException, IOException{
         logger.info("Se ha iniciado sesión");
         accionIniciar();
     }
-    
-    @FXML 
+
+    @FXML
     private void accionSalirbtn(ActionEvent event){
         logger.info("Se va a salir");
         accionSalir();
     }
-    
+
     @FXML
     private void accionRegistrobtn(ActionEvent event) throws IOException{
         logger.info("Se abre la pantalla de registro");
         accionRegistro();
-        
+
     }
 
     private boolean compruebaEmail(String contra, String email) throws SQLException {
@@ -167,17 +167,17 @@ public class IniciarSesionController {
         var rs = db.select(sql, email, contra).orElseThrow(SQLException::new);
         while(rs.next()) {
             repo.add(new Persona(
-                    rs.getString("id"),
-                    rs.getString("nombre"),
-                    rs.getString("apellidos"),
-                    rs.getString("direccion"),
-                    rs.getString("telefono"),
-                    rs.getString("tarjeta"),
-                    rs.getString("email"),
-                    rs.getString("contraseña"),
-                    rs.getString("avatar"),
-                    rs.getString("tipo")
-                )
+                            rs.getString("id"),
+                            rs.getString("nombre"),
+                            rs.getString("apellidos"),
+                            rs.getString("direccion"),
+                            rs.getString("telefono"),
+                            rs.getString("tarjeta"),
+                            rs.getString("email"),
+                            rs.getString("contraseña"),
+                            rs.getString("avatar"),
+                            rs.getString("tipo")
+                    )
             );
         }
         db.close();

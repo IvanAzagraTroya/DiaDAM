@@ -11,7 +11,7 @@ public class Carrito {
     private final SimpleDoubleProperty precio;
     private final SimpleIntegerProperty cantidadProductos;
     private final SimpleStringProperty imagen;
-    private double total;
+    private final SimpleDoubleProperty total;
 
 
     public Carrito(String nombre, double precio, int cantidadProductos, String imagen) {
@@ -19,7 +19,7 @@ public class Carrito {
         this.precio = new SimpleDoubleProperty(precio);
         this.cantidadProductos = new SimpleIntegerProperty(cantidadProductos);
         this.imagen =  new SimpleStringProperty (imagen);
-        this.total = precio*cantidadProductos;
+        this.total = new SimpleDoubleProperty(precio * cantidadProductos);
     }
 
 
@@ -58,6 +58,7 @@ public class Carrito {
 
     public void setCantidadProductos(int cantidadProductos) {
         this.cantidadProductos.set(cantidadProductos);
+        this.total.set(precio.get() * cantidadProductos);
     }
 
     public String getImagen() {
@@ -72,7 +73,7 @@ public class Carrito {
         this.imagen.set(imagen);
     }
     public double getTotal() {
-        return total;
+        return total.get();
     }
     @Override
     public String toString() {

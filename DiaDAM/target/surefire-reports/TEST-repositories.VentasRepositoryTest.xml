@@ -4,7 +4,7 @@
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="17.0.3.1+2-LTS"/>
     <property name="sun.boot.library.path" value="C:\Users\pejor\OneDrive\Escritorio\jdk-17.0.3.1-full\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\pejor\OneDrive\Escritorio\DiaDAM\DiaDAM"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\pejor\OneDrive\Escritorio\DiaDAMM-Jorge\DiaDAM"/>
     <property name="java.vm.vendor" value="BellSoft"/>
     <property name="java.vendor.url" value="https://bell-sw.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="ES"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\pejor\OneDrive\Escritorio\DiaDAM\DiaDAM"/>
+    <property name="user.dir" value="C:\Users\pejor\OneDrive\Escritorio\DiaDAMM-Jorge\DiaDAM"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="java.runtime.version" value="17.0.3.1+2-LTS"/>
     <property name="os.arch" value="amd64"/>
