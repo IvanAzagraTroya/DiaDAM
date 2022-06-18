@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.input.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<VBox prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazAdministradorController">
-    <children>
-        <MenuBar>
-            <menus>
                 <Menu mnemonicParsing="false" text="Editar">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#onNuevoAction" text="Nuevo">

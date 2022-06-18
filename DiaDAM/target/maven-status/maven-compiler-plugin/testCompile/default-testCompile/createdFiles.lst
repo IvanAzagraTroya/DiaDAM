@@ -1,5 +1,2 @@
-repositories\VentasRepositoryTest.class
-repositories\ProductoRepositoryTest.class
-repositories\PersonasRepositoryTest.class
 es\diadam\diadam\utils\UtilsTest.class
 repositories\CarritoRepositoryTest.class
