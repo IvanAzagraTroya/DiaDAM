@@ -27,11 +27,11 @@ import javafx.scene.image.ImageView;
 
 public class IniciarSesionController {
     Logger logger = LogManager.getLogger(IniciarSesionController.class);
+    private final ManagerBBDD db = ManagerBBDD.getInstance();
 
-
-    PersonasRepository personasRepository = PersonasRepository.getInstance();
+    PersonasRepository personasRepository = PersonasRepository.getInstance(db);
     ObservableList<Persona> repo = FXCollections.observableArrayList();
-    ManagerBBDD db = ManagerBBDD.getInstance();
+
 
     @FXML
     // Se introduce el email del usuario que se tendrá que mirar mediante regex

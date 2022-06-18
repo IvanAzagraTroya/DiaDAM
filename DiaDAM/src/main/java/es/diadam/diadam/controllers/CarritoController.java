@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 public class CarritoController {
     private static final ManagerBBDD db = ManagerBBDD.getInstance();
     private static final Storage storage = Storage.getInstance();
-    private final ProductoRepository productosRepository = ProductoRepository.getInstance();
+    private final ProductoRepository productosRepository = ProductoRepository.getInstance(db, storage);
     private final CarritoRepository carritoRepository = CarritoRepository.getInstance();
     private final ObservableList<Integer> cantidadList = FXCollections.observableArrayList();
 

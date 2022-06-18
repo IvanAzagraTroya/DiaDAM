@@ -29,11 +29,11 @@ import org.apache.logging.log4j.Logger;
  */
 public class RegistroSesionController {
     Logger logger = LogManager.getLogger(RegistroSesionController.class);
+    private final ManagerBBDD db = ManagerBBDD.getInstance();
     
-    PersonasRepository personasRepository = PersonasRepository.getInstance();
+    PersonasRepository personasRepository = PersonasRepository.getInstance(db);
 
     ObservableList<Persona> repo = FXCollections.observableArrayList();
-    ManagerBBDD db = ManagerBBDD.getInstance();
     private String id = UUID.randomUUID().toString();
     
     @FXML

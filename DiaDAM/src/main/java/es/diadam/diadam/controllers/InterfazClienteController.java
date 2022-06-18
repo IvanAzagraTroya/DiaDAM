@@ -30,10 +30,10 @@ import java.util.Optional;
 public class InterfazClienteController {
     Logger logger = LogManager.getLogger(InterfazClienteController.class);
 
-    ManagerBBDD db;
-    Storage storage;
+    private final ManagerBBDD db = ManagerBBDD.getInstance();
+    private final Storage storage = Storage.getInstance();
 
-    ProductoRepository productoRepository = ProductoRepository.getInstance();
+    ProductoRepository productoRepository = ProductoRepository.getInstance(db ,storage);
 
 
 

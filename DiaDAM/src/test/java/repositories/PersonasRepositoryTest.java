@@ -15,7 +15,8 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonasRepositoryTest {
-    private final PersonasRepository personaRepository = PersonasRepository.getInstance();
+    private final ManagerBBDD db = ManagerBBDD.getInstance();
+    private final PersonasRepository personaRepository = PersonasRepository.getInstance(db);
 
     private final Persona pTest1 = new Persona(
             "raul", "Mingo", "madrid, calle: lopez, numero:20 ", "616497321", "9123212345678908", "antionio@gmail.com", "12945678", Resources.getPath(DiaApplication.class, "images/PersonaDefectoClaro.png"), "CLIENTE"

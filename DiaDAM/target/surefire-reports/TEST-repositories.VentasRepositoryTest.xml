@@ -44,7 +44,7 @@
     <property name="java.class.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven\boot\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar install"/>
     <property name="java.home" value="C:\Users\pejor\OneDrive\Escritorio\jdk-17.0.3.1-full"/>
     <property name="user.language" value="es"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>

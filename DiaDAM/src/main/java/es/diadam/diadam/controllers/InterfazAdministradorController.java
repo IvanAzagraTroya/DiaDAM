@@ -1,5 +1,6 @@
 package es.diadam.diadam.controllers;
 
+import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.managers.SceneManager;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
@@ -25,9 +26,9 @@ import java.util.Optional;
 //Falta meter los estilos
 public class InterfazAdministradorController {
     private Logger logger = LogManager.getLogger(InterfazAdministradorController.class);
-
-Storage storage;
-    ProductoRepository productoRepository = ProductoRepository.getInstance();
+   private final ManagerBBDD db = ManagerBBDD.getInstance();
+    private final Storage storage = Storage.getInstance();
+    ProductoRepository productoRepository = ProductoRepository.getInstance(db,storage);
 
 
     //Tabla de productos

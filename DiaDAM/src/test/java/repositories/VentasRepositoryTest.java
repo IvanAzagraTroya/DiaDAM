@@ -1,6 +1,7 @@
 package repositories;
 
 import es.diadam.diadam.DiaApplication;
+import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.LineaVenta;
 import es.diadam.diadam.models.Persona;
 
@@ -22,9 +23,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VentasRepositoryTest {
 
     private final VentasRepository ventasRepository = VentasRepository.getInstance();
+    private final ManagerBBDD db = ManagerBBDD.getInstance();
     LineaVenta ventita= new LineaVenta("hamburguesa",5.00, 2 , 10.00);
     List<LineaVenta> venta = new ArrayList<>();
-    PersonasRepository personasRepository = PersonasRepository.getInstance();
+    PersonasRepository personasRepository = PersonasRepository.getInstance(db);
 
 
 
