@@ -24,7 +24,7 @@ public class Properties {
 
     // Acerca de
     public static final String APP_VERSION = "0.0.1";
-    public static final String APP_AUTHORS = "Veronica, Jorge, Alvaro e Iván";
+    public static final String APP_AUTHORS = "Jorge, Alvaro e Iván";
     public static final String GITHUB_REPO = "Repositorio";
     public static final String GITHUB_LINK = "https://github.com/IvanAzagraTroya/DiaDAM";
     // Valores momentaneos para rellenar, cambiar conforme a gusto
@@ -35,12 +35,9 @@ public class Properties {
     public static final int PRODUCTOEDITAR_HEIGHT = 450;
     public static final int PRODUCTOEDITAR_WIDTH = 610;
 
-    // Ventana de estadísticas
-    public static final int ESTADISTICAS_HEIGHT = 400;
-    public static final int ESTADISTICAS_WIDTH = 600;
 
     // Carrito de compra
-    public static final int CARRITO_HEIGHT = 400;
+    public static final int CARRITO_HEIGHT = 600;
     public static final int CARRITO_WIDTH = 600;
 
     // Editar producto

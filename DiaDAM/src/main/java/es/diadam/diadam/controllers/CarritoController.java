@@ -54,22 +54,10 @@ public class CarritoController {
     private void initialize() {
         cantidadList.addAll(1, 2, 3, 4, 5);
         // Iniciamos las vistas
-
         initTableView();
-        // Cargamos los datos
-//        initData();
+
 
     }
-
-//    private void initData() {
-//        try {
-//            listProductos.setItems(productosRepository.findAll());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        carritoTable.setItems(carritoRepository.getItems());
-//    }
-
 
     @FXML
     private void onEliminarAction(ActionEvent actionEvent) {
