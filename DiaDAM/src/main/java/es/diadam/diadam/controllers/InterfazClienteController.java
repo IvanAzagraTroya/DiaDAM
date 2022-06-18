@@ -33,9 +33,7 @@ public class InterfazClienteController {
     private final ManagerBBDD db = ManagerBBDD.getInstance();
     private final Storage storage = Storage.getInstance();
 
-    ProductoRepository productoRepository = ProductoRepository.getInstance(db ,storage);
-
-
+    ProductoRepository productoRepository = ProductoRepository.getInstance(db, storage);
 
     @FXML
     TableView<Producto> tablaProducto;
@@ -81,32 +79,6 @@ public class InterfazClienteController {
         descripcionColumn.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().getDescripcion()));
 
     }
-
-    private void onProductoSelected(Producto producto) {
-        // TODO método que interactúe con el carrito
-        // Aquí se llevaría al carrito de compra?
-
-    }
-
-/*
-    private void setProductInfo(Producto producto) {
-        logger.info("Se ha seleccionado: "+producto+" producto");
-        //nombreLabel.setText(producto.getNombre());
-        //descLabel.setText(producto.getDescripcion());
-        //precioLabel.setText(producto.getPrecio().toString());
-
-        if(!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))) {
-            logger.info("Cargando imagen: "+producto.getAvatar());
-            Image image = new Image(new File(producto.getAvatar()).toURI().toString());
-            logger.info("Imagen cargada: "+image.getUrl());
-            avatarImageView.setImage(image);
-        }else {
-            logger.warn("No se ha encontrado la foto, se usará una por defecto");
-            avatarImageView.setImage(new Image(Resources.get(DiaApplication.class, "images/defectoComida.png")));
-            producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
-            logger.warn("Se ha establecido la imagen por defecto en el producto"+ producto);
-        }
- */
 
     @FXML
     private void onAcercaDeButton() throws IOException {

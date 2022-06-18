@@ -29,7 +29,6 @@ public class IniciarSesionController {
     Logger logger = LogManager.getLogger(IniciarSesionController.class);
     private final ManagerBBDD db = ManagerBBDD.getInstance();
 
-    PersonasRepository personasRepository = PersonasRepository.getInstance(db);
     ObservableList<Persona> repo = FXCollections.observableArrayList();
 
 
@@ -122,6 +121,7 @@ public class IniciarSesionController {
     
     private void accionRegistro() throws IOException {
         SceneManager.get().initRegistro();
+        dialogStage.close();
     }
     @FXML
     private void linkGooglebtn(ActionEvent event) {

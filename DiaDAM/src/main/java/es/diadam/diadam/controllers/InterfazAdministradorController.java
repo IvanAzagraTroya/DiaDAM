@@ -11,6 +11,7 @@ import es.diadam.diadam.utils.Themes;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import javafx.application.Platform;
@@ -30,7 +31,11 @@ public class InterfazAdministradorController {
     private final Storage storage = Storage.getInstance();
     ProductoRepository productoRepository = ProductoRepository.getInstance(db,storage);
 
+    private Stage dialogStage;
 
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
     //Tabla de productos
     @FXML
     private TableView<Producto> productosTable;
@@ -79,13 +84,13 @@ public class InterfazAdministradorController {
 
     private void onProductoSelecionado(Producto newValue){
         if(newValue != null){
-          onObtenerDatosAlumno(newValue);
+          onObtenerDatosProducto(newValue);
         }else{
             clearDataInfo();
         }
     }
 
-    private void onObtenerDatosAlumno(Producto a){
+    private void onObtenerDatosProducto(Producto a){
         if(a!=null){
             nombreField.setText(a.getNombre());
             stockField.setText(String.valueOf(a.getStock()));
@@ -93,29 +98,6 @@ public class InterfazAdministradorController {
             descripcionField.setText(a.getDescripcion());
         }
     }
-/*
-    private void setDataInfo(Producto producto){
-        logger.info("Se ha seleccionado el producto: "+producto);
-        nombreLabel.setText(producto.getNombre());
-        stockLabel.setText(Utils.getFormattedInt(producto.getStock()));
-        precioLabel.setText(Utils.getFormattedDouble(producto.getPrecio()));
-        descripcionLabel.setText(producto.getDescripcion());
-
-        // La imagen, si no existe cargamos la de por defecto, si no la que tiene
-        if(!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))){
-            logger.info("Cargando imagen: " +producto.getAvatar());
-            Image image = new Image(new File(producto.getAvatar()).toURI().toString());
-            logger.info("Imagen cargada: " + image.getUrl());
-            avatarImageView.setImage(image);
-        }else{
-            logger.warn("No existe la imagen. Usando imagen por defecto");
-            avatarImageView.setImage(new Image(Resources.get(DiaApplication.class, "images/ImagenPorDefecto.png")));
-            producto.setAvatar(Resources.getPath(DiaApplication.class,"images/ImagenPorDefecto.png"));
-            logger.warn("Nueva informacion de imagen: "+producto);
-        }
-    }
-
- */
 
     private void clearDataInfo(){
         nombreField.setText("");
@@ -131,10 +113,7 @@ public class InterfazAdministradorController {
         SceneManager.get().initAcercaDe();
     }
 
-
-
-
-    @FXML
+  /*  @FXML
     public void onSalirAction() {
 
         logger.info("Se ha pulsado el botón salir");
@@ -150,7 +129,7 @@ public class InterfazAdministradorController {
         }else {
             alert.close();
         }
-    }
+    }*/
 
     @FXML
     private void onNuevoAction() throws IOException{
@@ -163,7 +142,7 @@ public class InterfazAdministradorController {
             }catch(SQLException | IOException e){
                 logger.error("Error al crear producto: " + e.getMessage());
             }
-            onObtenerDatosAlumno(producto);
+            onObtenerDatosProducto(producto);
         }
     }
 
@@ -185,7 +164,7 @@ public class InterfazAdministradorController {
             } catch (SQLException | IOException e) {
                 logger.error("Error al actualizar producto: " + e.getMessage());
             }
-            onObtenerDatosAlumno(producto);
+            onObtenerDatosProducto(producto);
         }
     }
 

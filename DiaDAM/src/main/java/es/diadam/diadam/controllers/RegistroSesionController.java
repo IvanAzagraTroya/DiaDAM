@@ -1,6 +1,7 @@
 package es.diadam.diadam.controllers;
 
 import es.diadam.diadam.managers.ManagerBBDD;
+import es.diadam.diadam.managers.SceneManager;
 import es.diadam.diadam.models.Persona;
 import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.utils.Utils;
@@ -130,6 +131,21 @@ public class RegistroSesionController {
     private void accionCrearUsuariobtn(ActionEvent event) throws SQLException, IOException {
         logger.info("Se ha creado un nuevo usuario");
         accionRegistrarse();
+    }
+
+    @FXML
+    private void accionAtrasBtn(ActionEvent event) {
+        try{
+            accionAtras();
+        }catch(IOException e){
+            logger.error("Error al cerrar la ventana");
+        }
+
+    }
+
+    private void  accionAtras() throws IOException{
+        SceneManager.get().initIniciarSesion();
+        dialogStage.close();
     }
     
     private void accionSalir() {

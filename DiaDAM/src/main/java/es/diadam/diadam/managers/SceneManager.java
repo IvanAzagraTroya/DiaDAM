@@ -69,21 +69,31 @@ public class SceneManager {
 
     public void initInterfazAdministrador() throws IOException{
         logger.info("Iniciando interfaz administrador");
-        Platform.setImplicitExit(true);
         FXMLLoader fxmlLoader = new FXMLLoader(DiaApplication.class.getResource(Views.INTERFAZADMIN.get()));
         Scene scene = new Scene(fxmlLoader.load(), Properties.APP_WIDTH, Properties.APP_HEIGHT);
         Stage stage = new Stage();
         stage.setResizable(false);
-        stage.getIcons().add(new Image(Resources.get(DiaApplication.class, Properties.APP_ICON)));
-        stage.setTitle(Properties.APP_TITLE);
-        stage.initStyle(StageStyle.DECORATED);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(mainStage);
         logger.info("Escena Administrador editar cargada");
-        stage.setOnCloseRequest(event -> {
-            fxmlLoader.<InterfazAdministradorController>getController().onSalirAction();
-        });
         stage.setScene(scene);
-        mainStage = stage;
+        fxmlLoader.<InterfazAdministradorController>getController().setDialogStage(stage);
+        stage.setResizable(false);
         stage.show();
+
+        /*logger.info("Abriendo iniciar sesión");
+        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(DiaApplication.class.getResource(Views.INICIOSESION.get())));
+        Scene scene = new Scene(fxmlLoader.load(), Properties.INICIOSESION_WIDTH, Properties.INICIOSESION_HEIGHT);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(mainStage);
+        stage.setTitle("Inicio sesión: ");
+        stage.setScene(scene);
+        IniciarSesionController controller = fxmlLoader.getController();
+        controller.setDialogStage(stage);
+        logger.info("Escena Inicio Sesión cargada");
+        stage.setResizable(false);
+        stage.show();*/
     }
 
     public void initSplash(Stage stage) throws IOException {
@@ -109,11 +119,10 @@ public class SceneManager {
         stage.initOwner(mainStage);
         stage.setTitle("Inicio sesión: ");
         stage.setScene(scene);
-        IniciarSesionController controller = fxmlLoader.getController();
-        controller.setDialogStage(stage);
+        fxmlLoader.<IniciarSesionController>getController().setDialogStage(stage);
         logger.info("Escena Inicio Sesión cargada");
         stage.setResizable(false);
-        stage.showAndWait();
+        stage.show();
     }
 
     public void initRegistro() throws IOException {
@@ -128,10 +137,8 @@ public class SceneManager {
         stage.setScene(scene);
         logger.info("Escena registro cargada");
         stage.setResizable(false);
-        RegistroSesionController controller = fxmlLoader.getController();
-        controller.setDialogStage(stage);
-        // Aquí irán los métodos a usar del controlador
-        stage.showAndWait();
+        fxmlLoader.<RegistroSesionController>getController().setDialogStage(stage);
+        stage.show();
     }
 
     public void initAcercaDe() throws IOException {
