@@ -37,7 +37,7 @@ public class Properties {
 
 
     // Carrito de compra
-    public static final int CARRITO_HEIGHT = 600;
+    public static final int CARRITO_HEIGHT = 400;
     public static final int CARRITO_WIDTH = 600;
 
     // Editar producto
