@@ -3,6 +3,7 @@ package es.diadam.diadam.controllers;
 import es.diadam.diadam.managers.SceneManager;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
+import es.diadam.diadam.services.Storage;
 import es.diadam.diadam.utils.Properties;
 import es.diadam.diadam.utils.Temas;
 import es.diadam.diadam.utils.Themes;
@@ -25,8 +26,8 @@ import java.util.Optional;
 public class InterfazAdministradorController {
     private Logger logger = LogManager.getLogger(InterfazAdministradorController.class);
 
-
-    ProductoRepository productoRepository = new ProductoRepository();
+Storage storage;
+    ProductoRepository productoRepository = ProductoRepository.getInstance();
 
 
     //Tabla de productos
@@ -195,7 +196,7 @@ public class InterfazAdministradorController {
     }
 
     @FXML
-    private void backup() throws IOException, SQLException {
+    private void backup(){
         try {
             productoRepository.backup();
             logger.info("Backup realizado en: " + Properties.BACKUP_DIR);

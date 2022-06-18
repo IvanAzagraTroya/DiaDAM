@@ -45,11 +45,11 @@ public class Storage {
         }
     }
 
-    public void backup(List<ProductoDTO> personas) throws IOException {
+    public void backup(List<ProductoDTO> producto) throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(
                 Files.newOutputStream(Paths.get(Properties.BACKUP_FILE))
         );
-        oos.writeObject(personas);
+        oos.writeObject(producto);
         oos.close();
     }
 
