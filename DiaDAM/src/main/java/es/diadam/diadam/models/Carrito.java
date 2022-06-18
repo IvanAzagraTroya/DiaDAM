@@ -81,7 +81,6 @@ public class Carrito {
                 "nombre=" + nombre +
                 ", precio=" + precio +
                 ", cantidadProductos=" + cantidadProductos +
-                ", imagen=" + imagen +
                 ", total=" + total +
                 '}';
     }

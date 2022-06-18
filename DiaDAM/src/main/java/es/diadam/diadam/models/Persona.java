@@ -176,13 +176,7 @@ public class Persona {
                 "id='" + id + '\'' +
                 ", nombre=" + nombre +
                 ", apellido=" + apellido +
-                ", direccion=" + direccion +
-                ", telefono=" + telefono +
-                ", tarjeta=" + tarjeta +
                 ", email=" + email +
-                ", contrasenia=" + contrasenia +
-                ", foto=" + foto +
-                ", tipo=" + tipo +
                 '}';
     }
 }

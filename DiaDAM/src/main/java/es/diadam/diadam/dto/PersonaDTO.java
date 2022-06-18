@@ -31,4 +31,14 @@ public class PersonaDTO {
     public Persona fromDTO() {
         return new Persona(id, nombre,apellido,direccion,telefono,tarjeta, email, contrasenia, foto,tipo);
     }
+
+    @Override
+    public String toString() {
+        return "PersonaDTO{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

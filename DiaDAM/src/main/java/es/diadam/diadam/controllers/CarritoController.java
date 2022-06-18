@@ -1,9 +1,10 @@
 package es.diadam.diadam.controllers;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import es.diadam.diadam.managers.ManagerBBDD;
-import es.diadam.diadam.models.*;
+import es.diadam.diadam.models.Carrito;
+import es.diadam.diadam.models.LineaVenta;
+import es.diadam.diadam.models.Persona;
+import es.diadam.diadam.models.Venta;
 import es.diadam.diadam.repositories.CarritoRepository;
 import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.repositories.ProductoRepository;
@@ -125,60 +126,74 @@ public class CarritoController {
 
     private void imprimirFactura(Venta venta)  {
         String html ="";
-        String pedido = venta.toString();
+        String pedido = venta.getCliente().getNombre();
+        double total = venta.getTotal();
 
 
         try {
             FileOutputStream fos = new FileOutputStream(Properties.FACTURA_FILE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            html = "<!DOCTYPE html>\n" +
-                    "<html lang=\"es-ES\">\n" +
-                    "    <head> \n" +
-                    "            <title>Recibo</title>\n" +
-                    "            <meta charset=\"utf-8\">\n" +
-                    "            <link rel=\"stylesheet\" href=\"../src/main/resources/es/diadam/diadam/styles/estilos.css\">\n" +
-                    "\n" +
-                    "    </head>\n" +
-                    "    <body>  \n" +
-                    "        <div id=\"contenedor\">\n" +
-                    "\n" +
-                    "            <div id=\"cabecera\">\n" +
-                    "            <h1>McDIA</h1>\n" +
-                    "\n" +
-                    "            </div>\n" +
-                    "\n" +
-                    "            <div id=\"contenido\">\n" +
-                    "            <h2>Tienda: Leganés-Central</h2>\n" +
-                    "            \n" +
-                    "            </div>\n" +
-                    "\n" +
-                    "\n" +
-                    "            <div id=\"contenido2\">\n" +
-                    "                <table class=\"venta\">\n" +
-                    "                    <tr>\n" +
-                    "<h3>PEDIDO:</h3><br> PAGO REALIZADO MEDIANTE : Efectivo<br>\n" +
-                    "-COMPRA : <br>\n" +
-                    "-PRODUCTO : Cerveza<br>\n" +
-                    "-CANTIDAD : Paquete de 6 latas<br>\n" +
-                    "-PRECIO : 2.5€<br>\n" +
-                    "---------------------------------------<br>\n" +
-                    "-PRODUCTO : Tarta de BOB-ESPONJA<br> \n" +
-                    "-CANTIDAD : 1<br>\n" +
-                    "-PRECIO : 7.5€<br>\n" +
-                    "........................................<br>\n" +
-                    "-CLIENTE : <br> \n" +
-                    "-NOMBRE : Jorge<br>\n" +
-                    "-TRABAJADOR/A : <br>\n" +
-                    "-NOMBRE : Lucia<br>\n" +
-                    "//////////////////////////////////////////<br>\n" +
-                    "Ten un buen dia\n" +
-                    "                    </tr>\n" +
-                    "            \n" +
-                    "                </table>\n" +
-                    "            </div>\n" +
-                    "            </div>\n" +
-                    "    </body>\n" +
-                    "</html>";
+            html =
+                    "<!DOCTYPE html>\n" +
+                            "<html lang=\"es-ES\">\n" +
+                            "    <head> \n" +
+                            "            <title>Recibo diadam</title>\n" +
+                            "            <meta charset=\"utf-8\">\n" +
+                            "            <link rel=\"stylesheet\" href=\"../src/main/resources/es/diadam/diadam/styles/estilos.css\">\n" +
+                            "\n" +
+                            "    </head>\n" +
+                            "    <body>  \n" +
+                            "        <div id=\"contenedor\">\n" +
+                            "\n" +
+                            "            <div id=\"cabecera\">\n" +
+                            "\n" +
+
+                            "\n" +
+                            "            <h1>DiaDam</h1>\n" +
+                            "\n" +
+                            "            </div> <!-- /Cabezera-->\n" +
+                            "\n" +
+                            "            <div id=\"contenido\">\n" +
+                            "\n" +
+                            "                \n" +
+                            "                <p> IES Luis Vives</p>\n" +
+                            "                <p>Numero de tienda: 4439-77-2139</p>\n" +
+                            "            \n" +
+                            "\n" +
+                            "            </div><!-- /Contenido-->\n" +
+                            "\n" +
+                            "\n" +
+                            "            <div id=\"contenido2\">\n" +
+                            "                <table class=\"venta\">\n" +
+                            "Nombre: "+
+                            "                    <tr>\n" +
+                            pedido + "\n" +
+                            "                    </tr>\n" +
+                            "                    <tr>\n" +
+                            "                        <td>\n" +
+                            "                            <p>Subtotal:</p> \n" +
+                            "                            <h2>TOTAL: </h2>\n" +
+                            "                        </td>\n" +
+                            "                        <td>\n" +
+                            "                            <p class=\"derecha\"> " + total +"</p>\n" +
+                            "                            <h3 class=\"derecha\"> "+ total +"</h3>\n" +
+                            "                        </td>\n" +
+                            "                    </tr>\n" +
+                            "                </table>\n" +
+                            "                <br>\n" +
+                            "                <br>\n" +
+                            "                <br>\n" +
+                            "                <br>\n" +
+                            "                <br>\n" +
+                            "                <br>\n" +
+                            "                <br>\n" +
+                            "                \n" +
+                            "            </div><!-- /Contenido-->\n" +
+                            "        </div> <!-- /Contenedor-->\n" +
+                            "    </body>\n" +
+                            "</html>\n" +
+                            "\n" +
+                            "\n";
             oos.writeUTF(html);
             oos.close();
             fos.close();
@@ -186,6 +201,8 @@ public class CarritoController {
             e.printStackTrace();
         }
     }
+
+
 
 
     /*public void mostrarProductos(Producto item) {
