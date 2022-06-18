@@ -8,5 +8,6 @@ import java.sql.SQLException;
 public interface IPersonasRepository extends CRUDRepository<Persona, Integer>{
     void deleteAll() throws SQLException;
     void comprar() throws SQLException;
+    Persona findbyEmail(String email) throws SQLException;
 
 }

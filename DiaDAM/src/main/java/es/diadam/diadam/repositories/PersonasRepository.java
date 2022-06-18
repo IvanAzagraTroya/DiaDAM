@@ -104,6 +104,27 @@ public class PersonasRepository {
         return repository.stream().filter(persona -> persona.getId().equals(id)).findFirst().orElseThrow(() -> new SQLException("No existe usuario con ese ID"));
     }
 
+    public Persona findByEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM personas WHERE email = ?";
+        db.open();
+        var res = db.select(sql, email).orElseThrow(() -> new SQLException("No existe una persona con el email: " + email));
+        var persona = new Persona();
+        while(res.next()) {
+            persona.setId(res.getString("id"));
+            persona.setNombre(res.getString("nombre"));
+            persona.setApellido(res.getString("apellidos"));
+            persona.setDireccion(res.getString("direccion"));
+            persona.setTelefono(res.getString("telefono"));
+            persona.setTarjeta(res.getString("tarjeta"));
+            persona.setEmail(res.getString("email"));
+            persona.setContrasenia(res.getString("contraseña"));
+            persona.setFoto(res.getString("avatar"));
+            persona.setTipo(res.getString("tipo"));
+        }
+        db.close();
+        return persona;
+    }
+
 
     public void storeAvatar(Persona p) throws IOException {
         String destination = Properties.IMAGES_DIR + File.separator + p.getId() + "." + Utils.getFileExtension(p.getFoto()).orElse("png");

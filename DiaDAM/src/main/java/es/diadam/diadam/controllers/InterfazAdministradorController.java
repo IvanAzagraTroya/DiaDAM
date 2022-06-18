@@ -30,6 +30,7 @@ public class InterfazAdministradorController {
    private final ManagerBBDD db = ManagerBBDD.getInstance();
     private final Storage storage = Storage.getInstance();
     ProductoRepository productoRepository = ProductoRepository.getInstance(db,storage);
+    private Producto producto;
 
     private Stage dialogStage;
 

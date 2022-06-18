@@ -5,9 +5,11 @@ import com.google.gson.GsonBuilder;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.*;
 import es.diadam.diadam.repositories.CarritoRepository;
+import es.diadam.diadam.repositories.PersonasRepository;
 import es.diadam.diadam.repositories.ProductoRepository;
 import es.diadam.diadam.repositories.VentasRepository;
 import es.diadam.diadam.services.Storage;
+import es.diadam.diadam.utils.Properties;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +20,11 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,13 +33,14 @@ public class CarritoController {
     private static final ManagerBBDD db = ManagerBBDD.getInstance();
     private static final Storage storage = Storage.getInstance();
     private final ProductoRepository productosRepository = ProductoRepository.getInstance(db, storage);
+    private final PersonasRepository personasRepository = PersonasRepository.getInstance(db);
     private final CarritoRepository carritoRepository = CarritoRepository.getInstance();
     private final ObservableList<Integer> cantidadList = FXCollections.observableArrayList();
 
-    private Stage dialogStage;
-    @FXML
-    private ListView<Producto> listProductos;
+    private String email;
+    private Venta venta;
 
+    private Stage dialogStage;
     @FXML
     private TableView<Carrito> carritoTable;
     @FXML
@@ -47,17 +54,26 @@ public class CarritoController {
     @FXML
     private TableColumn<Carrito, Integer> cantidadColumn;
 
+
+
+
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
+
     @FXML
     private void initialize() {
         cantidadList.addAll(1, 2, 3, 4, 5);
         // Iniciamos las vistas
         initTableView();
-
+        // Cargamos los datos
+        initData();
+        //Calculamos el total del carrito
+        calcularTotal();
 
     }
+
+
 
     @FXML
     private void onEliminarAction(ActionEvent actionEvent) {
@@ -70,15 +86,18 @@ public class CarritoController {
     }
 
     @FXML
-    private void onTerminarAction(ActionEvent actionEvent) {
+    private Venta onTerminarAction(ActionEvent actionEvent) throws SQLException {
+
         if (carritoRepository.getItems().size() > 0) {
             System.out.println("Terminar");
             // Procesamos las ventas...
-            Persona cliente = new Persona();
+            Persona cliente = personasRepository.findByEmail(email);
+            System.out.println(cliente);
             List<LineaVenta> lineasVenta = carritoRepository.getItems().stream()
-                    .map(item -> new LineaVenta(item.getNombre(), item.getCantidadProductos(), (int) item.getPrecio(), item.getTotal()))
+                    .map(item -> new LineaVenta(item.getNombre(), item.getPrecio(), item.getCantidadProductos(), item.getTotal()))
                     .collect(Collectors.toList());
-            Venta venta = VentasRepository.getInstance().save(lineasVenta, cliente);
+            var venta = VentasRepository.getInstance().save(lineasVenta, cliente);
+            System.out.println(venta.toString());
             if (venta != null) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Venta realizada");
@@ -86,12 +105,8 @@ public class CarritoController {
                 alert.setContentText("¿Desea imprimir la factura?");
                 System.out.println("Venta realizada con éxito. Total " + venta.getTotal() + " €");
                 Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK) {
-                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                    System.out.println(gson.toJson(venta));
-                    carritoRepository.clear();
-                    carritoTable.refresh();
-                    calcularTotal();
+                if (result.get() == ButtonType.OK){
+                    imprimirFactura(venta);
                 } else {
                     System.out.println("Cancelado");
                 }
@@ -105,19 +120,80 @@ public class CarritoController {
             alert.setContentText("Por favor, añada productos al carrito");
             alert.showAndWait();
         }
+        return venta;
+    }
+
+    private void imprimirFactura(Venta venta)  {
+        String html ="";
+        String pedido = venta.toString();
+
+
+        try {
+            FileOutputStream fos = new FileOutputStream(Properties.FACTURA_FILE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            html = "<!DOCTYPE html>\n" +
+                    "<html lang=\"es-ES\">\n" +
+                    "    <head> \n" +
+                    "            <title>Recibo</title>\n" +
+                    "            <meta charset=\"utf-8\">\n" +
+                    "            <link rel=\"stylesheet\" href=\"../src/main/resources/es/diadam/diadam/styles/estilos.css\">\n" +
+                    "\n" +
+                    "    </head>\n" +
+                    "    <body>  \n" +
+                    "        <div id=\"contenedor\">\n" +
+                    "\n" +
+                    "            <div id=\"cabecera\">\n" +
+                    "            <h1>McDIA</h1>\n" +
+                    "\n" +
+                    "            </div>\n" +
+                    "\n" +
+                    "            <div id=\"contenido\">\n" +
+                    "            <h2>Tienda: Leganés-Central</h2>\n" +
+                    "            \n" +
+                    "            </div>\n" +
+                    "\n" +
+                    "\n" +
+                    "            <div id=\"contenido2\">\n" +
+                    "                <table class=\"venta\">\n" +
+                    "                    <tr>\n" +
+                    "<h3>PEDIDO:</h3><br> PAGO REALIZADO MEDIANTE : Efectivo<br>\n" +
+                    "-COMPRA : <br>\n" +
+                    "-PRODUCTO : Cerveza<br>\n" +
+                    "-CANTIDAD : Paquete de 6 latas<br>\n" +
+                    "-PRECIO : 2.5€<br>\n" +
+                    "---------------------------------------<br>\n" +
+                    "-PRODUCTO : Tarta de BOB-ESPONJA<br> \n" +
+                    "-CANTIDAD : 1<br>\n" +
+                    "-PRECIO : 7.5€<br>\n" +
+                    "........................................<br>\n" +
+                    "-CLIENTE : <br> \n" +
+                    "-NOMBRE : Jorge<br>\n" +
+                    "-TRABAJADOR/A : <br>\n" +
+                    "-NOMBRE : Lucia<br>\n" +
+                    "//////////////////////////////////////////<br>\n" +
+                    "Ten un buen dia\n" +
+                    "                    </tr>\n" +
+                    "            \n" +
+                    "                </table>\n" +
+                    "            </div>\n" +
+                    "            </div>\n" +
+                    "    </body>\n" +
+                    "</html>";
+            oos.writeUTF(html);
+            oos.close();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
-
-    public void añadirProducto(Producto item) {
-        System.out.println("Añadir producto");
-        System.out.println(item);
-        Carrito carritoItem = new Carrito(item.getNombre(),  item.getPrecio(),1,item.getAvatar());
-        carritoRepository.addItem(carritoItem);
+    /*public void mostrarProductos(Producto item) {
         carritoTable.refresh(); // Forzamos que se ha refrescado la tabla
-        carritoTable.getSelectionModel().select(carritoItem);
         calcularTotal();
     }
+
+     */
 
     private void calcularTotal() {
         txtTotal.setText(carritoRepository.getTotal() + " €");
@@ -133,9 +209,7 @@ public class CarritoController {
         // Celdas personalizadas
         cantidadColumn.setCellValueFactory(cellData -> cellData.getValue().cantidadProductosProperty().asObject());
         setCantidadCell();
-        //imagenColumn.setPrefWidth(50); // Puedo cambiar esto sobre la marcha
-        imagenColumn.setCellValueFactory(cellData -> cellData.getValue().imagenProperty());
-        setImageCell();
+
     }
 
     private void setImageCell() {
@@ -176,5 +250,16 @@ public class CarritoController {
                 }
             }
         });
+
     }
+
+    private void initData() {
+        carritoTable.setItems(carritoRepository.getItems());
+    }
+
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }

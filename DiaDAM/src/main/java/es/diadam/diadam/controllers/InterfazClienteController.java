@@ -2,7 +2,9 @@ package es.diadam.diadam.controllers;
 
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.managers.SceneManager;
+import es.diadam.diadam.models.Carrito;
 import es.diadam.diadam.models.Producto;
+import es.diadam.diadam.repositories.CarritoRepository;
 import es.diadam.diadam.repositories.ProductoRepository;
 
 import es.diadam.diadam.services.Storage;
@@ -11,6 +13,7 @@ import es.diadam.diadam.utils.Themes;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -32,6 +35,8 @@ public class InterfazClienteController {
 
     private final ManagerBBDD db = ManagerBBDD.getInstance();
     private final Storage storage = Storage.getInstance();
+    CarritoRepository carritoRepository = CarritoRepository.getInstance();
+    String email;
 
     ProductoRepository productoRepository = ProductoRepository.getInstance(db, storage);
 
@@ -52,6 +57,9 @@ public class InterfazClienteController {
 
     @FXML
     TableColumn<Producto, String> descripcionColumn;
+
+    @FXML
+    TableColumn<Producto, Button> añadirColumn;
 
     @FXML
     private ImageView avatarImageView;
@@ -77,8 +85,54 @@ public class InterfazClienteController {
         stockColumn.setCellValueFactory(cellData-> new SimpleIntegerProperty(cellData.getValue().getStock()).asObject());
         precioColumn.setCellValueFactory(cellData-> new SimpleDoubleProperty(cellData.getValue().getPrecio()).asObject());
         descripcionColumn.setCellValueFactory(cellData-> new SimpleStringProperty(cellData.getValue().getDescripcion()));
-
+        añadirColumn.setCellValueFactory(param -> {
+            Button button = new Button("Añadir");
+            button.setStyle("-fx-background-color: #9cb7e5");
+            button.setOnAction(event -> {
+                try {
+                    Producto producto = productoRepository.findAll().stream()
+                            .filter(p -> p.getNombre().equals(param.getValue().getNombre()))
+                            .findFirst().get();
+                    añadirProducto(producto);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            return new SimpleObjectProperty<>(button);
+        });
     }
+
+
+
+    public void añadirProducto(Producto item) {
+        System.out.println("Añadir producto");
+        System.out.println(item);
+        Carrito carritoItem = new Carrito(item.getNombre(),  item.getPrecio(),1, item.getAvatar());
+        carritoRepository.addItem(carritoItem);
+        System.out.println(carritoRepository.getItems().toString());
+    }
+
+
+
+/*
+    private void setProductInfo(Producto producto) {
+        logger.info("Se ha seleccionado: "+producto+" producto");
+        //nombreLabel.setText(producto.getNombre());
+        //descLabel.setText(producto.getDescripcion());
+        //precioLabel.setText(producto.getPrecio().toString());
+
+        if(!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))) {
+            logger.info("Cargando imagen: "+producto.getAvatar());
+            Image image = new Image(new File(producto.getAvatar()).toURI().toString());
+            logger.info("Imagen cargada: "+image.getUrl());
+            avatarImageView.setImage(image);
+        }else {
+            logger.warn("No se ha encontrado la foto, se usará una por defecto");
+            avatarImageView.setImage(new Image(Resources.get(DiaApplication.class, "images/defectoComida.png")));
+            producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
+            logger.warn("Se ha establecido la imagen por defecto en el producto"+ producto);
+        }
+ */
 
     @FXML
     private void onAcercaDeButton() throws IOException {
@@ -89,7 +143,7 @@ public class InterfazClienteController {
     @FXML
     private void onCarritoButton() throws IOException {
         logger.info("Iniciando ventana carrito");
-        SceneManager.get().initCarrito();
+        SceneManager.get().initCarrito(email);
     }
 
     @FXML
@@ -127,7 +181,7 @@ public class InterfazClienteController {
     }
 
     @FXML
-    private void onIniciarSesionButton() throws IOException {
+    private void onIniciarSesionButton() throws IOException{
         logger.info("Iniciando ventana iniciar sesión");
         SceneManager.get().initIniciarSesion();
     }
@@ -161,4 +215,9 @@ public class InterfazClienteController {
         logger.info("Se ha pulsado la accion limpiar");
         Temas.remove(this.avatarImageView);
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }
