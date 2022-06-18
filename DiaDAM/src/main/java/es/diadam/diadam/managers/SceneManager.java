@@ -82,20 +82,6 @@ public class SceneManager {
         fxmlLoader.<InterfazAdministradorController>getController().setDialogStage(stage);
         stage.setResizable(false);
         stage.show();
-
-        /*logger.info("Abriendo iniciar sesión");
-        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(DiaApplication.class.getResource(Views.INICIOSESION.get())));
-        Scene scene = new Scene(fxmlLoader.load(), Properties.INICIOSESION_WIDTH, Properties.INICIOSESION_HEIGHT);
-        Stage stage = new Stage();
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initOwner(mainStage);
-        stage.setTitle("Inicio sesión: ");
-        stage.setScene(scene);
-        IniciarSesionController controller = fxmlLoader.getController();
-        controller.setDialogStage(stage);
-        logger.info("Escena Inicio Sesión cargada");
-        stage.setResizable(false);
-        stage.show();*/
     }
 
     public void initSplash(Stage stage) throws IOException {

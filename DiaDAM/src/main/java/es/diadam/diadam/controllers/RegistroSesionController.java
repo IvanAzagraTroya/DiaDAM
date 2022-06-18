@@ -8,7 +8,6 @@ import es.diadam.diadam.utils.Utils;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 
