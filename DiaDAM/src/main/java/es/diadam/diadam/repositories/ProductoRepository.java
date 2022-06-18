@@ -32,17 +32,22 @@ import java.util.stream.Collectors;
 
 public class ProductoRepository implements IProductosRepository{
     private static ProductoRepository instance;
-    private final ObservableList<Producto> repository = FXCollections.observableArrayList();
+    private final ObservableList<Producto> repository;
     Logger logger = LogManager.getLogger(ProductoRepository.class);
     Storage storage = Storage.getInstance();
-    ManagerBBDD db =ManagerBBDD.getInstance();
+    ManagerBBDD db = ManagerBBDD.getInstance();
 
-
+    //CONSTRUCTOR
+    private ProductoRepository(ManagerBBDD db, Storage storage) {
+        this.db = db;
+        this.storage = storage;
+        this.repository = FXCollections.observableArrayList();
+    }
 
   
-    public static ProductoRepository getInstance() {
+    public static ProductoRepository getInstance(ManagerBBDD db, Storage storage) {
         if (instance == null) {
-            instance = new ProductoRepository();
+            instance = new ProductoRepository(db, storage);
         }
         return instance;
     }

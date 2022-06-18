@@ -4,6 +4,7 @@ import es.diadam.diadam.DiaApplication;
 import es.diadam.diadam.managers.ManagerBBDD;
 import es.diadam.diadam.models.Producto;
 import es.diadam.diadam.repositories.ProductoRepository;
+import es.diadam.diadam.services.Storage;
 import es.diadam.diadam.utils.Resources;
 import es.diadam.diadam.utils.Utils;
 import javafx.fxml.FXML;
@@ -30,7 +31,8 @@ import java.util.UUID;
 public class ProductoEditarViewController {
     Logger logger = LogManager.getLogger(ProductoEditarViewController.class);
     private final ManagerBBDD db = ManagerBBDD.getInstance();
-    ProductoRepository productoRepository = ProductoRepository.getInstance();
+    private final Storage storage = Storage.getInstance();
+    ProductoRepository productoRepository = ProductoRepository.getInstance(db,storage);
 
     @FXML
     Label stockLabel;

@@ -27,11 +27,10 @@ import javafx.scene.image.ImageView;
 
 public class IniciarSesionController {
     Logger logger = LogManager.getLogger(IniciarSesionController.class);
+    private final ManagerBBDD db = ManagerBBDD.getInstance();
 
-
-    PersonasRepository personasRepository = PersonasRepository.getInstance();
     ObservableList<Persona> repo = FXCollections.observableArrayList();
-    ManagerBBDD db = ManagerBBDD.getInstance();
+
 
     @FXML
     // Se introduce el email del usuario que se tendrá que mirar mediante regex
@@ -122,6 +121,7 @@ public class IniciarSesionController {
     
     private void accionRegistro() throws IOException {
         SceneManager.get().initRegistro();
+        dialogStage.close();
     }
     @FXML
     private void linkGooglebtn(ActionEvent event) {

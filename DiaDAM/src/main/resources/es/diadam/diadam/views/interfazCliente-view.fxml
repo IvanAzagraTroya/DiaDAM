@@ -4,99 +4,87 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <!--@author Iván Azagra-->
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.diadam.diadam.controllers.InterfazClienteController">
-    <Pane prefHeight="122.0" prefWidth="600.0">
-        <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/PersonaDefectoOscuro.png" />
-         </image></ImageView>
-        <Button layoutX="449.0" layoutY="36.0" mnemonicParsing="false" onAction="#onIniciarSesionButton" text="INICIAR SESIÓN" textAlignment="JUSTIFY">
-            <font>
-                <Font size="11.0" />
-            </font>
-        </Button>
-        <ImageView fitHeight="36.0" fitWidth="91.0" layoutX="267.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Dia.png" />
-         </image></ImageView>
-        <ToggleButton fx:id="modeButton" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#onCambioBtn" prefHeight="26.0" prefWidth="29.0" textAlignment="JUSTIFY">
-            <font>
-                <Font size="11.0" />
-            </font>
-         <graphic>
-            <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/ModoOscuro.png" />
-               </image>
-            </ImageView>
-         </graphic>
-        </ToggleButton>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#onAcercaDeButton" text="About" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Modos">
+   <AnchorPane prefHeight="63.0" prefWidth="601.0">
+      <children>
+           <ImageView fitHeight="36.0" fitWidth="36.0" layoutX="550.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="550.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
+            <image>
+               <Image url="@../images/PersonaDefectoOscuro.png" />
+            </image>
+         </ImageView>
+           <Button layoutX="448.0" layoutY="40.0" mnemonicParsing="false" onAction="#onIniciarSesionButton" text="INICIAR SESIÓN" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="448.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="40.0">
+               <font>
+                   <Font size="11.0" />
+               </font>
+           </Button>
+           <ImageView fitHeight="36.0" fitWidth="91.0" layoutX="267.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="30.0">
+            <image>
+               <Image url="@../images/Dia.png" />
+            </image>
+         </ImageView>
+           <ToggleButton fx:id="modeButton" layoutX="22.0" layoutY="42.0" mnemonicParsing="false" onAction="#onCambioBtn" prefHeight="26.0" prefWidth="29.0" textAlignment="JUSTIFY">
+               <font>
+                   <Font size="11.0" />
+               </font>
+            <graphic>
+               <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/ModoOscuro.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+           </ToggleButton>
+         <MenuBar layoutY="-2.0" prefHeight="24.0" prefWidth="600.0">
+           <menus>
+               <Menu mnemonicParsing="false" text="Modos">
+                  <items>
+                     <MenuItem mnemonicParsing="false" onAction="#onMenuLimpiarAction" text="Limpiar" />
+                     <MenuItem mnemonicParsing="false" onAction="#onMenuDamAction" text="DAM" />
+                     <MenuItem mnemonicParsing="false" onAction="#onMenuDark" text="DARK" />
+                     <MenuItem mnemonicParsing="false" onAction="#onMenuBootstrapt3Action" text="BOOTSTRAP3" />
+                     <MenuItem mnemonicParsing="false" onAction="#onMenuMetroAction" text="METRO" />
+                  </items>
+               </Menu>
+             <Menu mnemonicParsing="false" text="Help">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#onMenuLimpiarAction" text="Limpiar" />
-                  <MenuItem mnemonicParsing="false" onAction="#onMenuDamAction" text="DAM" />
-                  <MenuItem mnemonicParsing="false" onAction="#onMenuDark" text="DARK" />
-                  <MenuItem mnemonicParsing="false" onAction="#onMenuBootstrapt3Action" text="BOOTSTRAP3" />
-                  <MenuItem mnemonicParsing="false" onAction="#onMenuMetroAction" text="METRO" />
+                 <MenuItem mnemonicParsing="false" onAction="#onAcercaDeButton" text="About" />
                </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-      <Button layoutX="402.0" layoutY="35.0" mnemonicParsing="false" onAction="#onCarritoButton">
-         <graphic>
-            <ImageView fx:id="avatarImageView" fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/CarroOscuro.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-    </Pane>
-   <SplitPane prefHeight="414.0" prefWidth="600.0">
-     <items>
-       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-            <children>
-               <TableView fx:id="tablaProducto" prefHeight="361.0" prefWidth="598.0">
-                 <columns>
-                   <TableColumn fx:id="idColumn" prefWidth="104.33332574367523" text="ID" />
-                   <TableColumn fx:id="nombreColumn" prefWidth="109.00000762939453" text="Nombre" />
-                     <TableColumn fx:id="stockColumn" prefWidth="105.66667175292969" text="Stock" />
-                     <TableColumn fx:id="precioColumn" prefWidth="130.66665649414062" text="Precio" />
-                     <TableColumn fx:id="descripcionColumn" prefWidth="150.66671752929688" text="Descripción" />
-                 </columns>
-               </TableView>
-            </children>
-         </AnchorPane>
-     </items>
-   </SplitPane>
+             </Menu>
+           </menus>
+         </MenuBar>
+         <Button layoutX="397.0" layoutY="39.0" mnemonicParsing="false" onAction="#onCarritoButton" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="40.0">
+            <graphic>
+               <ImageView fx:id="avatarImageView" fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../images/CarroOscuro.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+         </Button>
+      </children>
+   </AnchorPane>
+ <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="399.0" prefWidth="598.0">
+      <children>
+         <TableView fx:id="tablaProducto" prefHeight="361.0" prefWidth="598.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+           <columns>
+             <TableColumn fx:id="idColumn" prefWidth="104.33332574367523" text="ID" />
+             <TableColumn fx:id="nombreColumn" prefWidth="109.00000762939453" text="Nombre" />
+               <TableColumn fx:id="stockColumn" prefWidth="105.66667175292969" text="Stock" />
+               <TableColumn fx:id="precioColumn" prefWidth="130.66665649414062" text="Precio" />
+               <TableColumn fx:id="descripcionColumn" prefWidth="150.66671752929688" text="Descripción" />
+           </columns>
+         </TableView>
+      </children>
+   </AnchorPane>
 </VBox>

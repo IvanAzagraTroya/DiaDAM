@@ -27,12 +27,16 @@ import java.util.stream.Collectors;
 
 public class PersonasRepository {
     private static PersonasRepository instance;
-    private final ObservableList<Persona> repository = FXCollections.observableArrayList();
+    private final ObservableList<Persona> repository;
     private final StoragePersona storage = StoragePersona.getInstance();
     Logger logger = LogManager.getLogger(PersonasRepository.class);
     ManagerBBDD db = ManagerBBDD.getInstance();
 
-
+    //CONSTRUCTOR
+    private PersonasRepository(ManagerBBDD db) {
+        this.db = ManagerBBDD.getInstance();
+        this.repository = FXCollections.observableArrayList();
+    }
     // Datos de ejemplo....
     /*public void initData(){
         if (repository.isEmpty()) {
@@ -52,9 +56,9 @@ public class PersonasRepository {
 
 
 
-    public static PersonasRepository getInstance() {
+    public static PersonasRepository getInstance(ManagerBBDD db) {
         if (instance == null) {
-            instance = new PersonasRepository();
+            instance = new PersonasRepository(db);
         }
         return instance;
     }

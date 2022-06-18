@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductoRepositoryTest {
     private final ManagerBBDD db = ManagerBBDD.getInstance();
     private final Storage storage = Storage.getInstance();
-    private  final ProductoRepository productoRepository = ProductoRepository.getInstance();
+    private  final ProductoRepository productoRepository = ProductoRepository.getInstance(db,storage);
     private final Producto pTest1 = new Producto("Pollo", 10, 2.50, "Carne",null);
 
 
