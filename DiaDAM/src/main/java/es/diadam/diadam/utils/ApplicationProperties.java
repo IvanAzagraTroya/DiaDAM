@@ -12,7 +12,6 @@ public class ApplicationProperties {
     public ApplicationProperties() {
         properties = new Properties();
         try {
-            // De esta manera leemos desde el fichero de propiedades en resources
             properties.load(getClass().getClassLoader().getResourceAsStream("application.properties"));
 
         } catch (IOException ex) {
@@ -22,7 +21,6 @@ public class ApplicationProperties {
     }
 
     public String readProperty(String keyName) {
-        // Logger.getLogger(getClass().getName()).log(Level.INFO, "Leyendo propiedad " + keyName);
         return properties.getProperty(keyName, "No existe esa clave en el fichero de propiedades");
     }
 }

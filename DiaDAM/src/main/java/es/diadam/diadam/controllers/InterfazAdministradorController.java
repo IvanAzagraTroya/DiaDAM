@@ -98,29 +98,6 @@ public class InterfazAdministradorController {
             descripcionField.setText(a.getDescripcion());
         }
     }
-/*
-    private void setDataInfo(Producto producto){
-        logger.info("Se ha seleccionado el producto: "+producto);
-        nombreLabel.setText(producto.getNombre());
-        stockLabel.setText(Utils.getFormattedInt(producto.getStock()));
-        precioLabel.setText(Utils.getFormattedDouble(producto.getPrecio()));
-        descripcionLabel.setText(producto.getDescripcion());
-
-        // La imagen, si no existe cargamos la de por defecto, si no la que tiene
-        if(!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))){
-            logger.info("Cargando imagen: " +producto.getAvatar());
-            Image image = new Image(new File(producto.getAvatar()).toURI().toString());
-            logger.info("Imagen cargada: " + image.getUrl());
-            avatarImageView.setImage(image);
-        }else{
-            logger.warn("No existe la imagen. Usando imagen por defecto");
-            avatarImageView.setImage(new Image(Resources.get(DiaApplication.class, "images/ImagenPorDefecto.png")));
-            producto.setAvatar(Resources.getPath(DiaApplication.class,"images/ImagenPorDefecto.png"));
-            logger.warn("Nueva informacion de imagen: "+producto);
-        }
-    }
-
- */
 
     private void clearDataInfo(){
         nombreField.setText("");
@@ -149,8 +126,6 @@ public class InterfazAdministradorController {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
-            // Haríamos el backup si fuese admin, pero no estoy seguro si en clientes haría falta para el carrito
-            //backup();
             Platform.exit();
         }else {
             alert.close();

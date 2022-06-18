@@ -204,14 +204,6 @@ public class CarritoController {
 
 
 
-
-    /*public void mostrarProductos(Producto item) {
-        carritoTable.refresh(); // Forzamos que se ha refrescado la tabla
-        calcularTotal();
-    }
-
-     */
-
     private void calcularTotal() {
         txtTotal.setText(carritoRepository.getTotal() + " €");
     }

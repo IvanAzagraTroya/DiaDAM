@@ -24,7 +24,7 @@ public class VentasRepositoryTest {
 
     private final VentasRepository ventasRepository = VentasRepository.getInstance();
     private final ManagerBBDD db = ManagerBBDD.getInstance();
-    LineaVenta ventita= new LineaVenta("hamburguesa",5.00, 2 , 10.00);
+    LineaVenta ventita= new LineaVenta("hamburguesa",5.00, 1 , 5.00);
     List<LineaVenta> venta = new ArrayList<>();
     PersonasRepository personasRepository = PersonasRepository.getInstance(db);
 
@@ -32,6 +32,7 @@ public class VentasRepositoryTest {
 
     @Test
     void save() throws SQLException {
+        venta.add(ventita);
         Persona personaTest = new Persona("mario", "gonzalez", "madrid, calle: baja, numero:10 ", "616494531", "9198765987658908", "mario@gmail.com", "19234678", null, "CLIENTE");
         var res= ventasRepository.save(venta,personaTest);
         assertAll(

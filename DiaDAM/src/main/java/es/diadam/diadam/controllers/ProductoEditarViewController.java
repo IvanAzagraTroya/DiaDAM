@@ -78,20 +78,6 @@ public class ProductoEditarViewController {
         stockTxt.setText(producto.getStock().toString());
         precioTxt.setText(producto.getPrecio().toString());
         descripcionTxt.setText(producto.getDescripcion());
-      /* 
-        // La imagen
-        if (!producto.getAvatar().isBlank() && Files.exists(Paths.get(producto.getAvatar()))) {
-            logger.info("Cargando imagen: " + producto.getAvatar());
-            Image image = new Image(new File(producto.getAvatar()).toURI().toString());
-            logger.info("Imagen cargada: " + image.getUrl());
-            avatarImageView.setImage(image);
-        } else {
-            logger.warn("No existe la imagen. Usando imagen por defecto");
-            avatarImageView.setImage(new Image(Resources.get(DiaApplication.class, "images/ImagenPorDefecto.png")));
-            producto.setAvatar(Resources.getPath(DiaApplication.class, "images/ImagenPorDefecto.png"));
-            logger.warn("Nueva información de imagen: " + producto);
-        }
-*/
 
     }
 

@@ -37,11 +37,9 @@ public class RegistroSesionController {
     private String id = UUID.randomUUID().toString();
     
     @FXML
-    // Se introduce el email del usuario que se tendrá que mirar mediante regex
     private TextField txtEmailRegistro;
 
     @FXML
-    // Contraseña del usuario
     private TextField txtContraseniaRegistro;
     
     @FXML
@@ -67,7 +65,6 @@ public class RegistroSesionController {
     }
     
         private void accionRegistrarse() throws SQLException, IOException {
-        // Se pasan los parámetros del usuario al método
         String emailRegistro = txtEmailRegistro.getText();
         String contraRegistro = txtContraseniaRegistro.getText();
         String nombre = txtNombre.getText();
@@ -82,7 +79,6 @@ public class RegistroSesionController {
         logger.info("Email: ["+emailRegistro+ "]");
         logger.info("Contraseña: ["+contraRegistro+"]");
 
-        // Si se introducen mal los campos se muestra un mensaje de error.
         Alert alert;
         if (emailRegistro.isEmpty() || contraRegistro.isEmpty() || !Utils.isEmail(txtEmailRegistro.getText()) || personasRepository.compruebaEmail(emailRegistro)) {
             alert = new Alert(Alert.AlertType.WARNING);
