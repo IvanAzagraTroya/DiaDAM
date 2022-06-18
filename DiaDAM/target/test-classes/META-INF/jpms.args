@@ -1,4 +1,0 @@
---patch-module
-es.diadam.diadam=_
---add-reads
-es.diadam.diadam=ALL-UNNAMED
