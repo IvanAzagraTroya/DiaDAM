@@ -18,7 +18,7 @@ https://trello.com/b/yIVpHkpA/proyecto
 <hr>
 
 ### VIDEO EXPLICATIVO
-[website] https://drive.google.com/file/d/1iYL_bjvYkRFVAvVEjkIuwKLL7J9ZoL1e/view?usp=sharing
+https://drive.google.com/file/d/1iYL_bjvYkRFVAvVEjkIuwKLL7J9ZoL1e/view?usp=sharing
 <hr>
 
 ### DOCUMENTACION
